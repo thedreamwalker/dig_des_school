@@ -1,0 +1,100 @@
+@import '../normalize.css';
+
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+  url(/src/assets/fonts/OpenSans-Regular.ttf) format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans Bold'), local('OpenSans-Regular'),
+  url(/src/assets/fonts/OpenSans-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+:root {
+  --background-primary-default: #1F75CB;
+  --background-primary-hover: #1068BF;
+  --background-primary-active: #0B5CAD;
+  --background-disabled: #DCDCDE;
+  --background-secondary: #FFFFFF;
+  --background-secondary-hover: #ECECEF;
+  --background-secondary-active: #DCDCDE;
+
+  --border-default: rgba(0, 0, 0, 0.15);
+  --border-hover: rgba(18, 19, 22, 0.5);
+  --border-active: #1C1C1C;
+  --border-error: #EE4222;
+  --border-disabled: rgba(0, 0, 0, 0.15);
+  --border-bronze: #9E6955;
+
+  --font-primary-default: #1C1C1C;
+  --font-secondary: #FFFFFF;
+  --font-disabled: #8E8E8E;
+  --font-error: #EE4222;
+  --font-placeholder: #D9D9D9;
+}
+
+@mixin base-text {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--font-primary-default);
+}
+
+@mixin base-bold-text {
+  @include base-text;
+  font-weight: 600;
+}
+
+@mixin title-h1 {
+  @include base-bold-text;
+  font-size: 40px;
+  line-height: 54px;
+}
+
+@mixin title-h2 {
+  @include base-bold-text;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: flex;
+}
+
+body {
+ @include base-text;
+}
+
+h1 {
+  @include title-h1;
+}
+
+h2 {
+  @include title-h2;
+}
+
+b {
+  @include base-bold-text;
+}
