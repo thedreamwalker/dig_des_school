@@ -108,4 +108,54 @@ b {
 .button-primary:disabled {
   background-color: var(--background-disabled);
   color: var(--font-disabled);
-}/*# sourceMappingURL=base.css.map */
+}
+
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 24px;
+  background-color: var(--background-primary-default);
+}
+.navigation .navigation__list {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.navigation .button-primary {
+  border: 1px solid var(--background-secondary);
+}
+.navigation .button-primary:active {
+  background-color: var(--background-secondary);
+  color: var(--font-primary-default);
+}
+.navigation .button-primary:disabled {
+  border: none;
+}
+.navigation .navigation__user {
+  position: relative;
+  padding: 9px 16px;
+}
+.navigation .navigation__user::before, .navigation .navigation__user::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 9px;
+  background-color: var(--background-secondary);
+}
+.navigation .navigation__user::before {
+  bottom: 16px;
+  right: 24px;
+  transform: rotate(45deg);
+}
+.navigation .navigation__user::after {
+  bottom: 16px;
+  right: 29px;
+  transform: rotate(135deg);
+}
+.navigation .navigation__avatar {
+  border-radius: 50%;
+  margin-right: 32px;
+}/*# sourceMappingURL=style.css.map */

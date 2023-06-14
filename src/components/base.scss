@@ -65,6 +65,11 @@
   line-height: 33px;
 }
 
+@mixin button-base {
+  padding: 12px 16px;
+  border-radius: 4px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -97,4 +102,24 @@ h2 {
 
 b {
   @include base-bold-text;
+}
+
+.button-primary {
+  @include button-base;
+
+  background-color: var(--background-primary-default);
+  color: var(--font-secondary);
+
+  &:hover {
+    background-color: var(--background-primary-hover);
+  }
+
+  &:active {
+    background-color: var(--background-primary-active);
+  }
+
+  &:disabled {
+    background-color: var(--background-disabled);
+    color: var(--font-disabled);
+  }
 }
