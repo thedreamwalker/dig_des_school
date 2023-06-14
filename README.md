@@ -1,1 +1,1 @@
-# dig_des_school
+# Задания для курса Frontend-разработки от Digital Design
