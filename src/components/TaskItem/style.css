@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import '../normalize.css';
 @font-face {
   font-family: "Open Sans";
@@ -94,65 +93,40 @@ b {
   font-weight: 600;
 }
 
-.button_primary {
+.button-primary {
+  padding: 12px 16px;
+  border-radius: 4px;
   background-color: var(--background-primary-default);
   color: var(--font-secondary);
-  border-radius: 4px;
-  border: none;
-  padding: 12px 16px;
 }
-.button_primary:hover {
+.button-primary:hover {
   background-color: var(--background-primary-hover);
 }
-.button_primary:active {
+.button-primary:active {
   background-color: var(--background-primary-active);
 }
-.button_primary:disabled {
+.button-primary:disabled {
   background-color: var(--background-disabled);
   color: var(--font-disabled);
 }
 
-.button_secondary {
-  background-color: var(--background-secondary);
-  color: var(--font-primary-default);
-  border-radius: 4px;
-  border: 1px solid var(--border-default);
-  padding: 12px 16px;
-}
-.button_secondary:hover {
-  background-color: var(--background-secondary-hover);
-  border: 1px solid var(--border-hover);
-}
-.button_secondary:active {
-  background-color: var(--background-secondary-active);
-  border: 1px solid var(--border-active);
-}
-.button_secondary:disabled {
-  background-color: var(--background-secondary);
-  border: 1px solid var(--border-disabled);
-  color: var(--font-disabled);
+.task-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 20px 10px;
+  padding: 0px 16px 8px;
+  gap: 16px;
+  border-bottom: 1px solid var(--border-active);
 }
 
-.button_primary.button_small,
-.button_secondary.button_small {
-  position: relative;
-  width: 42px;
-  height: 42px;
-}
-.button_primary.button_small::before,
-.button_secondary.button_small::before {
-  content: "⋮";
-  position: absolute;
-  top: 6px;
-  left: 16px;
-  font-size: 25px;
-  font-weight: 600;
-}
-.button_primary.button_small:disabled::before,
-.button_secondary.button_small:disabled::before {
-  color: var(--font-disabled);
+.task-item__container {
+  width: 100%;
 }
 
-.button_primary.button_small::before {
-  color: var(--font-secondary);
-}/*# sourceMappingURL=base.css.map */
+.task-item__title,
+.task-item__details {
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=style.css.map */

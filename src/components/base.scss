@@ -65,9 +65,47 @@
   line-height: 33px;
 }
 
-@mixin button-base {
-  padding: 12px 16px;
+@mixin button-primary-base {
+  background-color: var(--background-primary-default);
+  color: var(--font-secondary);
   border-radius: 4px;
+  border: none;
+
+  &:hover {
+    background-color: var(--background-primary-hover);
+  }
+
+  &:active {
+    background-color: var(--background-primary-active);
+  }
+
+  &:disabled {
+    background-color: var(--background-disabled);
+    color: var(--font-disabled);
+  }
+}
+
+@mixin button-secondary-base {
+  background-color: var(--background-secondary);
+  color: var(--font-primary-default);
+  border-radius: 4px;
+  border: 1px solid var(--border-default);
+
+  &:hover {
+    background-color: var(--background-secondary-hover);
+    border: 1px solid var(--border-hover);
+  }
+
+  &:active {
+    background-color: var(--background-secondary-active);
+    border: 1px solid var(--border-active);
+  }
+
+  &:disabled {
+    background-color: var(--background-secondary);
+    border: 1px solid var(--border-disabled);
+    color: var(--font-disabled);
+  }
 }
 
 * {
@@ -104,22 +142,38 @@ b {
   @include base-bold-text;
 }
 
-.button-primary {
-  @include button-base;
+.button_primary {
+  @include button-primary-base;
+  padding: 12px 16px;
+}
 
-  background-color: var(--background-primary-default);
-  color: var(--font-secondary);
+.button_secondary {
+  @include button-secondary-base;
+  padding: 12px 16px;
+}
 
-  &:hover {
-    background-color: var(--background-primary-hover);
+.button_primary.button_small,
+.button_secondary.button_small {
+  position: relative;
+  width: 42px;
+  height: 42px;
+
+  &::before {
+    content: '⋮';
+    position: absolute;
+    top: 6px;
+    left: 16px;
+    font-size: 25px;
+    font-weight: 600;
   }
 
-  &:active {
-    background-color: var(--background-primary-active);
-  }
-
-  &:disabled {
-    background-color: var(--background-disabled);
+  &:disabled::before {
     color: var(--font-disabled);
+  }
+}
+
+.button_primary.button_small {
+  &::before {
+    color: var(--font-secondary);
   }
 }

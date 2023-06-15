@@ -1,0 +1,65 @@
+@import './base.scss';
+
+.item {
+  display: flex;
+  align-items: center;
+  margin: 0 20px 10px;
+  padding: 0px 16px 8px;
+  gap: 16px;
+  border-bottom: 1px solid var(--border-active);
+
+  & .button_small {
+    display: none;
+    animation: fade-out 1s;
+  }
+
+  &:hover .button_small {
+    display: block;
+    animation: fade-in 1s;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+.item__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+}
+
+.item__details {
+  display: flex;
+  width: 100%;
+  gap: 16px;
+}
+
+.item__author,
+.item_last-change {
+  color: var(--font-disabled)
+}
+
+.item_last-change {
+  margin-left: auto;
+}

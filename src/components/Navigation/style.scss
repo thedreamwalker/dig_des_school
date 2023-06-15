@@ -15,7 +15,7 @@
     list-style: none;
   }
 
-  .button-primary {
+  .button_primary {
     border: 1px solid var(--background-secondary);
 
     &:active {
@@ -45,7 +45,6 @@
       bottom: 16px;
       right: 24px;
       transform: rotate(45deg);
-      
     }
 
     &::after {
