@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import '../normalize.css';
 @font-face {
   font-family: "Open Sans";
   src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/src/assets/fonts/OpenSans-Regular.ttf) format("truetype");
@@ -51,6 +50,14 @@ img {
   display: flex;
 }
 
+button {
+  font-family: "Open Sans";
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Open Sans";
   font-style: normal;
@@ -58,6 +65,7 @@ body {
   font-size: 14px;
   line-height: 19px;
   color: var(--font-primary-default);
+  margin: 0;
 }
 
 h1 {
@@ -99,7 +107,7 @@ b {
   color: var(--font-secondary);
   border-radius: 4px;
   border: none;
-  padding: 12px 16px;
+  padding: 11px 15px;
 }
 .button_primary:hover {
   background-color: var(--background-primary-hover);
@@ -114,10 +122,12 @@ b {
 
 .button_secondary {
   background-color: var(--background-secondary);
+  font-size: inherit;
+  line-height: inherit;
   color: var(--font-primary-default);
   border-radius: 4px;
   border: 1px solid var(--border-default);
-  padding: 12px 16px;
+  padding: 11px 15px;
 }
 .button_secondary:hover {
   background-color: var(--background-secondary-hover);
@@ -143,7 +153,7 @@ b {
 .button_secondary.button_small::before {
   content: "⋮";
   position: absolute;
-  top: 6px;
+  top: 10px;
   left: 16px;
   font-size: 25px;
   font-weight: 600;
@@ -164,6 +174,7 @@ b {
   padding: 0px 16px 8px;
   gap: 16px;
   border-bottom: 1px solid var(--border-active);
+  overflow: hidden;
 }
 .item .button_small {
   display: none;
@@ -188,8 +199,6 @@ b {
   }
   100% {
     opacity: 1;
-    width: 42px;
-    height: 42px;
   }
 }
 .item__container {
@@ -200,15 +209,50 @@ b {
   width: 100%;
 }
 
+.item__title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.item__avatar {
+  border-radius: 50%;
+}
+
 .item__details {
   display: flex;
   width: 100%;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .item__author,
 .item_last-change {
   color: var(--font-disabled);
+}
+
+.item__status {
+  padding: 0px 8px;
+  color: var(--font-secondary);
+  border: none;
+  border-radius: 4px;
+}
+
+.item__status_in-work {
+  background-color: var(--border-bronze);
+}
+
+.item__status_done {
+  background-color: var(--background-primary-default);
+}
+
+.item__status_error {
+  background-color: var(--border-error);
+}
+
+.item__status_disabled {
+  background-color: var(--background-disabled);
 }
 
 .item_last-change {
