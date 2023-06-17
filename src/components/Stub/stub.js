@@ -2,11 +2,6 @@ import './style.scss';
 
 const Stub = (type) => {
 
- /* <div class="stub__container">
-    <p>Не создан ни один проект</p>
-    <button class="button_primary">Добавить</button>
-  </div>*/
-
 let description;
 
   switch (type) {
