@@ -12,6 +12,7 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
+        assetModuleFilename: 'assets/[name][ext]',
     },                                        
     module: {
         rules: [ 

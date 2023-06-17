@@ -1,0 +1,73 @@
+import avatar from '../assets/img/user-item.png';
+
+class ListItem {
+  constructor(type, name, code, author, lastchange) {
+    this.type = type;
+    this.name = name;
+    this.code = code;
+    this.author = author;
+    this.lastchange = lastchange;
+  }
+
+  render() {
+    const div = document.createElement('div');
+    div.classList.add('item');
+    const container = document.createElement('div');
+    container.classList.add('item__container');
+
+    const name = document.createElement('p');
+    name.classList.add('item__name');
+    name.innerHTML = `${this.name}`;
+
+    if (this.type === 'project') {
+      container.append(name);
+    } else if (this.type === 'task') {
+      const div = document.createElement('div');
+      div.classList.add('item__title');
+      div.append(name);
+      const img = new Image();
+      img.classList.add('item__avatar');
+      img.src = avatar;
+      img.setAttribute('alt', 'аватар пользователя');
+      div.append(img);
+      
+      container.append(div);
+    }
+
+    const details = document.createElement('div');
+    details.classList.add('item__details');
+    container.append(details);
+
+    const code = document.createElement('p');
+    code.classList.add('item__code');
+    code.innerHTML = `${this.code}`;
+    details.append(code);
+
+    const author = document.createElement('p');
+    author.classList.add('item__author');
+    author.innerHTML = `${this.author}`;
+    details.append(author);
+
+    if (this.type === 'task') {
+      const button = document.createElement('button');
+      button.classList.add('item__status', 'item__status_in-work');
+      button.textContent = 'Черновик';
+      details.append(button);
+    }
+
+    const lastchange = document.createElement('p');
+    lastchange.classList.add('item__last-change');
+    lastchange.innerHTML = `${this.lastchange}`;
+    details.append(lastchange);
+
+
+    const button = document.createElement('button');
+    button.classList.add('button_secondary', 'button_small');
+
+    div.append(container);
+    div.append(button);
+    document.body.append(div);
+  }
+}
+
+export default ListItem;
