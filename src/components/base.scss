@@ -14,28 +14,26 @@
   font-style: normal;
 }
 
-:root {
-  --background-primary-default: #1F75CB;
-  --background-primary-hover: #1068BF;
-  --background-primary-active: #0B5CAD;
-  --background-disabled: #DCDCDE;
-  --background-secondary: #FFFFFF;
-  --background-secondary-hover: #ECECEF;
-  --background-secondary-active: #DCDCDE;
+  $background-primary-default: #1F75CB;
+  $background-primary-hover: #1068BF;
+  $background-primary-active: #0B5CAD;
+  $background-disabled: #DCDCDE;
+  $background-secondary: #FFFFFF;
+  $background-secondary-hover: #ECECEF;
+  $background-secondary-active: #DCDCDE;
 
-  --border-default: rgba(0, 0, 0, 0.15);
-  --border-hover: rgba(18, 19, 22, 0.5);
-  --border-active: #1C1C1C;
-  --border-error: #EE4222;
-  --border-disabled: rgba(0, 0, 0, 0.15);
-  --border-bronze: #9E6955;
+  $border-default: rgba(0, 0, 0, 0.15);
+  $border-hover: rgba(18, 19, 22, 0.5);
+  $border-active: #1C1C1C;
+  $border-error: #EE4222;
+  $border-disabled: rgba(0, 0, 0, 0.15);
+  $border-bronze: #9E6955;
 
-  --font-primary-default: #1C1C1C;
-  --font-secondary: #FFFFFF;
-  --font-disabled: #8E8E8E;
-  --font-error: #EE4222;
-  --font-placeholder: #D9D9D9;
-}
+  $font-primary-default: #1C1C1C;
+  $font-secondary: #FFFFFF;
+  $font-disabled: #8E8E8E;
+  $font-error: #EE4222;
+  $font-placeholder: #D9D9D9;
 
 @mixin base-text {
   font-family: 'Open Sans';
@@ -43,7 +41,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
-  color: var(--font-primary-default);
+  color: $font-primary-default;
 }
 
 @mixin base-bold-text {
@@ -64,47 +62,47 @@
 }
 
 @mixin button-primary-base {
-  background-color: var(--background-primary-default);
-  color: var(--font-secondary);
+  background-color: $background-primary-default;
+  color: $font-secondary;
   border-radius: 4px;
   border: none;
 
   &:hover {
-    background-color: var(--background-primary-hover);
+    background-color: $background-primary-hover;
   }
 
   &:active {
-    background-color: var(--background-primary-active);
+    background-color: $background-primary-active;
   }
 
   &:disabled {
-    background-color: var(--background-disabled);
-    color: var(--font-disabled);
+    background-color: $background-disabled;
+    color: $font-disabled;
   }
 }
 
 @mixin button-secondary-base {
-  background-color: var(--background-secondary);
+  background-color: $background-secondary;
   font-size: inherit;
   line-height: inherit;
-  color: var(--font-primary-default);
+  color: $font-primary-default;
   border-radius: 4px;
-  border: 1px solid var(--border-default);
+  border: 1px solid $border-default;
 
   &:hover {
-    background-color: var(--background-secondary-hover);
-    border: 1px solid var(--border-hover);
+    background-color: $background-secondary-hover;
+    border: 1px solid $border-hover;
   }
 
   &:active {
-    background-color: var(--background-secondary-active);
-    border: 1px solid var(--border-active);
+    background-color: $background-secondary-active;
+    border: 1px solid $border-active;
   }
 
   &:disabled {
-    background-color: var(--background-secondary);
-    border: 1px solid var(--border-disabled);
-    color: var(--font-disabled);
+    background-color: $background-secondary;
+    border: 1px solid $border-disabled;
+    color: $font-disabled;
   }
 }
 
@@ -178,12 +176,12 @@ b {
   }
 
   &:disabled::before {
-    color: var(--font-disabled);
+    color: $font-disabled;
   }
 }
 
 .button_primary.button_small {
   &::before {
-    color: var(--font-secondary);
+    color: $font-secondary;
   }
 }
