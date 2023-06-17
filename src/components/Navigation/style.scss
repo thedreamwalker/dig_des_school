@@ -18,9 +18,14 @@
   .button_primary {
     border: 1px solid $background-secondary;
 
-    &:active {
+    &:active,
+    &.active {
       background-color: $background-secondary;
       color: $font-primary-default;
+    }
+
+    &.active {
+      cursor: default;
     }
   
     &:disabled {
