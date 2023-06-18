@@ -35,7 +35,26 @@
 
   .navigation__user {
     position: relative;
-    padding: 9px 16px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: border 0.5s;
+    z-index: 3;
+
+    &:hover {
+      border: 1px solid $background-secondary;
+    }
+
+    &:active,
+    &.active {
+      background-color: $background-secondary;
+
+      &::before,
+      &::after {
+        background-color: $background-secondary-active;
+      }
+    }
 
     &::before,
     &::after {

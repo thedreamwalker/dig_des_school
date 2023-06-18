@@ -3,7 +3,10 @@ import Navigation from '../components/Navigation/Navigation';
 import ProjectItem from '../components/ProjectItem/ProjectItem';
 import TaskItem from '../components/TaskItem/TaskItem';
 
+import './events';
+
 Navigation(['Проекты', 'Задачи', 'Пользователи']);
 ProjectItem();
 TaskItem();
-Stub();
+Stub('project');
+Stub('task');

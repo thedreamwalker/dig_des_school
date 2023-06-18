@@ -1,4 +1,5 @@
 import './style.scss';
+import avatar from '../../assets/img/user-item.png';
 
 const Navigation = (buttons) => {
 
@@ -22,7 +23,17 @@ const Navigation = (buttons) => {
     list.append(li);
   });
 
+  const user = document.createElement('button');
+      user.classList.add('navigation__user');
+      const img = new Image();
+      img.classList.add('navigation__avatar');
+      img.src = avatar;
+      img.setAttribute('alt', 'аватар пользователя');
+      user.append(img);
+
   container.append(list);
+  container.append(user);
+
   document.body.append(container);
 }
 
