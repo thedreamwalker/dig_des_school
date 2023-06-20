@@ -1,7 +1,8 @@
 import avatar from '../assets/img/user-item.png';
 
 class ListItem {
-  constructor(type, name, code, author, lastchange) {
+  constructor(appContainer, type, name, code, author, lastchange) {
+    this.appContainer = appContainer;
     this.type = type;
     this.name = name;
     this.code = code;
@@ -66,7 +67,7 @@ class ListItem {
 
     div.append(container);
     div.append(button);
-    document.body.append(div);
+    this.appContainer.append(div);
   }
 }
 

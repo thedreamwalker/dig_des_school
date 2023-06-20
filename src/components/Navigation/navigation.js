@@ -1,7 +1,7 @@
 import './style.scss';
 import avatar from '../../assets/img/user-item.png';
 
-const Navigation = (buttons) => {
+const Navigation = (appContainer, buttons) => {
 
   const arrayButtons = buttons;
 
@@ -34,7 +34,7 @@ const Navigation = (buttons) => {
   container.append(list);
   container.append(user);
 
-  document.body.append(container);
+  appContainer.append(container);
 }
 
 export default Navigation;

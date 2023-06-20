@@ -47,4 +47,9 @@ module.exports = {
     devServer: {
         static: './dist',
     },
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
+    },
 };

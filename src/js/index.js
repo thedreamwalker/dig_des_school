@@ -5,8 +5,15 @@ import TaskItem from '../components/TaskItem/TaskItem';
 
 import './events';
 
-Navigation(['Проекты', 'Задачи', 'Пользователи']);
-ProjectItem();
-TaskItem();
-Stub('project');
-Stub('task');
+const appContainer = document.querySelector('#app');
+const arrNavigation = ['Проекты', 'Задачи', 'Пользователи'];
+
+const render = (appContainer) => {
+  Navigation(appContainer, arrNavigation);
+  ProjectItem(appContainer);
+  TaskItem(appContainer);
+  Stub(appContainer, 'project');
+  Stub(appContainer, 'task');
+}
+
+render(appContainer);

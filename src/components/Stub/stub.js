@@ -1,6 +1,6 @@
 import './style.scss';
 
-const Stub = (type) => {
+const Stub = (appContainer, type) => {
 
 let description;
 
@@ -25,7 +25,7 @@ let description;
   button.classList.add('button_primary');
   button.textContent = `Добавить`;
 
-  document.body.append(container);
+  appContainer.append(container);
   container.append(text);
   container.append(button);
 }
