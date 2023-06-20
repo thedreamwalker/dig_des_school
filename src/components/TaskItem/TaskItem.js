@@ -1,5 +1,5 @@
 import './style.scss';
-import ListItem from '@/components//ListItem';
+import ListItem from '@/components/ListItem';
 
 const TaskItem = (appContainer) => {
   new ListItem(appContainer, 'task', 'Название', '#1', 'Иванов И.И. создал 1 час назад', 'Баранов В.В. изменил 1 минуту назад').render();

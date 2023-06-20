@@ -6,6 +6,7 @@
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
+    "require-context": "^1.1.0",
     "sass": "^1.63.4",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
@@ -16,6 +17,9 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open --mode development"
+  },
+  "dependencies": {
+    "svg-sprite-loader": "^6.0.11"
   }
 }

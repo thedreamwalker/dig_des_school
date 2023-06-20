@@ -35,6 +35,8 @@
 
   .navigation__user {
     position: relative;
+    display: flex;
+    gap: 8px;
     padding: 8px 16px;
     background: transparent;
     border: 1px solid transparent;
@@ -50,37 +52,20 @@
     &.active {
       background-color: $background-secondary;
 
-      &::before,
-      &::after {
-        background-color: $background-secondary-active;
+      & .navigation__icon svg,
+      & .navigation__icon svg {
+        color: $background-secondary-active;
       }
-    }
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      width: 2px;
-      height: 9px;
-      background-color: $background-secondary;
-    }
-
-    &::before {
-      bottom: 16px;
-      right: 24px;
-      transform: rotate(45deg);
-    }
-
-    &::after {
-      bottom: 16px;
-      right: 29px;
-      transform: rotate(135deg);
     }
   }
 
   .navigation__avatar {
     border-radius: 50%;
-    margin-right: 32px;
+  }
+
+  .navigation__icon svg {
+    width: 24px;
+    height: 24px;
+    color: $background-secondary;
   }
 }
-

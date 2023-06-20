@@ -1,5 +1,6 @@
 import './style.scss';
 import avatar from '@/assets/img/user-item.png';
+import '@/js/register.js';
 
 const Navigation = (appContainer, buttons) => {
 
@@ -30,6 +31,14 @@ const Navigation = (appContainer, buttons) => {
       img.src = avatar;
       img.setAttribute('alt', 'аватар пользователя');
       user.append(img);
+      const svg = `
+      <div class="navigation__icon">
+        <svg>
+          <use href="#drop_down" xlink:href="#drop_down"/>
+        </svg>
+      </div>
+      `;
+      user.insertAdjacentHTML('beforeend', svg);
 
   container.append(list);
   container.append(user);

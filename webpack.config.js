@@ -12,7 +12,6 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
-        assetModuleFilename: 'assets/[name][ext]',
     },                                    
     module: {
         rules: [ 
@@ -29,12 +28,22 @@ module.exports = {
             ],
           },
           {
-            test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
+            test: /\.(png|jpe?g|gif|webp|ico)$/i,
             type: 'asset/resource',
+            generator: {
+              filename: "assets/img/[name][ext]",
+            },
           },
+            {
+              test: /\.svg$/,
+              loader: 'svg-sprite-loader',
+          }, 
           {
             test: /\.(woff2?|eot|ttf|otf)$/i,
             type: 'asset/resource',
+            generator: {
+              filename: "assets/fonts/[name][ext]",
+            },
           },                            
         ],
     },

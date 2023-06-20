@@ -8,6 +8,7 @@ const exitButton = {'Выход': [`${baseClass}`]}
 
 
 document.addEventListener('click', (e) => {
+  
   // для меню навигации
   if (e.target.classList.contains('button_primary') && !e.target.classList.contains('active') && e.target.parentElement.classList.contains('navigation__item')) {
     for (let item of e.target.closest('.navigation__list').children) {
@@ -21,8 +22,8 @@ document.addEventListener('click', (e) => {
 
   // для выпадающего меню профиля
 
-  if (e.target.classList.contains('navigation__user') || e.target.classList.contains('navigation__avatar')) {
-    const button = e.target.classList.contains('navigation__user') ? e.target : e.target.closest('.navigation__user');
+  if (e.target.closest('.navigation__user') && !e.target.closest('.dropdown__list')) {
+    const button = e.target.closest('.navigation__user');
     dropdown([profileButton, exitButton], button);
   }
 
@@ -36,8 +37,7 @@ document.addEventListener('click', (e) => {
   const arrayButtons = [document.querySelector('.navigation__user'), ...document.querySelectorAll('.button_small')];
 
   arrayButtons.forEach(button => {
-    if (button.classList.contains('active') && !e.target.classList.contains('dropdown__list') && e.target !== button
-    && e.target.parentElement !== button && !e.target.closest('.dropdown__list')) {
+    if (button.classList.contains('active') && !e.target.closest('.navigation__user') && !e.target.closest('.dropdown__list')) {
       button.classList.remove('active');
       button.querySelector('.dropdown__list').remove();
     }
