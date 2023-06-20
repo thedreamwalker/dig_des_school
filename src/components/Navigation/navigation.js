@@ -1,5 +1,5 @@
 import './style.scss';
-import avatar from '../../assets/img/user-item.png';
+import avatar from '@/assets/img/user-item.png';
 
 const Navigation = (appContainer, buttons) => {
 

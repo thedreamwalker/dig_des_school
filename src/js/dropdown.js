@@ -2,19 +2,10 @@ const dropdown = (items, button) => {
     if (!button.classList.contains('active')) {
       button.classList.add('active');
       setList(items, button);
-      // if (!document.body.querySelector('.dropdown__wrapper')) {
-      //   const wrapper = document.createElement('div');
-      //   wrapper.classList.add('dropdown__wrapper')
-      //   document.body.append(wrapper);
-      // }
       
     } else {
       button.classList.remove('active');
       button.querySelector('.dropdown__list').remove();
-
-
-
-      //document.body.querySelector('.dropdown__wrapper').remove();
     }
   }
 

@@ -1,4 +1,4 @@
-import avatar from '../assets/img/user-item.png';
+import avatar from '@/assets/img/user-item.png';
 
 class ListItem {
   constructor(appContainer, type, name, code, author, lastchange) {

@@ -174,7 +174,7 @@ b {
   padding: 8px 16px;
   text-align: left;
 }
-.dropdown__list .dropdown__item.dropdown__item_delite {
+.dropdown__list .dropdown__item.dropdown__item_delete {
   color: #EE4222;
 }
 .dropdown__list .dropdown__item:hover {
@@ -377,7 +377,7 @@ b {
   padding: 8px 16px;
   text-align: left;
 }
-.dropdown__list .dropdown__item.dropdown__item_delite {
+.dropdown__list .dropdown__item.dropdown__item_delete {
   color: #EE4222;
 }
 .dropdown__list .dropdown__item:hover {
@@ -635,7 +635,7 @@ b {
   padding: 8px 16px;
   text-align: left;
 }
-.dropdown__list .dropdown__item.dropdown__item_delite {
+.dropdown__list .dropdown__item.dropdown__item_delete {
   color: #EE4222;
 }
 .dropdown__list .dropdown__item:hover {
@@ -918,7 +918,7 @@ b {
   padding: 8px 16px;
   text-align: left;
 }
-.dropdown__list .dropdown__item.dropdown__item_delite {
+.dropdown__list .dropdown__item.dropdown__item_delete {
   color: #EE4222;
 }
 .dropdown__list .dropdown__item:hover {
