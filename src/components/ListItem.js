@@ -11,14 +11,21 @@ class ListItem {
   }
 
   render() {
+
+    const newElement = (tag, someClass, inner) => {
+      const element = document.createElement(`${tag}`);
+      element.classList.add(`${someClass}`);
+      element.innerHTML = `${inner}`;
+
+      return element;
+    };
+
     const div = document.createElement('div');
     div.classList.add('item');
     const container = document.createElement('div');
     container.classList.add('item__container');
 
-    const name = document.createElement('p');
-    name.classList.add('item__name');
-    name.innerHTML = `${this.name}`;
+    const name = newElement('p', 'item__name', this.name);
 
     if (this.type === 'project') {
       container.append(name);
@@ -39,14 +46,10 @@ class ListItem {
     details.classList.add('item__details');
     container.append(details);
 
-    const code = document.createElement('p');
-    code.classList.add('item__code');
-    code.innerHTML = `${this.code}`;
+    const code = newElement('p', 'item__code', this.code);
     details.append(code);
 
-    const author = document.createElement('p');
-    author.classList.add('item__author');
-    author.innerHTML = `${this.author}`;
+    const author = newElement('p', 'item__author', this.author);
     details.append(author);
 
     if (this.type === 'task') {
@@ -56,9 +59,7 @@ class ListItem {
       details.append(button);
     }
 
-    const lastchange = document.createElement('p');
-    lastchange.classList.add('item__last-change');
-    lastchange.innerHTML = `${this.lastchange}`;
+    const lastchange = newElement('p', 'item__last-change', this.lastchange);
     details.append(lastchange);
 
 
