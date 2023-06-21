@@ -441,6 +441,7 @@ b {
 }
 .navigation .navigation__user:active .navigation__icon svg, .navigation .navigation__user:active .navigation__icon svg, .navigation .navigation__user.active .navigation__icon svg, .navigation .navigation__user.active .navigation__icon svg {
   color: #DCDCDE;
+  transform: rotate(180deg);
 }
 .navigation .navigation__avatar {
   border-radius: 50%;
