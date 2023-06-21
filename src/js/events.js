@@ -20,26 +20,43 @@ document.addEventListener('click', (e) => {
     }
   }
 
-  // для выпадающего меню профиля
+  // отслеживаем открыт ли какой-либо элемент
+  const arrayButtons = [document.querySelector('.navigation__user'), ...document.querySelectorAll('.button_small')];
+  const checkArray = arrayButtons.filter(button => button.classList.contains('active'));
 
+  const closeActive = () => {
+    checkArray[0].classList.remove('active');
+    checkArray[0].querySelector('.dropdown__list').remove();
+  }
+
+  // для выпадающего меню профиля
   if (e.target.closest('.navigation__user') && !e.target.closest('.dropdown__list')) {
+    if (checkArray.length > 0 && checkArray[0].classList.contains('button_small')) {
+      closeActive();
+    }
+
     const button = e.target.closest('.navigation__user');
     dropdown([profileButton, exitButton], button);
   }
 
   // для выпадающего меню для проектов и задач
+  
   if (e.target.classList.contains('button_small')) {
     const button = e.target;
-    dropdown([editButton, deleteButton], button);
+
+    if (checkArray.length === 0 || checkArray[0] === e.target) {
+      dropdown([editButton, deleteButton], button);
+    } else {
+      closeActive();
+      dropdown([editButton, deleteButton], button);
+    }
   }
 
   // закрывать меню
-  const arrayButtons = [document.querySelector('.navigation__user'), ...document.querySelectorAll('.button_small')];
 
   arrayButtons.forEach(button => {
-    if (button.classList.contains('active') && !e.target.closest('.navigation__user') && !e.target.closest('.dropdown__list')) {
-      button.classList.remove('active');
-      button.querySelector('.dropdown__list').remove();
+    if (button.classList.contains('active') && !e.target.closest('.navigation__user') && !e.target.closest('.dropdown__list') && !e.target.closest('.button_small')) {
+      closeActive();
     }
   })
 });

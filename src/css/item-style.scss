@@ -10,7 +10,6 @@
 
   & .button_small {
     display: none;
-    //animation: fade-out 1s;
 
     &.active {
       display: block;
@@ -19,7 +18,6 @@
 
   &:hover .button_small {
     display: block;
-    //animation: fade-in 1s;
   }
 }
 
