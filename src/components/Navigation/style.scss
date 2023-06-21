@@ -55,6 +55,7 @@
       & .navigation__icon svg,
       & .navigation__icon svg {
         color: $background-secondary-active;
+        transform: rotate(180deg);
       }
     }
   }
