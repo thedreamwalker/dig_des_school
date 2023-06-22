@@ -6,7 +6,6 @@ const deleteButton = {'Удалить': [`${baseClass}`, `${baseClass}_delete`]}
 const profileButton = {'Профиль': [`${baseClass}`]}
 const exitButton = {'Выход': [`${baseClass}`]}
 
-
 document.addEventListener('click', (e) => {
   
   // для меню навигации
@@ -40,11 +39,10 @@ document.addEventListener('click', (e) => {
   }
 
   // для выпадающего меню для проектов и задач
-  
-  if (e.target.classList.contains('button_small')) {
-    const button = e.target;
+  if (e.target.closest('.button_small')) {
+    const button = e.target.closest('.button_small');
 
-    if (checkArray.length === 0 || checkArray[0] === e.target) {
+    if (checkArray.length === 0 || (checkArray[0] === button && !e.target.closest('.dropdown__list'))) {
       dropdown([editButton, deleteButton], button);
     } else {
       closeActive();
@@ -53,7 +51,6 @@ document.addEventListener('click', (e) => {
   }
 
   // закрывать меню
-
   arrayButtons.forEach(button => {
     if (button.classList.contains('active') && !e.target.closest('.navigation__user') && !e.target.closest('.dropdown__list') && !e.target.closest('.button_small')) {
       closeActive();

@@ -1,4 +1,5 @@
 import avatar from '@/assets/img/user-item.png';
+import '@/js/register.js';
 
 class ListItem {
   constructor(appContainer, type, name, code, author, lastchange) {
@@ -65,6 +66,15 @@ class ListItem {
 
     const button = document.createElement('button');
     button.classList.add('button_secondary', 'button_small');
+
+    const svg = `
+      <div class="button__icon">
+        <svg>
+          <use href="#dots" xlink:href="#dots"/>
+        </svg>
+      </div>
+      `;
+      button.insertAdjacentHTML('beforeend', svg);
 
     div.append(container);
     div.append(button);
