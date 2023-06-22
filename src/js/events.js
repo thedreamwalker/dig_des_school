@@ -41,10 +41,10 @@ document.addEventListener('click', (e) => {
   }
 
   // для выпадающего меню для проектов и задач
-  if (e.target.classList.contains('button_small')) {
-    const button = e.target;
+  if (e.target.closest('.button_small')) {
+    const button = e.target.closest('.button_small');
 
-    if (checkArray.length === 0 || checkArray[0] === e.target) {
+    if (checkArray.length === 0 || (checkArray[0] === button && !e.target.closest('.dropdown__list'))) {
       dropdown([editButton, deleteButton], button);
     } else {
       closeActive();

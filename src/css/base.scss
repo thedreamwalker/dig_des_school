@@ -168,22 +168,29 @@ b {
   height: 42px;
   z-index: 2;
 
-  &::before {
-    content: '⋮';
-    position: absolute;
-    top: 10px;
-    left: 16px;
-    font-size: 25px;
-    font-weight: 600;
+  &:disabled {
+    cursor: not-allowed;
   }
 
-  &:disabled::before {
+  & .button__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .button__icon svg {
+    width: 4px;
+    height: 14px;
+  }
+
+
+  &:disabled .button__icon svg {
     color: $font-disabled;
   }
 }
 
 .button_primary.button_small {
-  &::before {
+  & .button__icon svg {
     color: $font-secondary;
   }
 
