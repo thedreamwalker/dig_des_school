@@ -6,6 +6,7 @@ const deleteButton = {'Удалить': [`${baseClass}`, `${baseClass}_delete`]}
 const profileButton = {'Профиль': [`${baseClass}`]}
 const exitButton = {'Выход': [`${baseClass}`]}
 
+import {useXMLHttpRequest, useFecth, useAxios} from '@/js/api';
 
 document.addEventListener('click', (e) => {
   
@@ -40,7 +41,6 @@ document.addEventListener('click', (e) => {
   }
 
   // для выпадающего меню для проектов и задач
-  
   if (e.target.classList.contains('button_small')) {
     const button = e.target;
 
@@ -53,10 +53,90 @@ document.addEventListener('click', (e) => {
   }
 
   // закрывать меню
-
   arrayButtons.forEach(button => {
     if (button.classList.contains('active') && !e.target.closest('.navigation__user') && !e.target.closest('.dropdown__list') && !e.target.closest('.button_small')) {
       closeActive();
     }
   })
+
+
+  if (e.target.classList.contains('button_project') || e.target.classList.contains('button_task')) {
+      // запросы xml
+    if (e.target.classList.contains('button_project') && e.target.classList.contains('button_xml')) {
+      if (e.target.classList.contains('button_create')) {
+        useXMLHttpRequest('POST', 'projects', 'createProject');
+      } else if (e.target.classList.contains('button_get')) {
+        useXMLHttpRequest('GET', `projects/${sessionStorage.getItem('projectId')}`);
+      } else if (e.target.classList.contains('button_edit')) {
+        useXMLHttpRequest('PUT', 'projects', 'editProject');
+      } else if (e.target.classList.contains('button_delete')) {
+        useXMLHttpRequest('DELETE', `projects/${sessionStorage.getItem('projectId')}`);
+      }
+    }
+
+    if (e.target.classList.contains('button_task') && e.target.classList.contains('button_xml')) {
+      if (e.target.classList.contains('button_create')) {
+        useXMLHttpRequest('POST', 'tasks', 'createTask');
+      } else if (e.target.classList.contains('button_get')) {
+        useXMLHttpRequest('GET', `tasks/${sessionStorage.getItem('taskId')}`);
+      } else if (e.target.classList.contains('button_edit')) {
+        useXMLHttpRequest('PUT', 'tasks', 'editTask');
+      } else if (e.target.classList.contains('button_delete')) {
+        useXMLHttpRequest('DELETE', `tasks/${sessionStorage.getItem('taskId')}`);
+      }
+    }
+
+    
+  // запросы fetch
+
+    if (e.target.classList.contains('button_project') && e.target.classList.contains('button_fetch')) {
+      if (e.target.classList.contains('button_create')) {
+        useFecth('POST', 'projects', 'createProject');
+      } else if (e.target.classList.contains('button_get')) {
+        useFecth('GET', `projects/${sessionStorage.getItem('projectId')}`);
+      } else if (e.target.classList.contains('button_edit')) {
+        useFecth('PUT', 'projects', 'editProject');
+      } else if (e.target.classList.contains('button_delete')) {
+        useFecth('DELETE', `projects/${sessionStorage.getItem('projectId')}`);
+      }
+    }
+
+    if (e.target.classList.contains('button_task') && e.target.classList.contains('button_fetch')) {
+      if (e.target.classList.contains('button_create')) {
+        useFecth('POST', 'tasks', 'createTask');
+      } else if (e.target.classList.contains('button_get')) {
+        useFecth('GET', `tasks/${sessionStorage.getItem('taskId')}`);
+      } else if (e.target.classList.contains('button_edit')) {
+        useFecth('PUT', 'tasks', 'editTask');
+      } else if (e.target.classList.contains('button_delete')) {
+        useFecth('DELETE', `tasks/${sessionStorage.getItem('taskId')}`);
+      }
+    }
+
+     // запросы axios
+
+     if (e.target.classList.contains('button_project') && e.target.classList.contains('button_axios')) {
+      if (e.target.classList.contains('button_create')) {
+        useAxios('POST', 'projects', 'createProject');
+      } else if (e.target.classList.contains('button_get')) {
+        useAxios('GET', `projects/${sessionStorage.getItem('projectId')}`);
+      } else if (e.target.classList.contains('button_edit')) {
+        useAxios('PUT', 'projects', 'editProject');
+      } else if (e.target.classList.contains('button_delete')) {
+        useAxios('DELETE', `projects/${sessionStorage.getItem('projectId')}`);
+      }
+    }
+
+    if (e.target.classList.contains('button_task') && e.target.classList.contains('button_axios')) {
+      if (e.target.classList.contains('button_create')) {
+        useAxios('POST', 'tasks', 'createTask');
+      } else if (e.target.classList.contains('button_get')) {
+        useAxios('GET', `tasks/${sessionStorage.getItem('taskId')}`);
+      } else if (e.target.classList.contains('button_edit')) {
+        useAxios('PUT', 'tasks', 'editTask');
+      } else if (e.target.classList.contains('button_delete')) {
+        useAxios('DELETE', `tasks/${sessionStorage.getItem('taskId')}`);
+      }
+    }
+  }
 });
