@@ -1,7 +1,6 @@
 /*!*************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Stub/style.scss ***!
   \*************************************************************************************************************************/
-@charset "UTF-8";
 @font-face {
   font-family: "Open Sans";
   src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
@@ -133,21 +132,27 @@ b {
   height: 42px;
   z-index: 2;
 }
-.button_primary.button_small::before,
-.button_secondary.button_small::before {
-  content: "⋮";
-  position: absolute;
-  top: 10px;
-  left: 16px;
-  font-size: 25px;
-  font-weight: 600;
+.button_primary.button_small:disabled,
+.button_secondary.button_small:disabled {
+  cursor: not-allowed;
 }
-.button_primary.button_small:disabled::before,
-.button_secondary.button_small:disabled::before {
+.button_primary.button_small .button__icon,
+.button_secondary.button_small .button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_primary.button_small .button__icon svg,
+.button_secondary.button_small .button__icon svg {
+  width: 4px;
+  height: 14px;
+}
+.button_primary.button_small:disabled .button__icon svg,
+.button_secondary.button_small:disabled .button__icon svg {
   color: #8E8E8E;
 }
 
-.button_primary.button_small::before {
+.button_primary.button_small .button__icon svg {
   color: #FFFFFF;
 }
 .button_primary.button_small.active {
@@ -215,7 +220,6 @@ b {
 /*!*******************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Navigation/style.scss ***!
   \*******************************************************************************************************************************/
-@charset "UTF-8";
 @font-face {
   font-family: "Open Sans";
   src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
@@ -347,21 +351,27 @@ b {
   height: 42px;
   z-index: 2;
 }
-.button_primary.button_small::before,
-.button_secondary.button_small::before {
-  content: "⋮";
-  position: absolute;
-  top: 10px;
-  left: 16px;
-  font-size: 25px;
-  font-weight: 600;
+.button_primary.button_small:disabled,
+.button_secondary.button_small:disabled {
+  cursor: not-allowed;
 }
-.button_primary.button_small:disabled::before,
-.button_secondary.button_small:disabled::before {
+.button_primary.button_small .button__icon,
+.button_secondary.button_small .button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_primary.button_small .button__icon svg,
+.button_secondary.button_small .button__icon svg {
+  width: 4px;
+  height: 14px;
+}
+.button_primary.button_small:disabled .button__icon svg,
+.button_secondary.button_small:disabled .button__icon svg {
   color: #8E8E8E;
 }
 
-.button_primary.button_small::before {
+.button_primary.button_small .button__icon svg {
   color: #FFFFFF;
 }
 .button_primary.button_small.active {
@@ -474,7 +484,6 @@ b {
 /*!********************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/ProjectItem/style.scss ***!
   \********************************************************************************************************************************/
-@charset "UTF-8";
 @font-face {
   font-family: "Open Sans";
   src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
@@ -606,21 +615,27 @@ b {
   height: 42px;
   z-index: 2;
 }
-.button_primary.button_small::before,
-.button_secondary.button_small::before {
-  content: "⋮";
-  position: absolute;
-  top: 10px;
-  left: 16px;
-  font-size: 25px;
-  font-weight: 600;
+.button_primary.button_small:disabled,
+.button_secondary.button_small:disabled {
+  cursor: not-allowed;
 }
-.button_primary.button_small:disabled::before,
-.button_secondary.button_small:disabled::before {
+.button_primary.button_small .button__icon,
+.button_secondary.button_small .button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_primary.button_small .button__icon svg,
+.button_secondary.button_small .button__icon svg {
+  width: 4px;
+  height: 14px;
+}
+.button_primary.button_small:disabled .button__icon svg,
+.button_secondary.button_small:disabled .button__icon svg {
   color: #8E8E8E;
 }
 
-.button_primary.button_small::before {
+.button_primary.button_small .button__icon svg {
   color: #FFFFFF;
 }
 .button_primary.button_small.active {
@@ -768,7 +783,6 @@ b {
 /*!*****************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/TaskItem/style.scss ***!
   \*****************************************************************************************************************************/
-@charset "UTF-8";
 @font-face {
   font-family: "Open Sans";
   src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
@@ -900,21 +914,27 @@ b {
   height: 42px;
   z-index: 2;
 }
-.button_primary.button_small::before,
-.button_secondary.button_small::before {
-  content: "⋮";
-  position: absolute;
-  top: 10px;
-  left: 16px;
-  font-size: 25px;
-  font-weight: 600;
+.button_primary.button_small:disabled,
+.button_secondary.button_small:disabled {
+  cursor: not-allowed;
 }
-.button_primary.button_small:disabled::before,
-.button_secondary.button_small:disabled::before {
+.button_primary.button_small .button__icon,
+.button_secondary.button_small .button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_primary.button_small .button__icon svg,
+.button_secondary.button_small .button__icon svg {
+  width: 4px;
+  height: 14px;
+}
+.button_primary.button_small:disabled .button__icon svg,
+.button_secondary.button_small:disabled .button__icon svg {
   color: #8E8E8E;
 }
 
-.button_primary.button_small::before {
+.button_primary.button_small .button__icon svg {
   color: #FFFFFF;
 }
 .button_primary.button_small.active {
