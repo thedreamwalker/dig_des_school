@@ -1,17 +1,11 @@
-import Navigation from '@/components/Navigation/Navigation.vue'
-
 <template>
   <!--<h1>{{ title }}</h1>-->
-  <div id="app">
-    <NavigationMain></NavigationMain>
-    <ExampleOne></ExampleOne></div>
-  
+  <ExampleOne></ExampleOne>
   <!-- <ExampleTwo></ExampleTwo> -->
 </template>
 
 <script>
 import ExampleOne from '@/view//ExampleOne.vue'
-import NavigationMain from '@/components/Navigation/NavigationMain.vue';
 // import ExampleTwo from '../view/ExampleTwo.vue'
 
 export default {
@@ -22,7 +16,6 @@ export default {
   },
   components: {
     ExampleOne,
-    NavigationMain
     // ExampleTwo   
   }
 }

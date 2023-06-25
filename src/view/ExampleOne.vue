@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="main-app">
+  <div>
     <!-- <h1>Интернет-магазин</h1> -->
     <h1>{{ title }}</h1>
     
@@ -60,13 +60,13 @@
 
     <!-- пример иконки -->
     <svg width="24px" height="24px">
-      <use xlink:href="#anonim" />
+      <use xlink:href="#drop_down" />
     </svg>
   </div>
 </template>
 
 <script>
-import "@/assets/icons/anonim.svg"
+import "@/assets/img/drop_down.svg"
 
 export default {
   data() {
