@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation__icon">
+  <div v-bind:class="activeClass(this.type)">
     <svg>
       <use v-bind:href="`#${this.type}`" v-bind:xlink:href="`#${this.type}`"></use>
     </svg>
@@ -13,14 +13,13 @@ export default {
   props: {
     type: String
   },
-  data() {
-      return {
-        arrow: '#drop_down',
-        dotts: '#dots',
-      }
-  },
+  methods: {
+    activeClass: (type) => {
+      return type === 'drop_down' ? 'navigation__icon' : 'button__icon';}
+  }
 }
+
 </script>
 
 <style src="@/css/base.scss"></style>
-<style src="@/components/Navigation/style.scss"></style>
+<style src="@/components/BaseNavigation/style.scss"></style>

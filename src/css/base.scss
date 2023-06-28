@@ -139,6 +139,10 @@ body {
  margin: 0;
 }
 
+main {
+  padding: 24px;
+}
+
 h1 {
   @include title-h1;
 }
@@ -166,10 +170,14 @@ b {
   position: relative;
   width: 42px;
   height: 42px;
-  z-index: 2;
+  z-index: 1;
 
   &:disabled {
     cursor: not-allowed;
+  }
+
+  &.active {
+    z-index: 2;
   }
 
   & .button__icon {

@@ -1,29 +1,43 @@
-import Navigation from '@/components/Navigation/Navigation.vue'
-
 <template>
-  <!--<h1>{{ title }}</h1>-->
   <div id="app">
-    <NavigationMain></NavigationMain>
-    <ExampleOne></ExampleOne></div>
-  
-  <!-- <ExampleTwo></ExampleTwo> -->
+    <header>
+      <BaseNavigation v-on:changePage="changeActivePage"></BaseNavigation>
+    </header>
+    <component v-bind:is="activePage"></component>
+  </div>
 </template>
 
 <script>
-import ExampleOne from '@/view//ExampleOne.vue'
-import NavigationMain from '@/components/Navigation/NavigationMain.vue';
-// import ExampleTwo from '../view/ExampleTwo.vue'
+import ProjectsPage from '@/view/ProjectsPage.vue'
+import TasksPage from '../view/TasksPage.vue'
+
+const pages = {
+  'Проекты': 'ProjectsPage',
+  'Задачи': 'TasksPage',
+  'Пользователи': 'UserPage'
+}
 
 export default {
   data() {
       return {
-        title: 'Новое название'
+        activePage: 'ProjectsPage',
       }
   },
   components: {
-    ExampleOne,
-    NavigationMain
-    // ExampleTwo   
+    ProjectsPage,
+    TasksPage,
+  },
+
+  computed: {
+    changePage() {
+      return pages[this.activePage];
+    }
+  },
+
+  methods: {
+    changeActivePage(name) {
+      this.activePage = pages[name];
+    }
   }
 }
 </script>
