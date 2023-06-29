@@ -1,6 +1,6 @@
 <template>
   <ul class="dropdown__list">
-    <li v-for="item in list" v-bind:key="item" v-bind:class="`${$data[item]}`"><p>{{ item }}</p></li>
+    <li v-for="item in list" v-bind:key="item" v-bind:class="`${setClass(item)}`"><p>{{ item }}</p></li>
   </ul>
 </template>
 
@@ -11,12 +11,14 @@ export default {
   props: { 
     list: Array
   },
-  data() {
-      return {
-        Редактировать: [`${baseClass}`],
-        Удалить: [`${baseClass} ${baseClass}_delete`],
-        Профиль: [`${baseClass}`],
-        Выход: [`${baseClass}`],
+    methods: {
+      setClass: function(item) {
+        switch (item) {
+          case 'Удалить':
+            return [`${baseClass} ${baseClass}_delete`]
+          default:
+            return [`${baseClass}`]
+        }
       }
     }
 }

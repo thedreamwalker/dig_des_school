@@ -12,7 +12,7 @@
         <p class="item__last-change">{{ item.change }}</p>
       </div>
     </div>
-    <BaseButton typeIcon="dots" v-bind:isItem="true" v-bind:isSecondary="true" v-bind:constentList="['Редактировать', 'Удалить']"></BaseButton>
+    <BaseButton typeIcon="dots" v-bind:isItem="true" v-bind:isIcon="true" v-bind:isDropdown="true" v-bind:isSecondary="true" v-bind:constentList="['Редактировать', 'Удалить']"></BaseButton>
   </div>
 </template>
 

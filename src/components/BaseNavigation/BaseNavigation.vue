@@ -8,20 +8,27 @@
           v-bind:isNavigation="true" 
           v-bind:isPrimary="true" 
           v-bind:text="item"
-          v-bind:page="page"
           v-on:changePage="changeActivePage">
         </BaseButton>
       </li>
     </ul>
+    <BaseButton
+      v-bind:isUser="true"
+      v-bind:isDropdown="true" 
+      v-bind:isIcon="true"
+      v-bind:constentList="['Профиль', 'Выход']">
+    </BaseButton>
     <BaseButton 
-      typeIcon="drop_down" 
-      v-bind:isUser="true" 
-      v-bind:constentList="['Профиль', 'Выход']"></BaseButton>
+        v-bind:isPrimary="true" 
+        v-bind:text="'Просто какой-то текст'"
+        v-bind:isDropdown="true"
+        v-bind:isIcon="true"
+        v-bind:constentList="['Название', 'Еще одно']">
+      </BaseButton>
   </nav>
 </template>
 
 <script>
-
 export default {
   props: {
     page: Function,

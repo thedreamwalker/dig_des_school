@@ -2,22 +2,20 @@
   <button 
     v-on:click="clickElement($event)" 
     v-click-outside="onClickOutside" 
-    v-bind:class="{ button_primary: isPrimary, navigation__user: isUser, button_secondary: isSecondary, button_small: isItem}">
+    v-bind:class="buttonStyle">
     <img class="navigation__avatar" 
       v-show="isUser" 
-      
       src="https://thedreamwalker.github.io/dig_des_school/dist/assets/img/user-item.png" 
       alt="аватар пользователя">
     {{text}}
     <BaseIcon 
-      v-show="isUser || isItem" 
-      v-bind:type="typeIcon"></BaseIcon>
-    <BaseDropdown 
-      v-show="isButtonActive && isUser" 
-      v-bind:list="constentList"></BaseDropdown>
-    <BaseDropdown 
-      v-show="isButtonActive && isItem" 
-      v-bind:list="constentList"></BaseDropdown>
+      v-show="isIcon" 
+      v-bind:type="svg"
+      v-bind:iconSize="iconSize"></BaseIcon>
+      <BaseDropdown 
+        v-show="isButtonActive && isDropdown" 
+        v-bind:list="constentList">
+      </BaseDropdown>
     </button>
 </template>
 
@@ -28,23 +26,40 @@ Vue.use(vClickOutside)
 
 export default {
   props: {
-    isNavigation: Boolean,
-    isUser: Boolean,
     isPrimary: Boolean,
     isSecondary: Boolean,
+    isNavigation: Boolean,
+    isUser: Boolean,
     isItem: Boolean,
-    typeIcon: String,
+    isIcon: Boolean,
+    isDropdown: Boolean,
+    iconSize: Object,
     text: String,
     constentList: Array,
-    page: Function,
   },
   data() {
       return {
         isButtonActive: false,
       }
   },
-  components: {
-  }, 
+  computed: {
+    buttonStyle: function() {
+      return {
+        button_primary: this.isPrimary, 
+        navigation__user: this.isUser, 
+        button_secondary: this.isSecondary, 
+        button_small: this.isItem
+      }
+    },
+    svg: function () {
+      if (this.isUser) {
+        return 'drop_down'
+      } else if (this.isItem) {
+        return 'dots'
+      }
+      return undefined;
+    }
+  },
   methods: {
     setActive: function (e) {
       this.isButtonActive = !this.isButtonActive;
@@ -66,9 +81,7 @@ export default {
       if (this.isNavigation && !e.target.classList.contains('active')) {
         this.setActive(e);
         this.changePage(this.text);
-      } else if (this.isUser && !e.target.closest('.dropdown__list')) {
-        this.setActive(e);
-      } else if (this.isItem && !e.target.closest('.dropdown__list')) {
+      } else if (this.isDropdown && !e.target.closest('.dropdown__list')) {
         this.setActive(e);
       }
     },
