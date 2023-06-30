@@ -8,7 +8,7 @@
           v-bind:isNavigation="true" 
           v-bind:isPrimary="true" 
           v-bind:text="item"
-          v-on:changePage="changeActivePage">
+          v-on:setPage="changeActivePage($event)">
         </BaseButton>
       </li>
     </ul>
@@ -16,24 +16,14 @@
       v-bind:isUser="true"
       v-bind:isDropdown="true" 
       v-bind:isIcon="true"
-      v-bind:constentList="['Профиль', 'Выход']">
+      v-bind:constentList="['Профиль', 'Выход']"
+      v-on:setPage="changeActivePage($event)">
     </BaseButton>
-    <BaseButton 
-        v-bind:isPrimary="true" 
-        v-bind:text="'Просто какой-то текст'"
-        v-bind:isDropdown="true"
-        v-bind:isIcon="true"
-        v-bind:constentList="['Название', 'Еще одно']">
-      </BaseButton>
   </nav>
 </template>
 
 <script>
 export default {
-  props: {
-    page: Function,
-    changePage: Function
-  },
 
   data() {
       return {
@@ -42,7 +32,7 @@ export default {
   },
   methods: {
     changeActivePage(key) {
-      this.$emit('changePage', key);
+      this.$emit('changePage', key)
     }
   }
 }

@@ -2,10 +2,10 @@
   <button 
     v-on:click="clickElement($event)" 
     v-click-outside="onClickOutside" 
-    v-bind:class="buttonStyle">
+    v-bind:class="[{[dropdownItemStyle]: isDropdownItem}, buttonStyle]">
     <img class="navigation__avatar" 
       v-show="isUser" 
-      src="https://thedreamwalker.github.io/dig_des_school/dist/assets/img/user-item.png" 
+      src="@/assets/img/user-item.png" 
       alt="аватар пользователя">
     {{text}}
     <BaseIcon 
@@ -14,7 +14,8 @@
       v-bind:iconSize="iconSize"></BaseIcon>
       <BaseDropdown 
         v-show="isButtonActive && isDropdown" 
-        v-bind:list="constentList">
+        v-bind:list="constentList"
+        v-on:forDrop="changeActivePage($event)">
       </BaseDropdown>
     </button>
 </template>
@@ -33,6 +34,8 @@ export default {
     isItem: Boolean,
     isIcon: Boolean,
     isDropdown: Boolean,
+    isDropdownItem: Boolean,
+    dropdownItemStyle: Array,
     iconSize: Object,
     text: String,
     constentList: Array,
@@ -48,7 +51,8 @@ export default {
         button_primary: this.isPrimary, 
         navigation__user: this.isUser, 
         button_secondary: this.isSecondary, 
-        button_small: this.isItem
+        button_small: this.isItem,
+        dropdown__button: this.isDropdown,
       }
     },
     svg: function () {
@@ -78,24 +82,24 @@ export default {
       },
 
     clickElement: function (e) {
-      if (this.isNavigation && !e.target.classList.contains('active')) {
+      if (!e.target.classList.contains('active') && (this.isNavigation || this.isDropdownItem)) {
         this.setActive(e);
-        this.changePage(this.text);
-      } else if (this.isDropdown && !e.target.closest('.dropdown__list')) {
+        this.changeActivePage(this.text);
+      } else if (this.isDropdown && !e.target.closest('.dropdown__list') && !e.target.closest('.dropdown__item')) {
         this.setActive(e);
       }
     },
 
     onClickOutside: function (e) {
-      if (this.isButtonActive && (this.isDropdown || e.target.closest('.navigation__item'))) {
+      if (this.isButtonActive && (this.isDropdown || !e.target.closest('.dropdown__item') || e.target.closest('.navigation__item'))) {
         this.isButtonActive = !this.isButtonActive;
         this.$el.classList.remove('active');
       }
     },
 
-    changePage: function (key) {
-      this.$emit('changePage', key);
-    },
+    changeActivePage(key) {
+      this.$emit('setPage', key)
+    }
   },
 }
 </script>

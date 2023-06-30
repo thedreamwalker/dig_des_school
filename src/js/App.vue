@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <BaseNavigation v-on:changePage="changeActivePage"></BaseNavigation>
+      <BaseNavigation v-on:changePage="changeActivePage($event)"></BaseNavigation>
     </header>
     <component v-bind:is="activePage"></component>
   </div>
@@ -10,11 +10,14 @@
 <script>
 import ProjectsPage from '@/view/ProjectsPage.vue'
 import TasksPage from '../view/TasksPage.vue'
+import UsersPage from '@/view/UsersPage.vue'
+import ProfilePage from '@/view/ProfilePage.vue'
 
 const pages = {
   'Проекты': 'ProjectsPage',
   'Задачи': 'TasksPage',
-  'Пользователи': 'UserPage'
+  'Пользователи': 'UsersPage',
+  'Профиль': 'ProfilePage'
 }
 
 export default {
@@ -26,6 +29,8 @@ export default {
   components: {
     ProjectsPage,
     TasksPage,
+    UsersPage,
+    ProfilePage
   },
 
   computed: {
