@@ -64,7 +64,7 @@ export default {
     setActive: function (e) {
       this.isButtonActive = !this.isButtonActive;
         let button;
-        if (e.target.parentElement.classList.contains('navigation__item')) {
+        if (e.target.nodeName === 'BUTTON') {
           button = e.target;
         } else {
           button = e.target.closest('.navigation__user') || e.target.closest('.button_small');
@@ -87,8 +87,7 @@ export default {
     },
 
     onClickOutside: function (e) {
-      
-      if (e.target.parentElement && (this.isButtonActive && !this.$el.parentElement.classList.contains('navigation__item') || this.isButtonActive && e.target.parentElement.classList.contains('navigation__item'))) {
+      if (this.isButtonActive && (this.isDropdown || e.target.closest('.navigation__item'))) {
         this.isButtonActive = !this.isButtonActive;
         this.$el.classList.remove('active');
       }

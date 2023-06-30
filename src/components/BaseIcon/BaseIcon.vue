@@ -20,8 +20,7 @@ export default {
     },
 
     svgStyle: function() {
-      const defaultSize = this.type === 'dots' ? {width: '4px', height: '14px'} : {width: '24px;', height: '24px;'};
-      return this.iconSize ? this.iconSize : defaultSize
+      return this.iconSize ? this.iconSize : {width: '24px;', height: '24px;'}
     }
   },
   methods: {
