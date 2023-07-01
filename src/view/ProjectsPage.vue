@@ -1,8 +1,10 @@
 <template>
   <main>
-    <Stub v-if="list.length === 0" v-bind:type="'project'"></Stub>
-    <ListItem v-for="project in list" v-bind:key="project.item.code" v-bind:itemType="project.itemType"
-      v-bind:item="project.item"></ListItem>
+    <div class="items__container">
+      <Stub v-if="list.length === 0" v-bind:type="'project'"></Stub>
+      <ListItem v-for="project in list" v-bind:key="project.item.code" v-bind:itemType="project.itemType"
+        v-bind:item="project.item"></ListItem>
+    </div>
   </main>
 </template>
 
@@ -27,7 +29,3 @@ export default {
   },
 }
 </script>
-
-<style>
-
-</style>

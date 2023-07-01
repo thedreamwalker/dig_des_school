@@ -1,0 +1,29 @@
+@import '@/css/base.scss';
+
+.textaria__container {
+  display: flex;
+  gap: 8px;
+}
+
+label {
+  display: inline-block;
+  min-width: 120px;
+
+  span {
+    color: $font-error;
+  }
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px 12px;
+  background: $background-secondary;
+  border: 1px solid $border-default;
+  border-radius: 4px;
+
+  &::placeholder {
+    font-size: 14px;
+    color: $font-placeholder;
+  }
+}

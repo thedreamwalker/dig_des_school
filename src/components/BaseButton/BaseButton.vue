@@ -1,23 +1,18 @@
 <template>
   <button 
     v-on:click="clickElement($event)" 
-    v-click-outside="onClickOutside" 
-    v-bind:class="[{[dropdownItemStyle]: isDropdownItem}, buttonStyle]">
-    <img class="navigation__avatar" 
-      v-show="isUser" 
-      src="@/assets/img/user-item.png" 
-      alt="аватар пользователя">
+    v-click-outside="onClickOutside"
+    v-bind:class="[{[dropdownItemStyle]: dropdownItemStyle}, buttonStyle]">
+    <slot>
+    </slot>
     {{text}}
-    <BaseIcon 
-      v-show="isIcon" 
-      v-bind:type="svg"
-      v-bind:iconSize="iconSize"></BaseIcon>
-      <BaseDropdown 
-        v-show="isButtonActive && isDropdown" 
-        v-bind:list="constentList"
-        v-on:forDrop="changeActivePage($event)">
-      </BaseDropdown>
-    </button>
+    <BaseIcon
+    v-show="typeIcon"
+    v-bind:type="typeIcon"
+    v-bind:iconSize="iconSize"
+    v-bind:parent="parent">
+    </BaseIcon>
+  </button>
 </template>
 
 <script>
@@ -27,82 +22,78 @@ Vue.use(vClickOutside)
 
 export default {
   props: {
-    isPrimary: Boolean,
-    isSecondary: Boolean,
-    isNavigation: Boolean,
-    isUser: Boolean,
-    isItem: Boolean,
-    isIcon: Boolean,
-    isDropdown: Boolean,
-    isDropdownItem: Boolean,
+    color: String,
     dropdownItemStyle: Array,
-    iconSize: Object,
     text: String,
-    constentList: Array,
+    typeIcon: String,
+    iconSize: Object,
+    parent: String
   },
   data() {
       return {
-        isButtonActive: false,
+        isActive: false,
       }
   },
   computed: {
     buttonStyle: function() {
       return {
-        button_primary: this.isPrimary, 
-        navigation__user: this.isUser, 
-        button_secondary: this.isSecondary, 
-        button_small: this.isItem,
-        dropdown__button: this.isDropdown,
+        button_primary: this.color === 'primary',
+        button_secondary: this.color === 'secondary',
+        button_small: this.parent === 'item'
       }
     },
-    svg: function () {
-      if (this.isUser) {
-        return 'drop_down'
-      } else if (this.isItem) {
-        return 'dots'
-      }
-      return undefined;
-    }
   },
   methods: {
     setActive: function (e) {
-      this.isButtonActive = !this.isButtonActive;
+      
+      this.isActive = !this.isActive;
         let button;
         if (e.target.nodeName === 'BUTTON') {
           button = e.target;
         } else {
-          button = e.target.closest('.navigation__user') || e.target.closest('.button_small');
+          button = e.target.closest('.button_primary') || e.target.closest('.button_secondary');
         }
         
-        if (this.isButtonActive) {
+        if (this.isActive) {
           button.classList.add('active');
         } else {
           button.classList.remove('active');
         }
+
+        if (this.text && this.text !== 'Выход') {
+          this.changeActivePage(this.text);
+        }
+
+        if (button.closest('.inner-content__container')) {
+
+          this.buttonForm(button);
+        }
       },
 
     clickElement: function (e) {
-      if (!e.target.classList.contains('active') && (this.isNavigation || this.isDropdownItem)) {
+      console.log('А был ли клик');
+      console.log(e);
+      if (!this.isActive) {
         this.setActive(e);
-        this.changeActivePage(this.text);
-      } else if (this.isDropdown && !e.target.closest('.dropdown__list') && !e.target.closest('.dropdown__item')) {
+      } else {
         this.setActive(e);
       }
     },
 
     onClickOutside: function (e) {
-      if (this.isButtonActive && (this.isDropdown || !e.target.closest('.dropdown__item') || e.target.closest('.navigation__item'))) {
-        this.isButtonActive = !this.isButtonActive;
+      if (this.isActive && e.target.closest('.navigation__item')) {
+        this.isActive = !this.isActive;
         this.$el.classList.remove('active');
       }
     },
 
     changeActivePage(key) {
       this.$emit('setPage', key)
+    },
+
+    buttonForm(button) {
+      this.$emit('clickInput', button)
     }
   },
 }
 </script>
-
-<style src="@/css/base.scss"></style>
-<style src="@/components/BaseNavigation/style.scss"></style>

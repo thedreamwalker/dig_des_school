@@ -1,0 +1,30 @@
+@import '@/css/base.scss';
+
+.select__container {
+  display: flex;
+  gap: 8px;
+}
+
+label {
+  display: inline-block;
+  min-width: 120px;
+
+  span {
+    color: $font-error;
+  }
+}
+
+select {
+  width: 100%;
+  padding: 10px 12px;
+  background: $background-secondary;
+  border: 1px solid $border-default;
+  border-radius: 4px;
+  appearance: none;
+
+  &::placeholder {
+    font-size: 14px;
+    letter-spacing: normal;
+    color: $font-placeholder;
+  }
+}

@@ -5,20 +5,24 @@
         v-for="item in list" 
         v-bind:key="item">
         <BaseButton 
-          v-bind:isNavigation="true" 
-          v-bind:isPrimary="true" 
+          v-bind:color="'primary'"
           v-bind:text="item"
           v-on:setPage="changeActivePage($event)">
         </BaseButton>
       </li>
     </ul>
-    <BaseButton
-      v-bind:isUser="true"
-      v-bind:isDropdown="true" 
-      v-bind:isIcon="true"
-      v-bind:constentList="['Профиль', 'Выход']"
+    <div class="navigation__user">
+    <BaseDropdown
+      v-bind:color="'primary'"
+      v-bind:parent="'navigation'"
+      v-bind:typeIcon="'drop_down'"
+      v-bind:list="['Профиль', 'Выход']"
       v-on:setPage="changeActivePage($event)">
-    </BaseButton>
+      <img class="navigation__avatar"  
+      src="@/assets/img/user-item.jpg" 
+      alt="аватар пользователя">
+    </BaseDropdown>
+    </div>
   </nav>
 </template>
 
@@ -36,8 +40,6 @@ export default {
     }
   }
 }
-
 </script>
 
-<style src="@/css/base.scss"></style>
 <style src="./style.scss"></style>

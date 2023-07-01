@@ -1,7 +1,7 @@
 <template>
-  <div v-bind:class="activeClass(svgIcon)">
+  <div v-bind:class="activeClass(parent)">
     <svg v-bind:style="svgStyle">
-      <use v-bind:href="`#${svgIcon}`" v-bind:xlink:href="`#${svgIcon}`"></use>
+      <use v-bind:href="`#${type}`" v-bind:xlink:href="`#${type}`"></use>
     </svg>
   </div>
 </template>
@@ -12,23 +12,23 @@ import '@/js/register.js';
 export default {
   props: {
     type: String,
-    iconSize: Object
+    iconSize: Object,
+    parent: String
   },
   computed: {
-    svgIcon: function() {
-      return this.type ? this.type : 'drop_down';
-    },
-
     svgStyle: function() {
       return this.iconSize ? this.iconSize : {width: '24px;', height: '24px;'}
     }
   },
   methods: {
-    activeClass: (type) => {
-      return type === 'drop_down' ? 'navigation__icon' : 'button__icon';}
+    activeClass: (parent) => {
+      switch (parent) {
+      case 'navigation':
+        return 'navigation__icon';
+      case 'item':
+        return 'button__icon';
+      }
+    }
   }
 }
 </script>
-
-<style src="@/css/base.scss"></style>
-<style src="@/components/BaseNavigation/style.scss"></style>

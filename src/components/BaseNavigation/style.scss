@@ -15,50 +15,73 @@
     list-style: none;
   }
 
-  .button_primary {
-    border: 1px solid $background-secondary;
+  .navigation__item {
+    .button_primary {
+      border: 1px solid $background-secondary;
 
-    &:active,
-    &.active {
-      background-color: $background-secondary;
-      color: $font-primary-default;
-    }
+      &:hover {
+        background-color: $background-secondary-hover;
+        color: $font-primary-default;
 
-    &.active:not(.dropdown__button) {
-      cursor: default;
-    }
+        svg {
+          color: $font-primary-default;
+        }
+      }
   
-    &:disabled {
-      border: none;
-    }
+      &:active,
+      &.active {
+        background-color: $background-secondary;
+        color: $font-primary-default;
+
+        svg {
+          color: $font-primary-default;
+        }
+      }
+  
+      &.active:not(.dropdown__button) {
+        cursor: default;
+      }
+    
+      &:disabled {
+        border: none;
+      }
+    }  
   }
 
-  .navigation__user,
-  .dropdown__button {
-    position: relative;
-    padding: 8px 16px;
-    background: transparent;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    transition: border 0.5s;
-    z-index: 3;
+  .navigation__user {
+    display: flex;
+    gap: 24px;
 
-    &:hover {
-      border: 1px solid $background-secondary;
-    }
-
-    &:active,
-    &.active {
-      background-color: $background-secondary;
-
-      & .navigation__icon svg {
-        color: $background-secondary-active;
-        transform: rotate(180deg);
+    & .button_primary {
+      position: relative;
+      padding: 6px 16px;
+      background: transparent;
+      border: 1px solid transparent;
+      // border-radius: 4px;
+      // transition: border 0.5s;
+      // z-index: 3;
+  
+      &:hover {
+        border: 1px solid $background-secondary;
+      }
+  
+      &:active,
+      &.active {
+        background-color: $background-secondary;
+  
+        & .navigation__icon svg {
+          color: $background-secondary-active;
+          transform: rotate(180deg);
+        }
       }
     }
   }
+  
+ 
 
   .navigation__avatar {
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
   }
 

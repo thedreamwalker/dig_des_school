@@ -25,33 +25,6 @@ export default {
     }
   }
 }
-
 </script>
 
-<style src="@/css/stub.scss"></style>
-
-
-<!-- import './style.scss';
-
-const Stub = (appContainer, type) => {
-
-let description;
-
-
-
-  const container = document.createElement('div');
-  container.classList.add('stub__container');
-  
-  const text = document.createElement('p');
-  text.textContent = `${description}`;
-
-  const button = document.createElement('button');
-  button.classList.add('button_primary');
-  button.textContent = `Добавить`;
-
-  appContainer.append(container);
-  container.append(text);
-  container.append(button);
-}
-
-export default Stub; -->
+<style src="./style.scss"></style>

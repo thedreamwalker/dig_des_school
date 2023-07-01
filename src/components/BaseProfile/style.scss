@@ -1,0 +1,33 @@
+@import '@/css/base.scss';
+
+.profile {
+  display: flex;
+  gap: 24px;
+
+  .profile__avatar {
+    padding: 12px 10px;
+  }
+  
+  .profile__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+    padding: 8px 0px;
+  }
+
+  .profile__name {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .profile__about {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    span {
+      color: $font-disabled;
+    }
+  }
+}
