@@ -7,10 +7,10 @@
     </slot>
     {{text}}
     <BaseIcon
-    v-show="typeIcon"
-    v-bind:type="typeIcon"
-    v-bind:iconSize="iconSize"
-    v-bind:parent="parent">
+      v-show="typeIcon"
+      v-bind:type="typeIcon"
+      v-bind:iconSize="iconSize"
+      v-bind:parent="parent">
     </BaseIcon>
   </button>
 </template>
@@ -65,14 +65,11 @@ export default {
         }
 
         if (button.closest('.inner-content__container')) {
-
           this.buttonForm(button);
         }
       },
 
     clickElement: function (e) {
-      console.log('А был ли клик');
-      console.log(e);
       if (!this.isActive) {
         this.setActive(e);
       } else {

@@ -52,10 +52,17 @@ body {
   font-size: 14px;
   line-height: 19px;
   color: #1C1C1C;
+  height: 100vh;
   margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 main {
   padding: 24px;
+  flex-grow: 2;
 }
 h1 {
   font-family: "Open Sans";
@@ -141,11 +148,6 @@ b {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.button_primary.button_small .button__icon svg,
-.button_secondary.button_small .button__icon svg {
-  width: 24px;
-  height: 24px;
 }
 .button_primary.button_small:disabled .button__icon svg,
 .button_secondary.button_small:disabled .button__icon svg {
@@ -341,10 +343,17 @@ body {
   font-size: 14px;
   line-height: 19px;
   color: #1C1C1C;
+  height: 100vh;
   margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 main {
   padding: 24px;
+  flex-grow: 2;
 }
 h1 {
   font-family: "Open Sans";
@@ -430,11 +439,6 @@ b {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.button_primary.button_small .button__icon svg,
-.button_secondary.button_small .button__icon svg {
-  width: 24px;
-  height: 24px;
 }
 .button_primary.button_small:disabled .button__icon svg,
 .button_secondary.button_small:disabled .button__icon svg {
@@ -512,7 +516,7 @@ b {
   align-items: center;
   gap: 10px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
 }
@@ -570,10 +574,17 @@ body {
   font-size: 14px;
   line-height: 19px;
   color: #1C1C1C;
+  height: 100vh;
   margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 main {
   padding: 24px;
+  flex-grow: 2;
 }
 h1 {
   font-family: "Open Sans";
@@ -659,11 +670,6 @@ b {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.button_primary.button_small .button__icon svg,
-.button_secondary.button_small .button__icon svg {
-  width: 24px;
-  height: 24px;
 }
 .button_primary.button_small:disabled .button__icon svg,
 .button_secondary.button_small:disabled .button__icon svg {
@@ -814,10 +820,17 @@ body {
   font-size: 14px;
   line-height: 19px;
   color: #1C1C1C;
+  height: 100vh;
   margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 main {
   padding: 24px;
+  flex-grow: 2;
 }
 h1 {
   font-family: "Open Sans";
@@ -903,11 +916,6 @@ b {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.button_primary.button_small .button__icon svg,
-.button_secondary.button_small .button__icon svg {
-  width: 24px;
-  height: 24px;
 }
 .button_primary.button_small:disabled .button__icon svg,
 .button_secondary.button_small:disabled .button__icon svg {
@@ -979,12 +987,13 @@ b {
   background-color: #8E8E8E;
 }
 .input__container {
+  position: relative;
   display: flex;
   gap: 8px;
 }
 label {
   display: inline-block;
-  min-width: 120px;
+  width: 120px;
 }
 label span {
   color: #EE4222;
@@ -1000,6 +1009,13 @@ input::placeholder {
   font-size: 14px;
   letter-spacing: normal;
   color: #D9D9D9;
+}
+input:required, input:invalid {
+  border: 1px solid #EE4222;
+}
+.form__icon {
+  position: absolute;
+  right: 0;
 }
 /*!***************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseTextarea/style.scss?vue&type=style&index=0&lang=css& ***!
@@ -1055,10 +1071,17 @@ body {
   font-size: 14px;
   line-height: 19px;
   color: #1C1C1C;
+  height: 100vh;
   margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 main {
   padding: 24px;
+  flex-grow: 2;
 }
 h1 {
   font-family: "Open Sans";
@@ -1144,11 +1167,6 @@ b {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.button_primary.button_small .button__icon svg,
-.button_secondary.button_small .button__icon svg {
-  width: 24px;
-  height: 24px;
 }
 .button_primary.button_small:disabled .button__icon svg,
 .button_secondary.button_small:disabled .button__icon svg {
@@ -1238,6 +1256,9 @@ textarea {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
 }
+textarea:required, textarea:invalid {
+  border: 1px solid #EE4222;
+}
 textarea::placeholder {
   font-size: 14px;
   color: #D9D9D9;
@@ -1296,10 +1317,17 @@ body {
   font-size: 14px;
   line-height: 19px;
   color: #1C1C1C;
+  height: 100vh;
   margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 main {
   padding: 24px;
+  flex-grow: 2;
 }
 h1 {
   font-family: "Open Sans";
@@ -1385,11 +1413,6 @@ b {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.button_primary.button_small .button__icon svg,
-.button_secondary.button_small .button__icon svg {
-  width: 24px;
-  height: 24px;
 }
 .button_primary.button_small:disabled .button__icon svg,
 .button_secondary.button_small:disabled .button__icon svg {
@@ -1478,12 +1501,12 @@ select {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   appearance: none;
-  background-image: url(61525c03d755001ff4cc.svg);
 }
-select::placeholder {
-  font-size: 14px;
-  letter-spacing: normal;
-  color: #D9D9D9;
+select:required, select:invalid {
+  border: 1px solid #EE4222;
+}
+select option:disabled {
+  color: #8E8E8E;
 }
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/InnerPageContent/style.scss?vue&type=style&index=0&lang=css& ***!
@@ -1539,10 +1562,17 @@ body {
   font-size: 14px;
   line-height: 19px;
   color: #1C1C1C;
+  height: 100vh;
   margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 main {
   padding: 24px;
+  flex-grow: 2;
 }
 h1 {
   font-family: "Open Sans";
@@ -1628,11 +1658,6 @@ b {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.button_primary.button_small .button__icon svg,
-.button_secondary.button_small .button__icon svg {
-  width: 24px;
-  height: 24px;
 }
 .button_primary.button_small:disabled .button__icon svg,
 .button_secondary.button_small:disabled .button__icon svg {
@@ -1707,7 +1732,10 @@ b {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  height: 100%;
   padding: 24px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 .inner-content__container button {
   align-self: flex-start;
@@ -1722,6 +1750,14 @@ form {
   gap: 24px;
   width: 720px;
   padding: 32px 24px 24px 24px;
+}
+.inner-content__buttons {
+  display: flex;
+  justify-content: end;
+  gap: 24px;
+  margin-top: auto;
+  padding: 34px 10px 10px 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseNavigation/style.scss?vue&type=style&index=0&lang=css& ***!
@@ -1777,10 +1813,17 @@ body {
   font-size: 14px;
   line-height: 19px;
   color: #1C1C1C;
+  height: 100vh;
   margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 main {
   padding: 24px;
+  flex-grow: 2;
 }
 h1 {
   font-family: "Open Sans";
@@ -1866,11 +1909,6 @@ b {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.button_primary.button_small .button__icon svg,
-.button_secondary.button_small .button__icon svg {
-  width: 24px;
-  height: 24px;
 }
 .button_primary.button_small:disabled .button__icon svg,
 .button_secondary.button_small:disabled .button__icon svg {
@@ -2002,9 +2040,4 @@ b {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-}
-.navigation .navigation__icon svg {
-  width: 24px;
-  height: 24px;
-  color: #FFFFFF;
 }

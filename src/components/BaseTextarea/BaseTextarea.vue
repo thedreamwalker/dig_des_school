@@ -1,55 +1,47 @@
 <template>
   <div class="textaria__container">
-    <label for="name">Описание</label> <textarea id="description" name="description" placeholder="Введите текст..."></textarea>
+    <label 
+      v-bind:for="name">
+      {{ label }} 
+      <span v-if="isRequire">*</span></label> 
+    <textarea 
+      v-model="model.value"
+      v-on:input="dataChange" 
+      v-bind:id="name" v-bind:name="name" v-bind:placeholder="setPlaceholder" v-bind:required="isRequire"></textarea>
   </div>
 </template>
 
 <script>
 export default {
-    props: {
-        counter: Number
-    },
-    data() {
-        return {
-            num: 10,
-            // counter: 0
-
-            model: {
-                address: '',
-                type: '',
-                deliveryTime: '',
-                selected: []
-            }
-        }
-    },
-
-    computed: {
-        btnName() {
-            return `Прибавить ${this.num}`
-        }
-    },
-
-    methods: {
-      test: function(button) {
-        console.log('приветули');
-        console.log(button);
-      },
-        add(num) {
-            // this.counter += 1
-
-            if(num) {
-                this.$emit('addFew', num)
-            } else {
-                this.$emit('addOne')
-            }
-        },
-
-        send() {
-            this.$emit('sendModel', this.model)
-        }
+  props: {
+    name: String,
+    label: String,
+    placeholder: String,
+    typeIcon: String,
+    isRequire: Boolean,
+  },
+  
+  data() {
+    return {
+      model: {
+        name: this.label,
+        value: ''
+      }
     }
+  },
+
+  computed: {
+    setPlaceholder: function() {
+      return this.placeholder ? this.placeholder : 'Введите текст...';
+    }
+  },
+
+  methods: {
+    dataChange: function() {
+      this.$emit('dataSend', {name: this.name, value: this.model.value})
+    }
+  }
 }
 </script>
-
 
 <style src="./style.scss"></style>

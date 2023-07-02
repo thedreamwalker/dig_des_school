@@ -147,11 +147,19 @@ button {
 body {
  @include base-text;
 
+ height: 100vh;
  margin: 0;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
   padding: 24px;
+  flex-grow: 2;
 }
 
 h1 {
@@ -190,12 +198,6 @@ b {
     justify-content: center;
     align-items: center;
   }
-
-  & .button__icon svg {
-    width: 24px;
-    height: 24px;
-  }
-
 
   &:disabled .button__icon svg {
     color: $font-disabled;

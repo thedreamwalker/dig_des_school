@@ -1,55 +1,50 @@
 <template>
   <div class="input__container">
-    <label for="name">Название <span>*</span></label> <input type="text" id="name" name="user_name" placeholder="Введите текст..." required>
+    <label v-bind:for="name">{{ label }} <span v-if="isRequire">*</span></label> 
+    <input 
+      v-model="model.value"
+      v-on:input="dataChange" 
+      type="text" v-bind:id="name" v-bind:name="name" v-bind:placeholder="setPlaceholder" v-bind:required="isRequire">
+    <BaseIcon
+        v-show="typeIcon"
+        v-bind:type="typeIcon"
+        v-bind:typeIcon="typeIcon"
+        v-bind:parent="'form'">
+    </BaseIcon>
   </div>
 </template>
 
 <script>
 export default {
-    props: {
-        counter: Number
-    },
-    data() {
-        return {
-            num: 10,
-            // counter: 0
+  props: {
+    name: String,
+    label: String,
+    placeholder: String,
+    typeIcon: String,
+    isRequire: Boolean,
+  },
 
-            model: {
-                address: '',
-                type: '',
-                deliveryTime: '',
-                selected: []
-            }
-        }
-    },
-
-    computed: {
-        btnName() {
-            return `Прибавить ${this.num}`
-        }
-    },
-
-    methods: {
-      test: function(button) {
-        console.log('приветули');
-        console.log(button);
-      },
-        add(num) {
-            // this.counter += 1
-
-            if(num) {
-                this.$emit('addFew', num)
-            } else {
-                this.$emit('addOne')
-            }
-        },
-
-        send() {
-            this.$emit('sendModel', this.model)
-        }
+  data() {
+    return {
+      model: {
+        name: this.label,
+        value: ''
+      }
     }
+  },
+  
+  methods: {
+    dataChange: function() {
+      this.$emit('dataSend', {name: this.name, value: this.model.value})
+    }
+  },
+
+  computed: {
+    setPlaceholder: function() {
+      return this.placeholder ? this.placeholder : 'Введите текст...';
+    }
+  }
 }
 </script>
-
 
 <style src="./style.scss"></style>

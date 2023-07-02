@@ -1,5 +1,6 @@
 <template>
   <main>
+    <Stub v-if="list.length === 0" v-bind:type="'task'"></Stub>
     <div class="items__container">
     <BaseButton
     v-bind:color="'secondary'"

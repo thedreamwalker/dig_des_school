@@ -28,12 +28,13 @@
 
 <script>
 export default {
-
+  
   data() {
       return {
         list: ['Проекты', 'Задачи', 'Пользователи'],
       }
   },
+
   methods: {
     changeActivePage(key) {
       this.$emit('changePage', key)

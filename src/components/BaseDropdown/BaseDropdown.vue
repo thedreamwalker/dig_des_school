@@ -13,14 +13,14 @@
       v-bind:parent="parent">
     </BaseIcon>
     <ul v-show="isActive" class="dropdown__list">
-    <li v-for="item in list" v-bind:key="item">
-      <BaseButton 
+      <li v-for="item in list" v-bind:key="item">
+        <BaseButton 
           v-bind:text="item"
           v-bind:dropdownItemStyle="setClass(item)"
           v-on:setPage="changeActivePage($event)">
         </BaseButton>
       </li>
-  </ul>
+    </ul>
   </button>
 </template>
 
@@ -40,11 +40,13 @@ export default {
     iconSize: Object,
     parent: String
   },
+
   data() {
       return {
         isActive: false,
       }
   },
+
   computed: {
     buttonStyle: function() {
       return {
@@ -54,6 +56,7 @@ export default {
       }
     },
   },
+  
   methods: {
     setClass: function(item) {
       switch (item) {

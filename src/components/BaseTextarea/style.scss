@@ -22,6 +22,11 @@ textarea {
   border: 1px solid $border-default;
   border-radius: 4px;
 
+  &:required,
+  &:invalid {
+    border: 1px solid $border-error;
+  }
+
   &::placeholder {
     font-size: 14px;
     color: $font-placeholder;

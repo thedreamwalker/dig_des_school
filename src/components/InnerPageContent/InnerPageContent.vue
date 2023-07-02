@@ -3,50 +3,12 @@
       <h1 class="inner-content__title">
         {{ title }}
       </h1>
-  
-  <!-- <span>{{counter}}</span>
-  <br/>
-  <br/>
-  <br/>
-  <BaseButton @click="send" :name="'Отправить'"/>
-  <BaseButton @click="show" :name="'Показать'"/> -->
-
-      <form>
-        <BaseInput></BaseInput>
-        <BaseTextarea></BaseTextarea>
-        <BaseSelect></BaseSelect>
-        <BaseSelect></BaseSelect>
-        
-          <!-- <input  v-model="model.address" placeholder="Адрес:" >
-
-          <div class="form-item">
-              <input type="radio" id="a" value="Картой" v-model="model.type">
-              <label for="a">Картой</label>
-          </div>
-          <div class="form-item">
-              <input type="radio" id="b" value="Наличными" v-model="model.type">
-              <label for="b">Наличными</label>
-          </div>
-          
-          <select v-model="model.deliveryTime">
-              <option disabled value="">Выберите один из вариантов</option>
-              <option>с 9:00 до 22:00</option>
-              <option>с 14:00 до 16:00</option>
-              <option>с 16:00 до 18:00</option>
-          </select>
-
-          <div class="form-item">
-              <input type="checkbox" id="c" value="1" v-model="model.selected">
-              <label for="c">какой-то чек-бокс 1</label>
-          </div>
-          <div class="form-item">
-              <input type="checkbox" id="d" value="2" v-model="model.selected">
-              <label for="d">какой-то чек-бокс 2</label>
-          </div> -->
+      <form id="form" v-on:submit="send($event)">
+        <slot v-bind:saveData="saveData"></slot>
       </form>
       <div class="inner-content__buttons">
-        <BaseButton v-bind:color="'primary'" v-on:clickInput="test($event)" :name="'Прибавить 1'">Создать задачу</BaseButton>
-        <BaseButton v-bind:color="'secondary'" @click="add(num)" :name="btnName">Отмена</BaseButton>
+        <BaseButton v-bind:color="'primary'" type="submit" form="form">Создать задачу</BaseButton>
+        <BaseButton v-bind:color="'secondary'" v-on:clickInput="reset($event)">Отмена</BaseButton>
       </div>
     </div>
 </template>
@@ -60,31 +22,38 @@
     props: {
       title: String
     },
+    data() {
+      return {
+        model: {
+
+        }
+      }
+    },
 
     components: {
       BaseInput,
       BaseTextarea,
       BaseSelect
   },
+
   methods: {
-    test: function(button) {
-      console.log('приветули');
-      console.log(button);
-    },
-      add(num) {
-          // this.counter += 1
+    saveData: function(data) {
+      this.model[data.name] = data.value;
+   },
 
-          if(num) {
-              this.$emit('addFew', num)
-          } else {
-              this.$emit('addOne')
-          }
-      },
+   send: function(e) {
+    e.preventDefault();
+    console.log(this.model);
+    document.querySelector('form').reset();
+   },
 
-      send() {
-          this.$emit('sendModel', this.model)
-      }
+   reset: function() {
+    for (let prop in this.model) {
+      this.model[prop] = '';
+      document.querySelector('form').reset();
     }
+  }
+},
 }
 </script>
 

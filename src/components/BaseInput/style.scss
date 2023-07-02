@@ -1,13 +1,14 @@
 @import '@/css/base.scss';
 
 .input__container {
+  position: relative;
   display: flex;
   gap: 8px;
 }
 
 label {
   display: inline-block;
-  min-width: 120px;
+  width: 120px;
 
   span {
     color: $font-error;
@@ -26,4 +27,14 @@ input {
     letter-spacing: normal;
     color: $font-placeholder;
   }
+
+  &:required,
+  &:invalid {
+    border: 1px solid $border-error;
+  }
+}
+
+.form__icon {
+  position: absolute;
+  right: 0;
 }

@@ -15,18 +15,23 @@ export default {
     iconSize: Object,
     parent: String
   },
+  
   computed: {
     svgStyle: function() {
-      return this.iconSize ? this.iconSize : {width: '24px;', height: '24px;'}
+      return this.iconSize ? this.iconSize : {width: '24px', height: '24px'}
     }
   },
+
   methods: {
     activeClass: (parent) => {
       switch (parent) {
-      case 'navigation':
-        return 'navigation__icon';
-      case 'item':
-        return 'button__icon';
+        case 'navigation':
+          return 'navigation__icon';
+        case 'item':
+          return 'button__icon';
+        case 'form': {
+          return 'form__icon';
+        }
       }
     }
   }

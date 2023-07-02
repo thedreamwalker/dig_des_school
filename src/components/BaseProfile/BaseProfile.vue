@@ -27,11 +27,13 @@ export default {
     name: String,
     about: String,
   },
+  
   data() {
     return {
       isOnline: false,
     }
   },
+
   computed: {
     setStatus: function() {
       return this.isOnline ? 'status_active' : 'status_inactive';

@@ -37,12 +37,6 @@ export default {
     CreateTaskPage
   },
 
-  computed: {
-    changePage() {
-      return pages[this.activePage];
-    }
-  },
-
   methods: {
     changeActivePage(name) {
       this.activePage = pages[name];
