@@ -57,9 +57,6 @@
       padding: 6px 16px;
       background: transparent;
       border: 1px solid transparent;
-      // border-radius: 4px;
-      // transition: border 0.5s;
-      // z-index: 3;
   
       &:hover {
         border: 1px solid $background-secondary;
@@ -76,8 +73,6 @@
       }
     }
   }
-  
- 
 
   .navigation__avatar {
     width: 24px;

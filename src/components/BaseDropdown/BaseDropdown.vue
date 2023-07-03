@@ -13,12 +13,14 @@
       v-bind:parent="parent">
     </BaseIcon>
     <ul v-show="isActive" class="dropdown__list">
-      <li v-for="item in list" v-bind:key="item">
-        <BaseButton 
-          v-bind:text="item"
+      <li v-for="item in list" v-bind:key="item.name">
+        <router-link v-bind:to="item.link" v-bind:class="setClass(item.name)">{{ item.name }}</router-link>
+        <!-- <BaseButton 
+          v-bind:text="item.name"
+          v-bind:link="item.link"
           v-bind:dropdownItemStyle="setClass(item)"
           v-on:setPage="changeActivePage($event)">
-        </BaseButton>
+        </BaseButton> -->
       </li>
     </ul>
   </button>

@@ -130,7 +130,8 @@ input, textarea, select, button {
   line-height: inherit;
 }
 
-button {
+button,
+router-link {
   position: relative;
   display: flex;
   gap: 8px;
@@ -142,6 +143,10 @@ button {
   &:disabled {
     cursor: not-allowed;
   }
+}
+
+router-link {
+  display: block;
 }
 
 body {

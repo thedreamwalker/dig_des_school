@@ -16,7 +16,9 @@
       v-bind:color="'primary'"
       v-bind:parent="'navigation'"
       v-bind:typeIcon="'drop_down'"
-      v-bind:list="['Профиль', 'Выход']"
+      v-bind:list="[
+    { name: 'Профиль', link: '/profile' },
+    { name: 'Выход', link: '/exit' },]"
       v-on:setPage="changeActivePage($event)">
       <img class="navigation__avatar"  
       src="@/assets/img/user-item.jpg" 

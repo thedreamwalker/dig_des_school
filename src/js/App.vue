@@ -3,8 +3,8 @@
     <header>
       <BaseNavigation v-on:changePage="changeActivePage($event)"></BaseNavigation>
     </header>
-    <component v-bind:is="activePage" v-on:newPage="changeActivePage($event)"></component>
-    <!-- <TasksPage v-on:some="changeActivePage($event)"></TasksPage> -->
+    <!-- <component v-bind:is="activePage" v-on:newPage="changeActivePage($event)"></component> -->
+    <router-view />
   </div>
 </template>
 
