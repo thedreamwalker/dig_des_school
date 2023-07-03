@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import CreateTaskPage from '@/views/CreateTaskPage.vue'
-import ProfilePage from '@/views/ProfilePage.vue'
-import ProjectsPage from '@/views/ProjectsPage.vue'
-import TasksPage from '@/views/TasksPage.vue'
-import UsersPage from '@/views/UsersPage.vue'
-import NotFound from '@/views/NotFound.vue'
+//import CreateTaskPage from '@/view/CreateTaskPage.vue'
+import ProfilePage from '@/view/ProfilePage.vue'
+import ProjectsPage from '@/view/ProjectsPage.vue'
+import TasksPage from '@/view/TasksPage.vue'
+import UsersPage from '@/view/UsersPage.vue'
+//import NotFound from '@/view/NotFound.vue'
 
 // маршруты которые используются перемещены в папку views и переименнованы соответственно
 // чтобы было разделение страницы отдельно, компоненты отдельно
@@ -17,38 +17,53 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/dinamic',
-    name: 'LayoutPage',
-    component: Layout,
+    path: '/projects',
+    name: 'ProjectsPage',
+    component: ProjectsPage,
     children: [
-      {
-        path: '',
-        name: 'Dinamic',
-        component: Dinamic,
-        // beforeEnter: Function
-      },
-      {
-        path: ':id',
-        name: 'UserDetail',
-        component: User,
-        props: true
-      },
-      {
-        path: '/slots',
-        name: 'Slots',
-        component: Slots
-      }
+      // {
+      //   path: '',
+      //   name: 'Dinamic',
+      //   component: Dinamic,
+      //   // beforeEnter: Function
+      // },
+      // {
+      //   path: ':id',
+      //   name: 'UserDetail',
+      //   component: User,
+      //   props: true
+      // },
+      // {
+      //   path: '/slots',
+      //   name: 'Slots',
+      //   component: Slots
+      // }
     ]
   },
   {
-    path: '/',
-    redirect: {name: 'Dinamic'}
+    path: '/tasks',
+    name: 'TasksPage',
+    component: TasksPage,
   },
   {
-    path: '*',
-    name: 'NotFound',
-    component: NotFound
+    path: '/users',
+    name: 'UsersPage',
+    component: UsersPage,
   },
+  {
+    path: '/profile',
+    name: 'ProfilePage',
+    component: ProfilePage,
+  },
+  {
+    path: '/',
+    redirect: {name: 'ProjectsPage'}
+  },
+  // {
+  //   path: '*',
+  //   name: 'NotFound',
+  //   component: NotFound
+  // },
 ]
 
 const router = new VueRouter({

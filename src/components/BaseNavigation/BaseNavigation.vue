@@ -3,12 +3,8 @@
     <ul class="navigation__list">
       <li class="navigation__item"
         v-for="item in list" 
-        v-bind:key="item">
-        <BaseButton 
-          v-bind:color="'primary'"
-          v-bind:text="item"
-          v-on:setPage="changeActivePage($event)">
-        </BaseButton>
+        v-bind:key="item.name">
+        <router-link v-bind:to="item.link" v-bind:class="'button_primary'">{{ item.name }}</router-link>
       </li>
     </ul>
     <div class="navigation__user">
@@ -32,9 +28,11 @@
 export default {
   
   data() {
-      return {
-        list: ['Проекты', 'Задачи', 'Пользователи'],
-      }
+    return {
+      list: [{ name: 'Проекты', link: '/projects' },
+        { name: 'Задачи', link: '/tasks' },
+        { name: 'Пользователи', link: '/users' },],
+    }
   },
 
   methods: {

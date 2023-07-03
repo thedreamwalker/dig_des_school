@@ -1,5 +1,5 @@
 <template>
-  <button
+    <button
   v-on:click="clickElement($event)"
   v-click-outside="onClickOutside"
   v-bind:class="buttonStyle">
@@ -54,7 +54,7 @@ export default {
       return {
         button_primary: this.color === 'primary',
         button_secondary: this.color === 'secondary',
-        button_small: this.parent === 'item'
+        button_small: this.parent === 'item',
       }
     },
   },

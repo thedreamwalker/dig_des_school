@@ -53,7 +53,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin({ title: 'Task Manager', template: './src/index.html' }),
+        new HtmlWebpackPlugin({ title: 'Task Manager', template: './src/index.html', }),
         new MiniCssExtractPlugin({
           filename: '[name].[contenthash].css',
         }),
