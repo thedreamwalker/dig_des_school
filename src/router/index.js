@@ -1,32 +1,27 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-//import CreateTaskPage from '@/view/CreateTaskPage.vue'
+import CreateTaskPage from '@/view/CreateTaskPage.vue'
 import ProfilePage from '@/view/ProfilePage.vue'
 import ProjectsPage from '@/view/ProjectsPage.vue'
 import TasksPage from '@/view/TasksPage.vue'
 import UsersPage from '@/view/UsersPage.vue'
-//import NotFound from '@/view/NotFound.vue'
-
-// маршруты которые используются перемещены в папку views и переименнованы соответственно
-// чтобы было разделение страницы отдельно, компоненты отдельно
-
-// также из страницы Slots была удалена навигация,
-// и сама страница Slots теперь в дочерних маршрутах Layout
+import NotFound from '@/view/NotFound.vue'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
+import AuthLayout from '@/layouts/AuthLayout.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/projects',
+    path: '/system/projectsTest',
     name: 'ProjectsPage',
     component: ProjectsPage,
     children: [
-      // {
-      //   path: '',
-      //   name: 'Dinamic',
-      //   component: Dinamic,
-      //   // beforeEnter: Function
-      // },
+      {
+        path: '',
+        name: 'Dinamic',
+        component: ProjectsPage,
+      },
       // {
       //   path: ':id',
       //   name: 'UserDetail',
