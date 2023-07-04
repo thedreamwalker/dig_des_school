@@ -28,8 +28,7 @@
         }
       }
   
-      &:active,
-      &.active {
+      &.router-link-exact-active {
         background-color: $background-secondary;
         color: $font-primary-default;
 

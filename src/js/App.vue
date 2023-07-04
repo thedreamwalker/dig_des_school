@@ -1,9 +1,8 @@
 <template>
   <div id="app">
     <header>
-      <BaseNavigation v-on:changePage="changeActivePage($event)"></BaseNavigation>
+      <BaseNavigation></BaseNavigation>
     </header>
-    <!-- <component v-bind:is="activePage" v-on:newPage="changeActivePage($event)"></component> -->
     <router-view />
   </div>
 </template>
@@ -15,14 +14,6 @@ import UsersPage from '@/view/UsersPage.vue'
 import ProfilePage from '@/view/ProfilePage.vue'
 import CreateTaskPage from '@/view/CreateTaskPage.vue'
 
-const pages = {
-  'Проекты': 'ProjectsPage',
-  'Задачи': 'TasksPage',
-  'Пользователи': 'UsersPage',
-  'Профиль': 'ProfilePage',
-  'Создать задачу': CreateTaskPage
-}
-
 export default {
   data() {
       return {
@@ -30,17 +21,7 @@ export default {
       }
   },
   components: {
-    ProjectsPage,
-    TasksPage,
-    UsersPage,
-    ProfilePage,
-    CreateTaskPage
-  },
 
-  methods: {
-    changeActivePage(name) {
-      this.activePage = pages[name];
-    }
-  }
+  },
 }
 </script>
