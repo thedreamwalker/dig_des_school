@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -7,12 +8,13 @@ const { VueLoaderPlugin } = require('vue-loader');
 module.exports = {
     mode: 'development',
     entry: {
-        index: './src/js/index.js',
+        index: './src/index.js',
     },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
+        publicPath: '/'
     },                                    
     module: {
         rules: [ 
@@ -53,7 +55,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin({ title: 'Task Manager', template: './src/index.html', }),
+        new HtmlWebpackPlugin({ title: 'Task Manager', template: './src/index.html',}),
         new MiniCssExtractPlugin({
           filename: '[name].[contenthash].css',
         }),
@@ -61,6 +63,7 @@ module.exports = {
     ],
     devServer: {
         static: './dist',
+        historyApiFallback: true,
     },
     resolve: {
       alias: {

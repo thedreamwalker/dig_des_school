@@ -1,7 +1,10 @@
 <template>
   <div class="stub__container">
-    <p>{{setText(type)}}</p>
-    <button class="button_primary">Добавить</button>
+    <h2>{{setText(type).title}}</h2>
+    <p>{{setText(type).text}}</p>
+    <div class="router__wrapper">
+      <router-link v-bind:to="setText(type).link" v-bind:class="'button_primary'">{{setText(type).link_text}}</router-link>
+    </div>
   </div>
 </template>
 
@@ -15,11 +18,11 @@ export default {
     setText(type) {
       switch (type) {
         case 'project':
-          return 'Не создан ни один проект';
+          return {title: '', text: 'Не создан ни один проект', link: '/projects/create', link_text: 'Добавить проект'};
         case 'task':
-          return 'Не создана ни одна задача';
+          return {title: '', text: 'Не создана ни одна задача', link: '/tasks/create', link_text: 'Добавить задачу'};
         default:
-          return 'В данном разделе ничего нет';
+          return {title: 'Ошибка 404', text: 'Данной страницы не существует', link: '/projects', link_text: 'Вернуться на основную страницу'};
       }
     }
   }

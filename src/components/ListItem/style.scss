@@ -7,6 +7,10 @@
   gap: 16px;
   border-bottom: 1px solid $border-active;
 
+  & .item__name a {
+    color: $font-primary-default;
+  }
+
   & .button_small {
     display: none;
 

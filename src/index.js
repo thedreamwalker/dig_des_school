@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './js/App.vue'
 import router from '@/router/index.js'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'

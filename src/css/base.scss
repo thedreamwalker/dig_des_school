@@ -164,6 +164,22 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  .layout-default {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  .layout-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: $background-disabled;
+  }
 }
 
 main {
@@ -301,4 +317,12 @@ b {
 
 .status_inactive {
   background-color: $font-disabled;
+}
+
+.router__wrapper {
+  margin-bottom: 15px;
+
+  & a {
+    display: inline-block;
+  }
 }

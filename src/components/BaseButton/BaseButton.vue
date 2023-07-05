@@ -27,7 +27,8 @@ export default {
     text: String,
     typeIcon: String,
     iconSize: Object,
-    parent: String
+    parent: String,
+    customClick: Function,
   },
   data() {
       return {
@@ -70,6 +71,9 @@ export default {
       },
 
     clickElement: function (e) {
+      if (this.customClick) {
+        this.customClick();
+      } else
       if (!this.isActive) {
         this.setActive(e);
       } else {

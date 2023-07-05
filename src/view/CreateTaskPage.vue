@@ -1,7 +1,6 @@
 <template>
   <main>
     <InnerPageContent v-slot="change"
-    v-on:changePage="changeActivePage($event)"
     v-bind:title="'Создание задачи'">
     <slot>
       <BaseInput 
