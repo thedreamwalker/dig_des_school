@@ -1,6 +1,6 @@
 <template>
   <main>
-    <Stub v-if="list.length === 0" v-bind:type="'task'"></Stub>
+    <Stub v-if="isStub" v-bind:text="'Не создана ни одна задача'" v-bind:textButton="'Создать задачу'" v-bind:linkButton="'CreateTaskPage'"></Stub>
     <div class="items__container">
       <div class="router__wrapper">
         <router-link v-bind:to="{name: 'CreateTaskPage'}" v-bind:class="'button_secondary'">Создать задачу</router-link>
@@ -8,7 +8,6 @@
       <ListItem v-for="task in list" v-bind:key="task.item.id" v-bind:itemType="task.itemType"
         v-bind:item="task.item" v-bind:status="task.status">
       </ListItem>
-      <router-view></router-view>
     </div>
   </main>
 </template>
@@ -30,6 +29,11 @@ export default {
 components: {
   ListItem,
   Stub
+},
+computed: {
+  isStub: function() {
+    return !this.list || this.list.length === 0
+  }
 },
   methods: {
     changeActivePage(key) {
