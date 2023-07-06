@@ -61,22 +61,26 @@ const routes = [
         name: 'UsersPage',
         component: UsersPage,
         beforeEnter: (to, from, next) => {
-            if(!localStorage.getItem('Auth') || localStorage.getItem('Auth')  === 'false') {
-              next({name: 'BaseAuth'})
-            } else {
-              next()
-            }
+          next({name: 'BaseAuth'})
+          // next({name: 'BaseAuth', params: { nextUrl: to.fullPath }},)
+          // if (localStorage.getItem('Auth')  === 'true') {
+          //   console.log('ага');
+          // }
+          // console.log(to.fullPath);
+          // console.log(from.query);
+          // console.log(next.query);
+
+            // if(!localStorage.getItem('Auth') || localStorage.getItem('Auth')  === 'false') {
+            //   next({name: 'BaseAuth'}, )
+            // } else {
+            //   next()
+            // }
           }
       },
       {
         path: '/profile',
         name: 'ProfilePage',
         component: ProfilePage,
-      },
-      {
-        path: '*',
-        name: 'NotFound',
-        component: NotFound
       },
     ]
   },
@@ -85,6 +89,11 @@ const routes = [
     path: '/login',
     name: 'BaseAuth',
     component: AuthLayout,
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: NotFound
   },
 ]
 

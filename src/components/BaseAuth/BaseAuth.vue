@@ -28,6 +28,7 @@
       login: function() {
         if (localStorage.getItem('Auth')  === 'false' || !localStorage.getItem('Auth')) {
           localStorage.setItem('Auth', true);
+          this.$router.push({ path: this.$route.params.nextUrl });
         } else {
           localStorage.setItem('Auth', false);
         }
