@@ -14,13 +14,7 @@
     </BaseIcon>
     <ul v-show="isActive" class="dropdown__list">
       <li v-for="item in list" v-bind:key="item.name">
-        <router-link v-bind:to="item.link" v-bind:class="setClass(item.name)">{{ item.name }}</router-link>
-        <!-- <BaseButton 
-          v-bind:text="item.name"
-          v-bind:link="item.link"
-          v-bind:dropdownItemStyle="setClass(item)"
-          v-on:setPage="changeActivePage($event)">
-        </BaseButton> -->
+        <router-link v-bind:to="item.link" v-bind:class="item.subClass">{{ item.name }}</router-link>
       </li>
     </ul>
   </button>
@@ -30,8 +24,6 @@
 import Vue from 'vue'
 import vClickOutside from 'v-click-outside'
 Vue.use(vClickOutside)
-
-const baseClass = 'dropdown__item';
 
 export default {
   props: { 
@@ -60,15 +52,6 @@ export default {
   },
   
   methods: {
-    setClass: function(item) {
-      switch (item) {
-        case 'Удалить':
-          return [`${baseClass} ${baseClass}_delete`]
-        default:
-          return [`${baseClass}`]
-      }
-    },
-
     setActive: function (e) {
       this.isActive = !this.isActive;
         let button;
