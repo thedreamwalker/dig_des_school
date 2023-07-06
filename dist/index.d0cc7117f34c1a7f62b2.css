@@ -1357,6 +1357,9 @@ form {
   width: 720px;
   padding: 32px 24px 24px 24px;
 }
+form.invalid input:invalid, form.invalid textarea:invalid, form.invalid select:invalid {
+  border: 1px solid #EE4222;
+}
 .inner-content__buttons {
   display: flex;
   justify-content: end;
@@ -1613,9 +1616,6 @@ input::placeholder {
   font-size: 14px;
   letter-spacing: normal;
   color: #D9D9D9;
-}
-input:invalid {
-  border: 1px solid #EE4222;
 }
 .form__icon {
   position: absolute;
@@ -2789,9 +2789,6 @@ select {
   border-radius: 4px;
   appearance: none;
 }
-select:invalid {
-  border: 1px solid #EE4222;
-}
 select option:disabled {
   color: #8E8E8E;
 }
@@ -3033,9 +3030,6 @@ textarea {
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-}
-textarea:invalid {
-  border: 1px solid #EE4222;
 }
 textarea::placeholder {
   font-size: 14px;
