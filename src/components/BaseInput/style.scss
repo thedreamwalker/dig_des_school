@@ -27,11 +27,6 @@ input {
     letter-spacing: normal;
     color: $font-placeholder;
   }
-
-  &:required,
-  &:invalid {
-    border: 1px solid $border-error;
-  }
 }
 
 .form__icon {

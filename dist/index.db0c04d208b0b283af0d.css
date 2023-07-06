@@ -766,748 +766,6 @@ b {
 .profile .profile__about span {
   color: #8E8E8E;
 }
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseInput/style.scss?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************/
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-* {
-  box-sizing: border-box;
-}
-ul,
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-  padding: 0;
-}
-img {
-  display: flex;
-}
-input, textarea, select, button {
-  font-family: "Open Sans";
-  font-size: inherit;
-  line-height: inherit;
-}
-button {
-  position: relative;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-button:disabled {
-  cursor: not-allowed;
-}
-body {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  height: 100vh;
-  margin: 0;
-}
-#app {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-main {
-  padding: 24px;
-  flex-grow: 2;
-}
-h1 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 54px;
-}
-h2 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 33px;
-}
-b {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-}
-.button_primary {
-  background-color: #1F75CB;
-  color: #FFFFFF;
-  border-radius: 4px;
-  border: none;
-  padding: 11px 15px;
-}
-.button_primary:hover {
-  background-color: #1068BF;
-}
-.button_primary:active {
-  background-color: #0B5CAD;
-}
-.button_primary:disabled {
-  background-color: #DCDCDE;
-  color: #8E8E8E;
-}
-.button_secondary {
-  background-color: #FFFFFF;
-  font-size: inherit;
-  line-height: inherit;
-  color: #1C1C1C;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 11px 15px;
-}
-.button_secondary:hover {
-  background-color: #ECECEF;
-  border: 1px solid rgba(18, 19, 22, 0.5);
-}
-.button_secondary:active {
-  background-color: #DCDCDE;
-  border: 1px solid #1C1C1C;
-}
-.button_secondary:disabled {
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  color: #8E8E8E;
-}
-.button_primary.button_small,
-.button_secondary.button_small {
-  position: relative;
-  padding: 9px;
-}
-.button_primary.button_small:disabled,
-.button_secondary.button_small:disabled {
-  cursor: not-allowed;
-}
-.button_primary.button_small .button__icon,
-.button_secondary.button_small .button__icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.button_primary.button_small:disabled .button__icon svg,
-.button_secondary.button_small:disabled .button__icon svg {
-  color: #8E8E8E;
-}
-.button_primary.button_small .button__icon svg {
-  color: #FFFFFF;
-}
-.button_primary.button_small.active {
-  background-color: #0B5CAD;
-}
-.button_secondary.button_small:hover.active {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-.button_secondary.button_small.active {
-  background-color: #DCDCDE;
-}
-.dropdown__list {
-  position: absolute;
-  right: 0;
-  bottom: -89px;
-  padding: 8px 0;
-  background-color: #FFFFFF;
-  color: #1C1C1C;
-  list-style: none;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  cursor: default;
-}
-.dropdown__list .dropdown__item {
-  width: 100%;
-  padding: 8px 16px;
-  background-color: transparent;
-  border: none;
-}
-.dropdown__list .dropdown__item.dropdown__item_delete {
-  color: #EE4222;
-}
-.dropdown__list .dropdown__item:hover {
-  background-color: #ECECEF;
-}
-.dropdown__list {
-  z-index: 1;
-}
-.api-buttons {
-  margin: 30px;
-}
-.api-buttons__row {
-  display: flex;
-  gap: 15px;
-  margin: 30px 0;
-}
-.status {
-  padding: 0px 8px;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 4px;
-}
-.status_in-work {
-  background-color: #9E6955;
-}
-.status_done,
-.status_active {
-  background-color: #1F75CB;
-}
-.status_error {
-  background-color: #EE4222;
-}
-.status_inactive {
-  background-color: #8E8E8E;
-}
-.input__container {
-  position: relative;
-  display: flex;
-  gap: 8px;
-}
-label {
-  display: inline-block;
-  width: 120px;
-}
-label span {
-  color: #EE4222;
-}
-input {
-  width: 100%;
-  padding: 10px 12px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-}
-input::placeholder {
-  font-size: 14px;
-  letter-spacing: normal;
-  color: #D9D9D9;
-}
-input:required, input:invalid {
-  border: 1px solid #EE4222;
-}
-.form__icon {
-  position: absolute;
-  right: 0;
-}
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseTextarea/style.scss?vue&type=style&index=0&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************/
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-* {
-  box-sizing: border-box;
-}
-ul,
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-  padding: 0;
-}
-img {
-  display: flex;
-}
-input, textarea, select, button {
-  font-family: "Open Sans";
-  font-size: inherit;
-  line-height: inherit;
-}
-button {
-  position: relative;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-button:disabled {
-  cursor: not-allowed;
-}
-body {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  height: 100vh;
-  margin: 0;
-}
-#app {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-main {
-  padding: 24px;
-  flex-grow: 2;
-}
-h1 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 54px;
-}
-h2 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 33px;
-}
-b {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-}
-.button_primary {
-  background-color: #1F75CB;
-  color: #FFFFFF;
-  border-radius: 4px;
-  border: none;
-  padding: 11px 15px;
-}
-.button_primary:hover {
-  background-color: #1068BF;
-}
-.button_primary:active {
-  background-color: #0B5CAD;
-}
-.button_primary:disabled {
-  background-color: #DCDCDE;
-  color: #8E8E8E;
-}
-.button_secondary {
-  background-color: #FFFFFF;
-  font-size: inherit;
-  line-height: inherit;
-  color: #1C1C1C;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 11px 15px;
-}
-.button_secondary:hover {
-  background-color: #ECECEF;
-  border: 1px solid rgba(18, 19, 22, 0.5);
-}
-.button_secondary:active {
-  background-color: #DCDCDE;
-  border: 1px solid #1C1C1C;
-}
-.button_secondary:disabled {
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  color: #8E8E8E;
-}
-.button_primary.button_small,
-.button_secondary.button_small {
-  position: relative;
-  padding: 9px;
-}
-.button_primary.button_small:disabled,
-.button_secondary.button_small:disabled {
-  cursor: not-allowed;
-}
-.button_primary.button_small .button__icon,
-.button_secondary.button_small .button__icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.button_primary.button_small:disabled .button__icon svg,
-.button_secondary.button_small:disabled .button__icon svg {
-  color: #8E8E8E;
-}
-.button_primary.button_small .button__icon svg {
-  color: #FFFFFF;
-}
-.button_primary.button_small.active {
-  background-color: #0B5CAD;
-}
-.button_secondary.button_small:hover.active {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-.button_secondary.button_small.active {
-  background-color: #DCDCDE;
-}
-.dropdown__list {
-  position: absolute;
-  right: 0;
-  bottom: -89px;
-  padding: 8px 0;
-  background-color: #FFFFFF;
-  color: #1C1C1C;
-  list-style: none;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  cursor: default;
-}
-.dropdown__list .dropdown__item {
-  width: 100%;
-  padding: 8px 16px;
-  background-color: transparent;
-  border: none;
-}
-.dropdown__list .dropdown__item.dropdown__item_delete {
-  color: #EE4222;
-}
-.dropdown__list .dropdown__item:hover {
-  background-color: #ECECEF;
-}
-.dropdown__list {
-  z-index: 1;
-}
-.api-buttons {
-  margin: 30px;
-}
-.api-buttons__row {
-  display: flex;
-  gap: 15px;
-  margin: 30px 0;
-}
-.status {
-  padding: 0px 8px;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 4px;
-}
-.status_in-work {
-  background-color: #9E6955;
-}
-.status_done,
-.status_active {
-  background-color: #1F75CB;
-}
-.status_error {
-  background-color: #EE4222;
-}
-.status_inactive {
-  background-color: #8E8E8E;
-}
-.textaria__container {
-  display: flex;
-  gap: 8px;
-}
-label {
-  display: inline-block;
-  min-width: 120px;
-}
-label span {
-  color: #EE4222;
-}
-textarea {
-  width: 100%;
-  height: 120px;
-  padding: 10px 12px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-}
-textarea:required, textarea:invalid {
-  border: 1px solid #EE4222;
-}
-textarea::placeholder {
-  font-size: 14px;
-  color: #D9D9D9;
-}
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseSelect/style.scss?vue&type=style&index=0&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************/
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-* {
-  box-sizing: border-box;
-}
-ul,
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-  padding: 0;
-}
-img {
-  display: flex;
-}
-input, textarea, select, button {
-  font-family: "Open Sans";
-  font-size: inherit;
-  line-height: inherit;
-}
-button {
-  position: relative;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-button:disabled {
-  cursor: not-allowed;
-}
-body {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  height: 100vh;
-  margin: 0;
-}
-#app {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-main {
-  padding: 24px;
-  flex-grow: 2;
-}
-h1 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 54px;
-}
-h2 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 33px;
-}
-b {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-}
-.button_primary {
-  background-color: #1F75CB;
-  color: #FFFFFF;
-  border-radius: 4px;
-  border: none;
-  padding: 11px 15px;
-}
-.button_primary:hover {
-  background-color: #1068BF;
-}
-.button_primary:active {
-  background-color: #0B5CAD;
-}
-.button_primary:disabled {
-  background-color: #DCDCDE;
-  color: #8E8E8E;
-}
-.button_secondary {
-  background-color: #FFFFFF;
-  font-size: inherit;
-  line-height: inherit;
-  color: #1C1C1C;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 11px 15px;
-}
-.button_secondary:hover {
-  background-color: #ECECEF;
-  border: 1px solid rgba(18, 19, 22, 0.5);
-}
-.button_secondary:active {
-  background-color: #DCDCDE;
-  border: 1px solid #1C1C1C;
-}
-.button_secondary:disabled {
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  color: #8E8E8E;
-}
-.button_primary.button_small,
-.button_secondary.button_small {
-  position: relative;
-  padding: 9px;
-}
-.button_primary.button_small:disabled,
-.button_secondary.button_small:disabled {
-  cursor: not-allowed;
-}
-.button_primary.button_small .button__icon,
-.button_secondary.button_small .button__icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.button_primary.button_small:disabled .button__icon svg,
-.button_secondary.button_small:disabled .button__icon svg {
-  color: #8E8E8E;
-}
-.button_primary.button_small .button__icon svg {
-  color: #FFFFFF;
-}
-.button_primary.button_small.active {
-  background-color: #0B5CAD;
-}
-.button_secondary.button_small:hover.active {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-.button_secondary.button_small.active {
-  background-color: #DCDCDE;
-}
-.dropdown__list {
-  position: absolute;
-  right: 0;
-  bottom: -89px;
-  padding: 8px 0;
-  background-color: #FFFFFF;
-  color: #1C1C1C;
-  list-style: none;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  cursor: default;
-}
-.dropdown__list .dropdown__item {
-  width: 100%;
-  padding: 8px 16px;
-  background-color: transparent;
-  border: none;
-}
-.dropdown__list .dropdown__item.dropdown__item_delete {
-  color: #EE4222;
-}
-.dropdown__list .dropdown__item:hover {
-  background-color: #ECECEF;
-}
-.dropdown__list {
-  z-index: 1;
-}
-.api-buttons {
-  margin: 30px;
-}
-.api-buttons__row {
-  display: flex;
-  gap: 15px;
-  margin: 30px 0;
-}
-.status {
-  padding: 0px 8px;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 4px;
-}
-.status_in-work {
-  background-color: #9E6955;
-}
-.status_done,
-.status_active {
-  background-color: #1F75CB;
-}
-.status_error {
-  background-color: #EE4222;
-}
-.status_inactive {
-  background-color: #8E8E8E;
-}
-.select__container {
-  display: flex;
-  gap: 8px;
-}
-label {
-  display: inline-block;
-  min-width: 120px;
-}
-label span {
-  color: #EE4222;
-}
-select {
-  width: 100%;
-  padding: 10px 12px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  appearance: none;
-}
-select:required, select:invalid {
-  border: 1px solid #EE4222;
-}
-select option:disabled {
-  color: #8E8E8E;
-}
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/InnerPageContent/style.scss?vue&type=style&index=0&lang=css& ***!
   \*******************************************************************************************************************************************************************************************************************************/
@@ -1758,6 +1016,257 @@ form {
   margin-top: auto;
   padding: 34px 10px 10px 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseInput/style.scss?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+ul,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: flex;
+}
+input, textarea, select, button {
+  font-family: "Open Sans";
+  font-size: inherit;
+  line-height: inherit;
+}
+button {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+body {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  height: 100vh;
+  margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  padding: 24px;
+  flex-grow: 2;
+}
+h1 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 54px;
+}
+h2 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
+}
+b {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+}
+.button_primary {
+  background-color: #1F75CB;
+  color: #FFFFFF;
+  border-radius: 4px;
+  border: none;
+  padding: 11px 15px;
+}
+.button_primary:hover {
+  background-color: #1068BF;
+}
+.button_primary:active {
+  background-color: #0B5CAD;
+}
+.button_primary:disabled {
+  background-color: #DCDCDE;
+  color: #8E8E8E;
+}
+.button_secondary {
+  background-color: #FFFFFF;
+  font-size: inherit;
+  line-height: inherit;
+  color: #1C1C1C;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 11px 15px;
+}
+.button_secondary:hover {
+  background-color: #ECECEF;
+  border: 1px solid rgba(18, 19, 22, 0.5);
+}
+.button_secondary:active {
+  background-color: #DCDCDE;
+  border: 1px solid #1C1C1C;
+}
+.button_secondary:disabled {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #8E8E8E;
+}
+.button_primary.button_small,
+.button_secondary.button_small {
+  position: relative;
+  padding: 9px;
+}
+.button_primary.button_small:disabled,
+.button_secondary.button_small:disabled {
+  cursor: not-allowed;
+}
+.button_primary.button_small .button__icon,
+.button_secondary.button_small .button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_primary.button_small:disabled .button__icon svg,
+.button_secondary.button_small:disabled .button__icon svg {
+  color: #8E8E8E;
+}
+.button_primary.button_small .button__icon svg {
+  color: #FFFFFF;
+}
+.button_primary.button_small.active {
+  background-color: #0B5CAD;
+}
+.button_secondary.button_small:hover.active {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.button_secondary.button_small.active {
+  background-color: #DCDCDE;
+}
+.dropdown__list {
+  position: absolute;
+  right: 0;
+  bottom: -89px;
+  padding: 8px 0;
+  background-color: #FFFFFF;
+  color: #1C1C1C;
+  list-style: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  cursor: default;
+}
+.dropdown__list .dropdown__item {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: none;
+}
+.dropdown__list .dropdown__item.dropdown__item_delete {
+  color: #EE4222;
+}
+.dropdown__list .dropdown__item:hover {
+  background-color: #ECECEF;
+}
+.dropdown__list {
+  z-index: 1;
+}
+.api-buttons {
+  margin: 30px;
+}
+.api-buttons__row {
+  display: flex;
+  gap: 15px;
+  margin: 30px 0;
+}
+.status {
+  padding: 0px 8px;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+}
+.status_in-work {
+  background-color: #9E6955;
+}
+.status_done,
+.status_active {
+  background-color: #1F75CB;
+}
+.status_error {
+  background-color: #EE4222;
+}
+.status_inactive {
+  background-color: #8E8E8E;
+}
+.input__container {
+  position: relative;
+  display: flex;
+  gap: 8px;
+}
+label {
+  display: inline-block;
+  width: 120px;
+}
+label span {
+  color: #EE4222;
+}
+input {
+  width: 100%;
+  padding: 10px 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+input::placeholder {
+  font-size: 14px;
+  letter-spacing: normal;
+  color: #D9D9D9;
+}
+input:invalid {
+  border: 1px solid #EE4222;
+}
+.form__icon {
+  position: absolute;
+  right: 0;
 }
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseNavigation/style.scss?vue&type=style&index=0&lang=css& ***!
@@ -2040,4 +1549,495 @@ b {
   width: 24px;
   height: 24px;
   border-radius: 50%;
+}
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseSelect/style.scss?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+ul,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: flex;
+}
+input, textarea, select, button {
+  font-family: "Open Sans";
+  font-size: inherit;
+  line-height: inherit;
+}
+button {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+body {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  height: 100vh;
+  margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  padding: 24px;
+  flex-grow: 2;
+}
+h1 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 54px;
+}
+h2 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
+}
+b {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+}
+.button_primary {
+  background-color: #1F75CB;
+  color: #FFFFFF;
+  border-radius: 4px;
+  border: none;
+  padding: 11px 15px;
+}
+.button_primary:hover {
+  background-color: #1068BF;
+}
+.button_primary:active {
+  background-color: #0B5CAD;
+}
+.button_primary:disabled {
+  background-color: #DCDCDE;
+  color: #8E8E8E;
+}
+.button_secondary {
+  background-color: #FFFFFF;
+  font-size: inherit;
+  line-height: inherit;
+  color: #1C1C1C;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 11px 15px;
+}
+.button_secondary:hover {
+  background-color: #ECECEF;
+  border: 1px solid rgba(18, 19, 22, 0.5);
+}
+.button_secondary:active {
+  background-color: #DCDCDE;
+  border: 1px solid #1C1C1C;
+}
+.button_secondary:disabled {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #8E8E8E;
+}
+.button_primary.button_small,
+.button_secondary.button_small {
+  position: relative;
+  padding: 9px;
+}
+.button_primary.button_small:disabled,
+.button_secondary.button_small:disabled {
+  cursor: not-allowed;
+}
+.button_primary.button_small .button__icon,
+.button_secondary.button_small .button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_primary.button_small:disabled .button__icon svg,
+.button_secondary.button_small:disabled .button__icon svg {
+  color: #8E8E8E;
+}
+.button_primary.button_small .button__icon svg {
+  color: #FFFFFF;
+}
+.button_primary.button_small.active {
+  background-color: #0B5CAD;
+}
+.button_secondary.button_small:hover.active {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.button_secondary.button_small.active {
+  background-color: #DCDCDE;
+}
+.dropdown__list {
+  position: absolute;
+  right: 0;
+  bottom: -89px;
+  padding: 8px 0;
+  background-color: #FFFFFF;
+  color: #1C1C1C;
+  list-style: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  cursor: default;
+}
+.dropdown__list .dropdown__item {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: none;
+}
+.dropdown__list .dropdown__item.dropdown__item_delete {
+  color: #EE4222;
+}
+.dropdown__list .dropdown__item:hover {
+  background-color: #ECECEF;
+}
+.dropdown__list {
+  z-index: 1;
+}
+.api-buttons {
+  margin: 30px;
+}
+.api-buttons__row {
+  display: flex;
+  gap: 15px;
+  margin: 30px 0;
+}
+.status {
+  padding: 0px 8px;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+}
+.status_in-work {
+  background-color: #9E6955;
+}
+.status_done,
+.status_active {
+  background-color: #1F75CB;
+}
+.status_error {
+  background-color: #EE4222;
+}
+.status_inactive {
+  background-color: #8E8E8E;
+}
+.select__container {
+  display: flex;
+  gap: 8px;
+}
+label {
+  display: inline-block;
+  min-width: 120px;
+}
+label span {
+  color: #EE4222;
+}
+select {
+  width: 100%;
+  padding: 10px 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  appearance: none;
+}
+select:invalid {
+  border: 1px solid #EE4222;
+}
+select option:disabled {
+  color: #8E8E8E;
+}
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseTextarea/style.scss?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+ul,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: flex;
+}
+input, textarea, select, button {
+  font-family: "Open Sans";
+  font-size: inherit;
+  line-height: inherit;
+}
+button {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+body {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  height: 100vh;
+  margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  padding: 24px;
+  flex-grow: 2;
+}
+h1 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 54px;
+}
+h2 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
+}
+b {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+}
+.button_primary {
+  background-color: #1F75CB;
+  color: #FFFFFF;
+  border-radius: 4px;
+  border: none;
+  padding: 11px 15px;
+}
+.button_primary:hover {
+  background-color: #1068BF;
+}
+.button_primary:active {
+  background-color: #0B5CAD;
+}
+.button_primary:disabled {
+  background-color: #DCDCDE;
+  color: #8E8E8E;
+}
+.button_secondary {
+  background-color: #FFFFFF;
+  font-size: inherit;
+  line-height: inherit;
+  color: #1C1C1C;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 11px 15px;
+}
+.button_secondary:hover {
+  background-color: #ECECEF;
+  border: 1px solid rgba(18, 19, 22, 0.5);
+}
+.button_secondary:active {
+  background-color: #DCDCDE;
+  border: 1px solid #1C1C1C;
+}
+.button_secondary:disabled {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #8E8E8E;
+}
+.button_primary.button_small,
+.button_secondary.button_small {
+  position: relative;
+  padding: 9px;
+}
+.button_primary.button_small:disabled,
+.button_secondary.button_small:disabled {
+  cursor: not-allowed;
+}
+.button_primary.button_small .button__icon,
+.button_secondary.button_small .button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_primary.button_small:disabled .button__icon svg,
+.button_secondary.button_small:disabled .button__icon svg {
+  color: #8E8E8E;
+}
+.button_primary.button_small .button__icon svg {
+  color: #FFFFFF;
+}
+.button_primary.button_small.active {
+  background-color: #0B5CAD;
+}
+.button_secondary.button_small:hover.active {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.button_secondary.button_small.active {
+  background-color: #DCDCDE;
+}
+.dropdown__list {
+  position: absolute;
+  right: 0;
+  bottom: -89px;
+  padding: 8px 0;
+  background-color: #FFFFFF;
+  color: #1C1C1C;
+  list-style: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  cursor: default;
+}
+.dropdown__list .dropdown__item {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: none;
+}
+.dropdown__list .dropdown__item.dropdown__item_delete {
+  color: #EE4222;
+}
+.dropdown__list .dropdown__item:hover {
+  background-color: #ECECEF;
+}
+.dropdown__list {
+  z-index: 1;
+}
+.api-buttons {
+  margin: 30px;
+}
+.api-buttons__row {
+  display: flex;
+  gap: 15px;
+  margin: 30px 0;
+}
+.status {
+  padding: 0px 8px;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+}
+.status_in-work {
+  background-color: #9E6955;
+}
+.status_done,
+.status_active {
+  background-color: #1F75CB;
+}
+.status_error {
+  background-color: #EE4222;
+}
+.status_inactive {
+  background-color: #8E8E8E;
+}
+.textaria__container {
+  display: flex;
+  gap: 8px;
+}
+label {
+  display: inline-block;
+  min-width: 120px;
+}
+label span {
+  color: #EE4222;
+}
+textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+textarea:invalid {
+  border: 1px solid #EE4222;
+}
+textarea::placeholder {
+  font-size: 14px;
+  color: #D9D9D9;
 }

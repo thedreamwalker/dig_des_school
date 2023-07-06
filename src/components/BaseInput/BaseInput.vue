@@ -19,7 +19,10 @@ export default {
   props: {
     name: String,
     label: String,
-    placeholder: String,
+    placeholder: {
+      type: String,
+      default: 'Введите текст...'
+    },
     typeIcon: String,
     isRequire: Boolean,
   },
@@ -41,7 +44,7 @@ export default {
 
   computed: {
     setPlaceholder: function() {
-      return this.placeholder ? this.placeholder : 'Введите текст...';
+      return this.placeholder;
     }
   }
 }

@@ -3,7 +3,7 @@
       <h1 class="inner-content__title">
         {{ title }}
       </h1>
-      <form id="form" v-on:submit="send($event)">
+      <form novalidate id="form" v-on:submit="send($event)">
         <slot v-bind:saveData="saveData"></slot>
       </form>
       <div class="inner-content__buttons">
@@ -14,9 +14,6 @@
 </template>
 
 <script>
-  import BaseInput from '@/components/BaseInput/BaseInput.vue'
-  import BaseTextarea from '@/components/BaseTextarea/BaseTextarea.vue'
-  import BaseSelect from '@/components/BaseSelect/BaseSelect.vue'
 
   export default {
     props: {
@@ -25,16 +22,9 @@
     data() {
       return {
         model: {
-
         }
       }
     },
-
-    components: {
-      BaseInput,
-      BaseTextarea,
-      BaseSelect
-  },
 
   methods: {
     saveData: function(data) {
@@ -43,8 +33,15 @@
 
    send: function(e) {
     e.preventDefault();
-    console.log(this.model);
-    document.querySelector('form').reset();
+    if (!e.target.checkValidity()) {
+      e.target.classList.add('invalid');
+    } else {
+      if (e.target.classList.contains('invalid')) {
+        e.target.classList.remove('invalid');
+      }
+      console.log(this.model);
+      document.querySelector('form').reset();
+    }
    },
 
    reset: function() {

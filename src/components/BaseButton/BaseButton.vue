@@ -67,7 +67,7 @@ export default {
           button.classList.remove('active');
         }
 
-        if (this.text && this.text !== 'Выход') {
+        if (this.text) {
           this.changeActivePage(this.text);
         }
 
