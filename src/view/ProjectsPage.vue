@@ -1,10 +1,12 @@
 <template>
   <main>
-    <Stub v-if="list.length === 0" v-bind:type="'project'"></Stub>
-    <div class="items__container">
+    <Stub v-if="isStub" v-bind:text="'Не создан ни один проект'" v-bind:textButton="'Создать проект'"></Stub>
+    <template v-else>
+      <div class="items__container">
       <ListItem v-for="project in list" v-bind:key="project.item.code" v-bind:itemType="project.itemType"
         v-bind:item="project.item"></ListItem>
     </div>
+    </template>
   </main>
 </template>
 
@@ -27,5 +29,10 @@ export default {
     ListItem,
     Stub
   },
+  computed: {
+  isStub: function() {
+    return !this.list || this.list.length === 0
+  }
+},
 }
 </script>

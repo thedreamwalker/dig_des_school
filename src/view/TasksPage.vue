@@ -1,17 +1,19 @@
 <template>
   <main>
-    <Stub v-if="list.length === 0" v-bind:type="'task'"></Stub>
-    <div class="items__container">
-    <BaseButton
-    v-bind:color="'secondary'"
-    v-bind:text="'Создать задачу'"
-    v-on:setPage="changeActivePage($event)">
-    </BaseButton>
-    <Stub v-if="list.length === 0" v-bind:type="'task'"></Stub>
-    <ListItem v-for="task in list" v-bind:key="task.item.code" v-bind:itemType="task.itemType"
-      v-bind:item="task.item" v-bind:status="task.status">
-    </ListItem>
-    </div>
+    <Stub v-if="isStub" v-bind:text="'Не создана ни одна задача'" v-bind:textButton="'Создать задачу'"></Stub>
+    <template v-else>
+      <div class="items__container">
+        <BaseButton
+        v-bind:color="'secondary'"
+        v-bind:text="'Создать задачу'"
+        v-on:setPage="changeActivePage($event)">
+        </BaseButton>
+        <ListItem v-for="task in list" v-bind:key="task.item.code" v-bind:itemType="task.itemType"
+          v-bind:item="task.item" v-bind:status="task.status">
+        </ListItem>
+      </div>
+    </template>
+    
   </main>
 </template>
 
@@ -32,6 +34,11 @@ export default {
 components: {
   ListItem,
   Stub
+},
+computed: {
+  isStub: function() {
+    return !this.list || this.list.length === 0
+  }
 },
   methods: {
     changeActivePage(key) {
