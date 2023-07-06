@@ -9,7 +9,7 @@
     <div class="profile__detail">
       <div class="profile__name">
         <h2>{{name}}</h2>
-        <p class="status" v-bind:class="setStatus">{{setStatusText}}</p>
+        <BaseStatus v-bind:status="'ACTIVE'" v-bind:type="'user'"></BaseStatus>
       </div>
       <div class="profile__about">
         <p><span>О себе:</span></p>
@@ -27,21 +27,6 @@ export default {
     name: String,
     about: String,
   },
-  
-  data() {
-    return {
-      isOnline: false,
-    }
-  },
-
-  computed: {
-    setStatus: function() {
-      return this.isOnline ? 'status_active' : 'status_inactive';
-    },
-    setStatusText: function() {
-      return this.isOnline ? 'Активен' : 'Не активен';
-    }
-  }
 }
 </script>
 
