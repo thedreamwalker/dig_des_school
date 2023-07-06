@@ -13,10 +13,10 @@
       v-bind:parent="parent">
     </BaseIcon>
     <ul v-show="isActive" class="dropdown__list">
-      <li v-for="item in list" v-bind:key="item">
+      <li v-for="item in list" v-bind:key="item.name">
         <BaseButton 
-          v-bind:text="item"
-          v-bind:dropdownItemStyle="setClass(item)"
+          v-bind:text="item.name"
+          v-bind:dropdownItemStyle="item.subClass"
           v-on:setPage="changeActivePage($event)">
         </BaseButton>
       </li>
@@ -28,8 +28,6 @@
 import Vue from 'vue'
 import vClickOutside from 'v-click-outside'
 Vue.use(vClickOutside)
-
-const baseClass = 'dropdown__item';
 
 export default {
   props: { 
@@ -52,21 +50,12 @@ export default {
       return {
         button_primary: this.color === 'primary',
         button_secondary: this.color === 'secondary',
-        button_small: this.parent === 'item'
+        button_small: this.parent === 'item',
       }
     },
   },
   
   methods: {
-    setClass: function(item) {
-      switch (item) {
-        case 'Удалить':
-          return [`${baseClass} ${baseClass}_delete`]
-        default:
-          return [`${baseClass}`]
-      }
-    },
-
     setActive: function (e) {
       this.isActive = !this.isActive;
         let button;

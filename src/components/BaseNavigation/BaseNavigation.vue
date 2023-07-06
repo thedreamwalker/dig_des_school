@@ -3,7 +3,7 @@
     <ul class="navigation__list">
       <li class="navigation__item"
         v-for="item in list" 
-        v-bind:key="item">
+        v-bind:key="item.name">
         <BaseButton 
           v-bind:color="'primary'"
           v-bind:text="item"
@@ -16,7 +16,7 @@
       v-bind:color="'primary'"
       v-bind:parent="'navigation'"
       v-bind:typeIcon="'drop_down'"
-      v-bind:list="['Профиль', 'Выход']"
+      v-bind:list="[{name: 'Профиль'}, {name: 'Выход'}]"
       v-on:setPage="changeActivePage($event)">
       <img class="navigation__avatar"  
       src="@/assets/img/user-item.jpg" 

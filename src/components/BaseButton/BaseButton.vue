@@ -2,7 +2,7 @@
   <button 
     v-on:click="clickElement($event)" 
     v-click-outside="onClickOutside"
-    v-bind:class="[{[dropdownItemStyle]: dropdownItemStyle}, buttonStyle]">
+    v-bind:class="[{[setClass]: setClass}, buttonStyle]">
     <slot>
     </slot>
     {{text}}
@@ -20,10 +20,12 @@ import Vue from 'vue'
 import vClickOutside from 'v-click-outside'
 Vue.use(vClickOutside)
 
+const baseClass = 'dropdown__item';
+
 export default {
   props: {
     color: String,
-    dropdownItemStyle: Array,
+    dropdownItemStyle: String,
     text: String,
     typeIcon: String,
     iconSize: Object,
@@ -42,6 +44,11 @@ export default {
         button_small: this.parent === 'item'
       }
     },
+
+    setClass: function() {
+      return this.dropdownItemStyle ? [`${baseClass} ${baseClass}_${this.dropdownItemStyle}`] : [`${baseClass}`];
+    },
+    
   },
   methods: {
     setActive: function (e) {

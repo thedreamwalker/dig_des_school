@@ -12,7 +12,7 @@
         <p class="item__last-change">{{ item.change }}</p>
       </div>
     </div>
-    <BaseDropdown v-bind:typeIcon="'dots'" v-bind:parent="'item'" v-bind:color="'secondary'" v-bind:list="['Редактировать', 'Удалить']"></BaseDropdown>
+    <BaseDropdown v-bind:typeIcon="'dots'" v-bind:parent="'item'" v-bind:color="'secondary'" v-bind:list="[{name: 'Редактировать'}, {name: 'Удалить', subClass: 'delete'}]"></BaseDropdown>
   </div>
 </template>
 
