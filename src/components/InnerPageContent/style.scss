@@ -26,6 +26,13 @@ form {
   gap: 24px;
   width: 720px;
   padding: 32px 24px 24px 24px;
+
+  &.invalid input:invalid,
+  &.invalid textarea:invalid,
+  &.invalid select:invalid
+  {
+    border: 1px solid $border-error;
+  }
   
 }
 
