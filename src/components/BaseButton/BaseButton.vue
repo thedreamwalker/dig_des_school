@@ -25,7 +25,6 @@ const baseClass = 'dropdown__item';
 export default {
   props: {
     color: String,
-    dropdownItemStyle: String,
     text: String,
     typeIcon: String,
     iconSize: Object,
@@ -45,11 +44,6 @@ export default {
         button_small: this.parent === 'item'
       }
     },
-
-    setClass: function() {
-      return this.dropdownItemStyle ? [`${baseClass} ${baseClass}_${this.dropdownItemStyle}`] : [`${baseClass}`];
-    },
-    
   },
   methods: {
     setActive: function (e) {
