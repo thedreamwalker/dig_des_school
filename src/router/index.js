@@ -60,22 +60,13 @@ const routes = [
         path: '/users',
         name: 'UsersPage',
         component: UsersPage,
-        beforeEnter: (to, from, next) => {
-          next({name: 'BaseAuth'})
-          // next({name: 'BaseAuth', params: { nextUrl: to.fullPath }},)
-          // if (localStorage.getItem('Auth')  === 'true') {
-          //   console.log('ага');
-          // }
-          // console.log(to.fullPath);
-          // console.log(from.query);
-          // console.log(next.query);
-
-            // if(!localStorage.getItem('Auth') || localStorage.getItem('Auth')  === 'false') {
-            //   next({name: 'BaseAuth'}, )
-            // } else {
-            //   next()
-            // }
+        beforeEnter: ((to, from, next) => {
+          if((!localStorage.getItem('Auth') || localStorage.getItem('Auth')  === 'false') && to.name !== 'BaseAuth') {
+            next({name: 'BaseAuth', params: { nextUrl: to.fullPath }} )
+          } else {
+            next()
           }
+        })
       },
       {
         path: '/profile',
@@ -103,9 +94,11 @@ const router = new VueRouter({
   mode: 'history'
 })
 
+
+// код для всех страниц кроме аутентификации 
 // router.beforeEach((to, from, next) => {
-//   if(!localStorage.getItem('Auth')) {
-//     next(name: 'BaseAuth')
+//   if((!localStorage.getItem('Auth') || localStorage.getItem('Auth')  === 'false') && to.name !== 'BaseAuth') {
+//     next({name: 'BaseAuth', params: { nextUrl: to.fullPath }} )
 //   } else {
 //     next()
 //   }

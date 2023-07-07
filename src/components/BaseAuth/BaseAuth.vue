@@ -32,7 +32,6 @@
         } else {
           localStorage.setItem('Auth', false);
         }
-        
       }
     }
   }
