@@ -1,5 +1,5 @@
 <template>
   <main>
-    <BaseStub></BaseStub>
+    <BaseStub v-bind:title="'Ошибка 404'"></BaseStub>
   </main>
 </template>

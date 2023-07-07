@@ -36,7 +36,6 @@ export default {
     setStatusClass: function() {
       return taskStatusClass[this.item.status];
     },
-
   },
 }
 </script>

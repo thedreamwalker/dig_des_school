@@ -1,3 +1,322 @@
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/ListItem/style.scss?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+ul,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: flex;
+}
+input, textarea, select, button {
+  font-family: "Open Sans";
+  font-size: inherit;
+  line-height: inherit;
+}
+button,
+.dropdown__list a {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+button:disabled,
+.dropdown__list a:disabled {
+  cursor: not-allowed;
+}
+router-link {
+  display: block;
+}
+body {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  height: 100vh;
+  margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#app .layout-default {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+#app .layout-auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #DCDCDE;
+}
+main {
+  padding: 24px;
+  flex-grow: 2;
+}
+h1 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 54px;
+}
+h2 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
+}
+b {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+}
+.button_primary {
+  background-color: #1F75CB;
+  color: #FFFFFF;
+  border-radius: 4px;
+  border: none;
+  padding: 11px 15px;
+}
+.button_primary:hover {
+  background-color: #1068BF;
+}
+.button_primary:active {
+  background-color: #0B5CAD;
+}
+.button_primary:disabled {
+  background-color: #DCDCDE;
+  color: #8E8E8E;
+}
+.button_secondary {
+  background-color: #FFFFFF;
+  font-size: inherit;
+  line-height: inherit;
+  color: #1C1C1C;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 11px 15px;
+}
+.button_secondary:hover {
+  background-color: #ECECEF;
+  border: 1px solid rgba(18, 19, 22, 0.5);
+}
+.button_secondary:active {
+  background-color: #DCDCDE;
+  border: 1px solid #1C1C1C;
+}
+.button_secondary:disabled {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #8E8E8E;
+}
+.button_primary.button_small,
+.button_secondary.button_small {
+  position: relative;
+  padding: 9px;
+}
+.button_primary.button_small:disabled,
+.button_secondary.button_small:disabled {
+  cursor: not-allowed;
+}
+.button_primary.button_small .button__icon,
+.button_secondary.button_small .button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_primary.button_small:disabled .button__icon svg,
+.button_secondary.button_small:disabled .button__icon svg {
+  color: #8E8E8E;
+}
+.button_primary.button_small .button__icon svg {
+  color: #FFFFFF;
+}
+.button_primary.button_small.active {
+  background-color: #0B5CAD;
+}
+.button_secondary.button_small:hover.active {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.button_secondary.button_small.active {
+  background-color: #DCDCDE;
+}
+.dropdown__list {
+  position: absolute;
+  right: 0;
+  top: 43px;
+  max-width: 300px;
+  width: max-content;
+  padding: 8px 0;
+  background-color: #FFFFFF;
+  text-align: left;
+  color: #1C1C1C;
+  list-style: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  cursor: default;
+  z-index: 1;
+}
+.dropdown__list .dropdown__item {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #1C1C1C;
+  border: none;
+}
+.dropdown__list .dropdown__item.dropdown__item_delete {
+  color: #EE4222;
+}
+.dropdown__list .dropdown__item:hover {
+  background-color: #ECECEF;
+}
+.dropdown__list .dropdown__item .router-link-active {
+  color: #1C1C1C;
+}
+.status {
+  padding: 0px 8px;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+}
+.status_in-work {
+  background-color: #9E6955;
+}
+.status_done,
+.status_active {
+  background-color: #1F75CB;
+}
+.status_error {
+  background-color: #EE4222;
+}
+.status_inactive {
+  background-color: #8E8E8E;
+}
+.router__wrapper {
+  margin-bottom: 15px;
+}
+.router__wrapper a {
+  display: inline-block;
+}
+.item {
+  display: flex;
+  align-items: center;
+  padding: 0px 16px 8px;
+  gap: 16px;
+  border-bottom: 1px solid #1C1C1C;
+}
+.item .item__name a {
+  color: #1C1C1C;
+}
+.item .button_small {
+  display: none;
+}
+.item .button_small.active {
+  display: block;
+}
+.item:hover .button_small {
+  display: block;
+}
+@keyframes fade-out {
+0% {
+    opacity: 1;
+}
+100% {
+    opacity: 0;
+}
+}
+@keyframes fade-in {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+.items__container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.items__container button {
+  align-self: flex-start;
+}
+.item__container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+}
+.item__title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.item__avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+.item__details {
+  display: flex;
+  width: 100%;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.item__author,
+.item_last-change {
+  color: #8E8E8E;
+}
+.item__last-change {
+  margin-left: auto;
+}
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseProfile/style.scss?vue&type=style&index=0&lang=css& ***!
   \**************************************************************************************************************************************************************************************************************************/
@@ -269,826 +588,6 @@ b {
 .profile .profile__about span {
   color: #8E8E8E;
 }
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseInput/style.scss?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************/
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-Regular.ttf) format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-* {
-  box-sizing: border-box;
-}
-ul,
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-  padding: 0;
-}
-a {
-  text-decoration: none;
-}
-img {
-  display: flex;
-}
-input, textarea, select, button {
-  font-family: "Open Sans";
-  font-size: inherit;
-  line-height: inherit;
-}
-button,
-.dropdown__list a {
-  position: relative;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-button:disabled,
-.dropdown__list a:disabled {
-  cursor: not-allowed;
-}
-router-link {
-  display: block;
-}
-body {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  height: 100vh;
-  margin: 0;
-}
-#app {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-#app .layout-default {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
-#app .layout-auth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: #DCDCDE;
-}
-main {
-  padding: 24px;
-  flex-grow: 2;
-}
-h1 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 54px;
-}
-h2 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 33px;
-}
-b {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-}
-.button_primary {
-  background-color: #1F75CB;
-  color: #FFFFFF;
-  border-radius: 4px;
-  border: none;
-  padding: 11px 15px;
-}
-.button_primary:hover {
-  background-color: #1068BF;
-}
-.button_primary:active {
-  background-color: #0B5CAD;
-}
-.button_primary:disabled {
-  background-color: #DCDCDE;
-  color: #8E8E8E;
-}
-.button_secondary {
-  background-color: #FFFFFF;
-  font-size: inherit;
-  line-height: inherit;
-  color: #1C1C1C;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 11px 15px;
-}
-.button_secondary:hover {
-  background-color: #ECECEF;
-  border: 1px solid rgba(18, 19, 22, 0.5);
-}
-.button_secondary:active {
-  background-color: #DCDCDE;
-  border: 1px solid #1C1C1C;
-}
-.button_secondary:disabled {
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  color: #8E8E8E;
-}
-.button_primary.button_small,
-.button_secondary.button_small {
-  position: relative;
-  padding: 9px;
-}
-.button_primary.button_small:disabled,
-.button_secondary.button_small:disabled {
-  cursor: not-allowed;
-}
-.button_primary.button_small .button__icon,
-.button_secondary.button_small .button__icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.button_primary.button_small:disabled .button__icon svg,
-.button_secondary.button_small:disabled .button__icon svg {
-  color: #8E8E8E;
-}
-.button_primary.button_small .button__icon svg {
-  color: #FFFFFF;
-}
-.button_primary.button_small.active {
-  background-color: #0B5CAD;
-}
-.button_secondary.button_small:hover.active {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-.button_secondary.button_small.active {
-  background-color: #DCDCDE;
-}
-.dropdown__list {
-  position: absolute;
-  right: 0;
-  top: 43px;
-  max-width: 300px;
-  width: max-content;
-  padding: 8px 0;
-  background-color: #FFFFFF;
-  text-align: left;
-  color: #1C1C1C;
-  list-style: none;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  cursor: default;
-  z-index: 1;
-}
-.dropdown__list .dropdown__item {
-  width: 100%;
-  padding: 8px 16px;
-  background-color: transparent;
-  color: #1C1C1C;
-  border: none;
-}
-.dropdown__list .dropdown__item.dropdown__item_delete {
-  color: #EE4222;
-}
-.dropdown__list .dropdown__item:hover {
-  background-color: #ECECEF;
-}
-.dropdown__list .dropdown__item .router-link-active {
-  color: #1C1C1C;
-}
-.status {
-  padding: 0px 8px;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 4px;
-}
-.status_in-work {
-  background-color: #9E6955;
-}
-.status_done,
-.status_active {
-  background-color: #1F75CB;
-}
-.status_error {
-  background-color: #EE4222;
-}
-.status_inactive {
-  background-color: #8E8E8E;
-}
-.router__wrapper {
-  margin-bottom: 15px;
-}
-.router__wrapper a {
-  display: inline-block;
-}
-.input__container {
-  position: relative;
-  display: flex;
-  gap: 8px;
-}
-label {
-  display: inline-block;
-  width: 120px;
-}
-label span {
-  color: #EE4222;
-}
-input {
-  width: 100%;
-  padding: 10px 12px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-}
-input::placeholder {
-  font-size: 14px;
-  letter-spacing: normal;
-  color: #D9D9D9;
-}
-input:required, input:invalid {
-  border: 1px solid #EE4222;
-}
-.form__icon {
-  position: absolute;
-  right: 0;
-}
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseTextarea/style.scss?vue&type=style&index=0&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************/
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-Regular.ttf) format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-* {
-  box-sizing: border-box;
-}
-ul,
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-  padding: 0;
-}
-a {
-  text-decoration: none;
-}
-img {
-  display: flex;
-}
-input, textarea, select, button {
-  font-family: "Open Sans";
-  font-size: inherit;
-  line-height: inherit;
-}
-button,
-.dropdown__list a {
-  position: relative;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-button:disabled,
-.dropdown__list a:disabled {
-  cursor: not-allowed;
-}
-router-link {
-  display: block;
-}
-body {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  height: 100vh;
-  margin: 0;
-}
-#app {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-#app .layout-default {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
-#app .layout-auth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: #DCDCDE;
-}
-main {
-  padding: 24px;
-  flex-grow: 2;
-}
-h1 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 54px;
-}
-h2 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 33px;
-}
-b {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-}
-.button_primary {
-  background-color: #1F75CB;
-  color: #FFFFFF;
-  border-radius: 4px;
-  border: none;
-  padding: 11px 15px;
-}
-.button_primary:hover {
-  background-color: #1068BF;
-}
-.button_primary:active {
-  background-color: #0B5CAD;
-}
-.button_primary:disabled {
-  background-color: #DCDCDE;
-  color: #8E8E8E;
-}
-.button_secondary {
-  background-color: #FFFFFF;
-  font-size: inherit;
-  line-height: inherit;
-  color: #1C1C1C;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 11px 15px;
-}
-.button_secondary:hover {
-  background-color: #ECECEF;
-  border: 1px solid rgba(18, 19, 22, 0.5);
-}
-.button_secondary:active {
-  background-color: #DCDCDE;
-  border: 1px solid #1C1C1C;
-}
-.button_secondary:disabled {
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  color: #8E8E8E;
-}
-.button_primary.button_small,
-.button_secondary.button_small {
-  position: relative;
-  padding: 9px;
-}
-.button_primary.button_small:disabled,
-.button_secondary.button_small:disabled {
-  cursor: not-allowed;
-}
-.button_primary.button_small .button__icon,
-.button_secondary.button_small .button__icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.button_primary.button_small:disabled .button__icon svg,
-.button_secondary.button_small:disabled .button__icon svg {
-  color: #8E8E8E;
-}
-.button_primary.button_small .button__icon svg {
-  color: #FFFFFF;
-}
-.button_primary.button_small.active {
-  background-color: #0B5CAD;
-}
-.button_secondary.button_small:hover.active {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-.button_secondary.button_small.active {
-  background-color: #DCDCDE;
-}
-.dropdown__list {
-  position: absolute;
-  right: 0;
-  top: 43px;
-  max-width: 300px;
-  width: max-content;
-  padding: 8px 0;
-  background-color: #FFFFFF;
-  text-align: left;
-  color: #1C1C1C;
-  list-style: none;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  cursor: default;
-  z-index: 1;
-}
-.dropdown__list .dropdown__item {
-  width: 100%;
-  padding: 8px 16px;
-  background-color: transparent;
-  color: #1C1C1C;
-  border: none;
-}
-.dropdown__list .dropdown__item.dropdown__item_delete {
-  color: #EE4222;
-}
-.dropdown__list .dropdown__item:hover {
-  background-color: #ECECEF;
-}
-.dropdown__list .dropdown__item .router-link-active {
-  color: #1C1C1C;
-}
-.status {
-  padding: 0px 8px;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 4px;
-}
-.status_in-work {
-  background-color: #9E6955;
-}
-.status_done,
-.status_active {
-  background-color: #1F75CB;
-}
-.status_error {
-  background-color: #EE4222;
-}
-.status_inactive {
-  background-color: #8E8E8E;
-}
-.router__wrapper {
-  margin-bottom: 15px;
-}
-.router__wrapper a {
-  display: inline-block;
-}
-.textaria__container {
-  display: flex;
-  gap: 8px;
-}
-label {
-  display: inline-block;
-  min-width: 120px;
-}
-label span {
-  color: #EE4222;
-}
-textarea {
-  width: 100%;
-  height: 120px;
-  padding: 10px 12px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-}
-textarea:required, textarea:invalid {
-  border: 1px solid #EE4222;
-}
-textarea::placeholder {
-  font-size: 14px;
-  color: #D9D9D9;
-}
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseSelect/style.scss?vue&type=style&index=0&lang=css& ***!
-  \*************************************************************************************************************************************************************************************************************************/
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-Regular.ttf) format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-* {
-  box-sizing: border-box;
-}
-ul,
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-  padding: 0;
-}
-a {
-  text-decoration: none;
-}
-img {
-  display: flex;
-}
-input, textarea, select, button {
-  font-family: "Open Sans";
-  font-size: inherit;
-  line-height: inherit;
-}
-button,
-.dropdown__list a {
-  position: relative;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-button:disabled,
-.dropdown__list a:disabled {
-  cursor: not-allowed;
-}
-router-link {
-  display: block;
-}
-body {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  height: 100vh;
-  margin: 0;
-}
-#app {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-#app .layout-default {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
-#app .layout-auth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background-color: #DCDCDE;
-}
-main {
-  padding: 24px;
-  flex-grow: 2;
-}
-h1 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 54px;
-}
-h2 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 33px;
-}
-b {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-}
-.button_primary {
-  background-color: #1F75CB;
-  color: #FFFFFF;
-  border-radius: 4px;
-  border: none;
-  padding: 11px 15px;
-}
-.button_primary:hover {
-  background-color: #1068BF;
-}
-.button_primary:active {
-  background-color: #0B5CAD;
-}
-.button_primary:disabled {
-  background-color: #DCDCDE;
-  color: #8E8E8E;
-}
-.button_secondary {
-  background-color: #FFFFFF;
-  font-size: inherit;
-  line-height: inherit;
-  color: #1C1C1C;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 11px 15px;
-}
-.button_secondary:hover {
-  background-color: #ECECEF;
-  border: 1px solid rgba(18, 19, 22, 0.5);
-}
-.button_secondary:active {
-  background-color: #DCDCDE;
-  border: 1px solid #1C1C1C;
-}
-.button_secondary:disabled {
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  color: #8E8E8E;
-}
-.button_primary.button_small,
-.button_secondary.button_small {
-  position: relative;
-  padding: 9px;
-}
-.button_primary.button_small:disabled,
-.button_secondary.button_small:disabled {
-  cursor: not-allowed;
-}
-.button_primary.button_small .button__icon,
-.button_secondary.button_small .button__icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.button_primary.button_small:disabled .button__icon svg,
-.button_secondary.button_small:disabled .button__icon svg {
-  color: #8E8E8E;
-}
-.button_primary.button_small .button__icon svg {
-  color: #FFFFFF;
-}
-.button_primary.button_small.active {
-  background-color: #0B5CAD;
-}
-.button_secondary.button_small:hover.active {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-.button_secondary.button_small.active {
-  background-color: #DCDCDE;
-}
-.dropdown__list {
-  position: absolute;
-  right: 0;
-  top: 43px;
-  max-width: 300px;
-  width: max-content;
-  padding: 8px 0;
-  background-color: #FFFFFF;
-  text-align: left;
-  color: #1C1C1C;
-  list-style: none;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  cursor: default;
-  z-index: 1;
-}
-.dropdown__list .dropdown__item {
-  width: 100%;
-  padding: 8px 16px;
-  background-color: transparent;
-  color: #1C1C1C;
-  border: none;
-}
-.dropdown__list .dropdown__item.dropdown__item_delete {
-  color: #EE4222;
-}
-.dropdown__list .dropdown__item:hover {
-  background-color: #ECECEF;
-}
-.dropdown__list .dropdown__item .router-link-active {
-  color: #1C1C1C;
-}
-.status {
-  padding: 0px 8px;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 4px;
-}
-.status_in-work {
-  background-color: #9E6955;
-}
-.status_done,
-.status_active {
-  background-color: #1F75CB;
-}
-.status_error {
-  background-color: #EE4222;
-}
-.status_inactive {
-  background-color: #8E8E8E;
-}
-.router__wrapper {
-  margin-bottom: 15px;
-}
-.router__wrapper a {
-  display: inline-block;
-}
-.select__container {
-  display: flex;
-  gap: 8px;
-}
-label {
-  display: inline-block;
-  min-width: 120px;
-}
-label span {
-  color: #EE4222;
-}
-select {
-  width: 100%;
-  padding: 10px 12px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  appearance: none;
-}
-select:required, select:invalid {
-  border: 1px solid #EE4222;
-}
-select option:disabled {
-  color: #8E8E8E;
-}
-========
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
 /*!*******************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/InnerPageContent/style.scss?vue&type=style&index=0&lang=css& ***!
   \*******************************************************************************************************************************************************************************************************************************/
@@ -1368,263 +867,9 @@ form.invalid input:invalid, form.invalid textarea:invalid, form.invalid select:i
   padding: 34px 10px 10px 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseAuth/style.scss?vue&type=style&index=0&lang=css& ***!
   \***********************************************************************************************************************************************************************************************************************/
-========
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseInput/style.scss?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************/
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
-  font-weight: 600;
-  font-style: normal;
-}
-* {
-  box-sizing: border-box;
-}
-ul,
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-  padding: 0;
-}
-img {
-  display: flex;
-}
-input, textarea, select, button {
-  font-family: "Open Sans";
-  font-size: inherit;
-  line-height: inherit;
-}
-button {
-  position: relative;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-}
-button:disabled {
-  cursor: not-allowed;
-}
-body {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  height: 100vh;
-  margin: 0;
-}
-#app {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-main {
-  padding: 24px;
-  flex-grow: 2;
-}
-h1 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 54px;
-}
-h2 {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 33px;
-}
-b {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  color: #1C1C1C;
-  font-weight: 600;
-}
-.button_primary {
-  background-color: #1F75CB;
-  color: #FFFFFF;
-  border-radius: 4px;
-  border: none;
-  padding: 11px 15px;
-}
-.button_primary:hover {
-  background-color: #1068BF;
-}
-.button_primary:active {
-  background-color: #0B5CAD;
-}
-.button_primary:disabled {
-  background-color: #DCDCDE;
-  color: #8E8E8E;
-}
-.button_secondary {
-  background-color: #FFFFFF;
-  font-size: inherit;
-  line-height: inherit;
-  color: #1C1C1C;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 11px 15px;
-}
-.button_secondary:hover {
-  background-color: #ECECEF;
-  border: 1px solid rgba(18, 19, 22, 0.5);
-}
-.button_secondary:active {
-  background-color: #DCDCDE;
-  border: 1px solid #1C1C1C;
-}
-.button_secondary:disabled {
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  color: #8E8E8E;
-}
-.button_primary.button_small,
-.button_secondary.button_small {
-  position: relative;
-  padding: 9px;
-}
-.button_primary.button_small:disabled,
-.button_secondary.button_small:disabled {
-  cursor: not-allowed;
-}
-.button_primary.button_small .button__icon,
-.button_secondary.button_small .button__icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.button_primary.button_small:disabled .button__icon svg,
-.button_secondary.button_small:disabled .button__icon svg {
-  color: #8E8E8E;
-}
-.button_primary.button_small .button__icon svg {
-  color: #FFFFFF;
-}
-.button_primary.button_small.active {
-  background-color: #0B5CAD;
-}
-.button_secondary.button_small:hover.active {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-.button_secondary.button_small.active {
-  background-color: #DCDCDE;
-}
-.dropdown__list {
-  position: absolute;
-  right: 0;
-  bottom: -89px;
-  padding: 8px 0;
-  background-color: #FFFFFF;
-  color: #1C1C1C;
-  list-style: none;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-  cursor: default;
-}
-.dropdown__list .dropdown__item {
-  width: 100%;
-  padding: 8px 16px;
-  background-color: transparent;
-  border: none;
-}
-.dropdown__list .dropdown__item.dropdown__item_delete {
-  color: #EE4222;
-}
-.dropdown__list .dropdown__item:hover {
-  background-color: #ECECEF;
-}
-.dropdown__list {
-  z-index: 1;
-}
-.api-buttons {
-  margin: 30px;
-}
-.api-buttons__row {
-  display: flex;
-  gap: 15px;
-  margin: 30px 0;
-}
-.status {
-  padding: 0px 8px;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 4px;
-}
-.status_in-work {
-  background-color: #9E6955;
-}
-.status_done,
-.status_active {
-  background-color: #1F75CB;
-}
-.status_error {
-  background-color: #EE4222;
-}
-.status_inactive {
-  background-color: #8E8E8E;
-}
-.input__container {
-  position: relative;
-  display: flex;
-  gap: 8px;
-}
-label {
-  display: inline-block;
-  width: 120px;
-}
-label span {
-  color: #EE4222;
-}
-input {
-  width: 100%;
-  padding: 10px 12px;
-  background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-}
-input::placeholder {
-  font-size: 14px;
-  letter-spacing: normal;
-  color: #D9D9D9;
-}
-.form__icon {
-  position: absolute;
-  right: 0;
-}
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseNavigation/style.scss?vue&type=style&index=0&lang=css& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
 @font-face {
   font-family: "Open Sans";
   src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-Regular.ttf) format("truetype");
@@ -1897,6 +1142,279 @@ b {
   margin-top: auto;
   padding: 24px;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseInput/style.scss?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+ul,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: flex;
+}
+input, textarea, select, button {
+  font-family: "Open Sans";
+  font-size: inherit;
+  line-height: inherit;
+}
+button,
+.dropdown__list a {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+button:disabled,
+.dropdown__list a:disabled {
+  cursor: not-allowed;
+}
+router-link {
+  display: block;
+}
+body {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  height: 100vh;
+  margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#app .layout-default {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+#app .layout-auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #DCDCDE;
+}
+main {
+  padding: 24px;
+  flex-grow: 2;
+}
+h1 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 54px;
+}
+h2 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
+}
+b {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+}
+.button_primary {
+  background-color: #1F75CB;
+  color: #FFFFFF;
+  border-radius: 4px;
+  border: none;
+  padding: 11px 15px;
+}
+.button_primary:hover {
+  background-color: #1068BF;
+}
+.button_primary:active {
+  background-color: #0B5CAD;
+}
+.button_primary:disabled {
+  background-color: #DCDCDE;
+  color: #8E8E8E;
+}
+.button_secondary {
+  background-color: #FFFFFF;
+  font-size: inherit;
+  line-height: inherit;
+  color: #1C1C1C;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 11px 15px;
+}
+.button_secondary:hover {
+  background-color: #ECECEF;
+  border: 1px solid rgba(18, 19, 22, 0.5);
+}
+.button_secondary:active {
+  background-color: #DCDCDE;
+  border: 1px solid #1C1C1C;
+}
+.button_secondary:disabled {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #8E8E8E;
+}
+.button_primary.button_small,
+.button_secondary.button_small {
+  position: relative;
+  padding: 9px;
+}
+.button_primary.button_small:disabled,
+.button_secondary.button_small:disabled {
+  cursor: not-allowed;
+}
+.button_primary.button_small .button__icon,
+.button_secondary.button_small .button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_primary.button_small:disabled .button__icon svg,
+.button_secondary.button_small:disabled .button__icon svg {
+  color: #8E8E8E;
+}
+.button_primary.button_small .button__icon svg {
+  color: #FFFFFF;
+}
+.button_primary.button_small.active {
+  background-color: #0B5CAD;
+}
+.button_secondary.button_small:hover.active {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.button_secondary.button_small.active {
+  background-color: #DCDCDE;
+}
+.dropdown__list {
+  position: absolute;
+  right: 0;
+  top: 43px;
+  max-width: 300px;
+  width: max-content;
+  padding: 8px 0;
+  background-color: #FFFFFF;
+  text-align: left;
+  color: #1C1C1C;
+  list-style: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  cursor: default;
+  z-index: 1;
+}
+.dropdown__list .dropdown__item {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #1C1C1C;
+  border: none;
+}
+.dropdown__list .dropdown__item.dropdown__item_delete {
+  color: #EE4222;
+}
+.dropdown__list .dropdown__item:hover {
+  background-color: #ECECEF;
+}
+.dropdown__list .dropdown__item .router-link-active {
+  color: #1C1C1C;
+}
+.status {
+  padding: 0px 8px;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+}
+.status_in-work {
+  background-color: #9E6955;
+}
+.status_done,
+.status_active {
+  background-color: #1F75CB;
+}
+.status_error {
+  background-color: #EE4222;
+}
+.status_inactive {
+  background-color: #8E8E8E;
+}
+.router__wrapper {
+  margin-bottom: 15px;
+}
+.router__wrapper a {
+  display: inline-block;
+}
+.input__container {
+  position: relative;
+  display: flex;
+  gap: 8px;
+}
+label {
+  display: inline-block;
+  width: 120px;
+}
+label span {
+  color: #EE4222;
+}
+input {
+  width: 100%;
+  padding: 10px 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+input::placeholder {
+  font-size: 14px;
+  letter-spacing: normal;
+  color: #D9D9D9;
+}
+.form__icon {
+  position: absolute;
+  right: 0;
 }
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseModal/style.scss?vue&type=style&index=0&lang=css& ***!
@@ -2458,31 +1976,18 @@ b {
   height: 24px;
   border-radius: 50%;
 }
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseStub/style.scss?vue&type=style&index=0&lang=css& ***!
-  \***********************************************************************************************************************************************************************************************************************/
-@font-face {
-  font-family: "Open Sans";
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-Regular.ttf) format("truetype");
-========
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseSelect/style.scss?vue&type=style&index=0&lang=css& ***!
   \*************************************************************************************************************************************************************************************************************************/
 @font-face {
   font-family: "Open Sans";
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
+  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-Regular.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
   src: local("Open Sans Bold"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
-========
-  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
   font-weight: 600;
   font-style: normal;
 }
@@ -2498,12 +2003,9 @@ p {
   margin: 0;
   padding: 0;
 }
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
 a {
   text-decoration: none;
 }
-========
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
 img {
   display: flex;
 }
@@ -2512,12 +2014,8 @@ input, textarea, select, button {
   font-size: inherit;
   line-height: inherit;
 }
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
 button,
 .dropdown__list a {
-========
-button {
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
   position: relative;
   display: flex;
   gap: 8px;
@@ -2526,7 +2024,6 @@ button {
   padding: 0;
   cursor: pointer;
 }
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
 button:disabled,
 .dropdown__list a:disabled {
   cursor: not-allowed;
@@ -2534,11 +2031,6 @@ button:disabled,
 router-link {
   display: block;
 }
-========
-button:disabled {
-  cursor: not-allowed;
-}
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
 body {
   font-family: "Open Sans";
   font-style: normal;
@@ -2554,7 +2046,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
 #app .layout-default {
   display: flex;
   flex-direction: column;
@@ -2569,8 +2060,6 @@ body {
   height: 100%;
   background-color: #DCDCDE;
 }
-========
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
 main {
   padding: 24px;
   flex-grow: 2;
@@ -2679,35 +2168,23 @@ b {
 .dropdown__list {
   position: absolute;
   right: 0;
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
   top: 43px;
   max-width: 300px;
   width: max-content;
   padding: 8px 0;
   background-color: #FFFFFF;
   text-align: left;
-========
-  bottom: -89px;
-  padding: 8px 0;
-  background-color: #FFFFFF;
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
   color: #1C1C1C;
   list-style: none;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   cursor: default;
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
   z-index: 1;
-========
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
 }
 .dropdown__list .dropdown__item {
   width: 100%;
   padding: 8px 16px;
   background-color: transparent;
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
   color: #1C1C1C;
-========
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
   border: none;
 }
 .dropdown__list .dropdown__item.dropdown__item_delete {
@@ -2716,21 +2193,8 @@ b {
 .dropdown__list .dropdown__item:hover {
   background-color: #ECECEF;
 }
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
 .dropdown__list .dropdown__item .router-link-active {
   color: #1C1C1C;
-========
-.dropdown__list {
-  z-index: 1;
-}
-.api-buttons {
-  margin: 30px;
-}
-.api-buttons__row {
-  display: flex;
-  gap: 15px;
-  margin: 30px 0;
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css
 }
 .status {
   padding: 0px 8px;
@@ -2751,25 +2215,12 @@ b {
 .status_inactive {
   background-color: #8E8E8E;
 }
-<<<<<<<< HEAD:dist/index.fd4f7554822019633319.css
 .router__wrapper {
   margin-bottom: 15px;
 }
 .router__wrapper a {
   display: inline-block;
 }
-.stub__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  height: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-}
-========
 .select__container {
   display: flex;
   gap: 8px;
@@ -2792,18 +2243,18 @@ select {
 select option:disabled {
   color: #8E8E8E;
 }
-/*!***************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseTextarea/style.scss?vue&type=style&index=0&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseStub/style.scss?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************/
 @font-face {
   font-family: "Open Sans";
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-Regular.ttf) format("truetype");
+  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-Regular.ttf) format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans";
-  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
+  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
   font-weight: 600;
   font-style: normal;
 }
@@ -2819,6 +2270,9 @@ p {
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none;
+}
 img {
   display: flex;
 }
@@ -2827,7 +2281,8 @@ input, textarea, select, button {
   font-size: inherit;
   line-height: inherit;
 }
-button {
+button,
+.dropdown__list a {
   position: relative;
   display: flex;
   gap: 8px;
@@ -2836,8 +2291,12 @@ button {
   padding: 0;
   cursor: pointer;
 }
-button:disabled {
+button:disabled,
+.dropdown__list a:disabled {
   cursor: not-allowed;
+}
+router-link {
+  display: block;
 }
 body {
   font-family: "Open Sans";
@@ -2853,6 +2312,20 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+#app .layout-default {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+#app .layout-auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #DCDCDE;
 }
 main {
   padding: 24px;
@@ -2962,18 +2435,23 @@ b {
 .dropdown__list {
   position: absolute;
   right: 0;
-  bottom: -89px;
+  top: 43px;
+  max-width: 300px;
+  width: max-content;
   padding: 8px 0;
   background-color: #FFFFFF;
+  text-align: left;
   color: #1C1C1C;
   list-style: none;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
   cursor: default;
+  z-index: 1;
 }
 .dropdown__list .dropdown__item {
   width: 100%;
   padding: 8px 16px;
   background-color: transparent;
+  color: #1C1C1C;
   border: none;
 }
 .dropdown__list .dropdown__item.dropdown__item_delete {
@@ -2982,16 +2460,8 @@ b {
 .dropdown__list .dropdown__item:hover {
   background-color: #ECECEF;
 }
-.dropdown__list {
-  z-index: 1;
-}
-.api-buttons {
-  margin: 30px;
-}
-.api-buttons__row {
-  display: flex;
-  gap: 15px;
-  margin: 30px 0;
+.dropdown__list .dropdown__item .router-link-active {
+  color: #1C1C1C;
 }
 .status {
   padding: 0px 8px;
@@ -3011,6 +2481,268 @@ b {
 }
 .status_inactive {
   background-color: #8E8E8E;
+}
+.router__wrapper {
+  margin-bottom: 15px;
+}
+.router__wrapper a {
+  display: inline-block;
+}
+.stub__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseTextarea/style.scss?vue&type=style&index=0&lang=css& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-Regular.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: local("Open Sans Bold"), local("OpenSans-Regular"), url(/assets/fonts/OpenSans-SemiBold.ttf) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+ul,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: flex;
+}
+input, textarea, select, button {
+  font-family: "Open Sans";
+  font-size: inherit;
+  line-height: inherit;
+}
+button,
+.dropdown__list a {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+button:disabled,
+.dropdown__list a:disabled {
+  cursor: not-allowed;
+}
+router-link {
+  display: block;
+}
+body {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  height: 100vh;
+  margin: 0;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#app .layout-default {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+#app .layout-auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #DCDCDE;
+}
+main {
+  padding: 24px;
+  flex-grow: 2;
+}
+h1 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 54px;
+}
+h2 {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
+}
+b {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #1C1C1C;
+  font-weight: 600;
+}
+.button_primary {
+  background-color: #1F75CB;
+  color: #FFFFFF;
+  border-radius: 4px;
+  border: none;
+  padding: 11px 15px;
+}
+.button_primary:hover {
+  background-color: #1068BF;
+}
+.button_primary:active {
+  background-color: #0B5CAD;
+}
+.button_primary:disabled {
+  background-color: #DCDCDE;
+  color: #8E8E8E;
+}
+.button_secondary {
+  background-color: #FFFFFF;
+  font-size: inherit;
+  line-height: inherit;
+  color: #1C1C1C;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 11px 15px;
+}
+.button_secondary:hover {
+  background-color: #ECECEF;
+  border: 1px solid rgba(18, 19, 22, 0.5);
+}
+.button_secondary:active {
+  background-color: #DCDCDE;
+  border: 1px solid #1C1C1C;
+}
+.button_secondary:disabled {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #8E8E8E;
+}
+.button_primary.button_small,
+.button_secondary.button_small {
+  position: relative;
+  padding: 9px;
+}
+.button_primary.button_small:disabled,
+.button_secondary.button_small:disabled {
+  cursor: not-allowed;
+}
+.button_primary.button_small .button__icon,
+.button_secondary.button_small .button__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button_primary.button_small:disabled .button__icon svg,
+.button_secondary.button_small:disabled .button__icon svg {
+  color: #8E8E8E;
+}
+.button_primary.button_small .button__icon svg {
+  color: #FFFFFF;
+}
+.button_primary.button_small.active {
+  background-color: #0B5CAD;
+}
+.button_secondary.button_small:hover.active {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.button_secondary.button_small.active {
+  background-color: #DCDCDE;
+}
+.dropdown__list {
+  position: absolute;
+  right: 0;
+  top: 43px;
+  max-width: 300px;
+  width: max-content;
+  padding: 8px 0;
+  background-color: #FFFFFF;
+  text-align: left;
+  color: #1C1C1C;
+  list-style: none;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  cursor: default;
+  z-index: 1;
+}
+.dropdown__list .dropdown__item {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #1C1C1C;
+  border: none;
+}
+.dropdown__list .dropdown__item.dropdown__item_delete {
+  color: #EE4222;
+}
+.dropdown__list .dropdown__item:hover {
+  background-color: #ECECEF;
+}
+.dropdown__list .dropdown__item .router-link-active {
+  color: #1C1C1C;
+}
+.status {
+  padding: 0px 8px;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+}
+.status_in-work {
+  background-color: #9E6955;
+}
+.status_done,
+.status_active {
+  background-color: #1F75CB;
+}
+.status_error {
+  background-color: #EE4222;
+}
+.status_inactive {
+  background-color: #8E8E8E;
+}
+.router__wrapper {
+  margin-bottom: 15px;
+}
+.router__wrapper a {
+  display: inline-block;
 }
 .textaria__container {
   display: flex;
@@ -3035,4 +2767,3 @@ textarea::placeholder {
   font-size: 14px;
   color: #D9D9D9;
 }
->>>>>>>> 3ba059b (fix: validation form after submit):dist/index.db0c04d208b0b283af0d.css

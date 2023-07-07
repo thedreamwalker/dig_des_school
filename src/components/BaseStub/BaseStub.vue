@@ -1,5 +1,6 @@
 <template>
   <div class="stub__container">
+    <h2 v-if="title">{{ title }}</h2>
     <p>{{ text }}</p>
     <div class="router__wrapper">
       <router-link v-bind:to="{name: linkButton}" v-bind:class="'button_primary'">{{ textButton }}</router-link>
@@ -12,15 +13,18 @@ export default {
   props: {
     text: {
       type: String,
-      default: 'В данном разделе ничего нет'
+      default: 'Данной страницы не существует'
     },
     textButton: {
       type: String,
-      default: 'Добавить'
+      default: 'Вернуться на главную страницу'
     },
     linkButton: {
       type: String,
       default: 'ProjectsPage'
+    },
+    title: {
+      type: String
     }
   },
 }

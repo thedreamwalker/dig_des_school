@@ -14,7 +14,7 @@
     </BaseIcon>
     <ul v-show="isActive" class="dropdown__list">
       <li v-for="item in list" v-bind:key="item.name">
-        <router-link v-bind:to="item.link" v-bind:class="item.subClass">{{ item.name }}</router-link>
+        <router-link v-bind:to="item.link" v-bind:class="setClass(item.subClass)">{{ item.name }}</router-link>
       </li>
     </ul>
   </button>
@@ -24,6 +24,8 @@
 import Vue from 'vue'
 import vClickOutside from 'v-click-outside'
 Vue.use(vClickOutside)
+
+const baseClass = 'dropdown__item';
 
 export default {
   props: { 
@@ -68,8 +70,11 @@ export default {
         }
     },
 
-    clickElement: function (e) {
+    setClass: function(subClass) {
+      return subClass ? [`${baseClass} ${baseClass}_${subClass}`] : [`${baseClass}`];
+    },
 
+    clickElement: function (e) {
       if (!this.isActive) {
         this.setActive(e);
       } else if (!e.target.closest('.dropdown__list')) {

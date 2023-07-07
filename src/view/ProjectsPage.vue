@@ -1,6 +1,6 @@
 <template>
   <main>
-    <Stub v-if="isStub" v-bind:text="'Не создан ни один проект'" v-bind:textButton="'Создать проект'"></Stub>
+    <BaseStub v-if="isStub" v-bind:text="'Не создан ни один проект'" v-bind:textButton="'Создать проект'"></BaseStub>
     <template v-else>
       <div class="items__container">
       <ListItem v-for="project in list" v-bind:key="project.item.code" v-bind:itemType="project.itemType"
@@ -12,7 +12,6 @@
 
 <script>
 import ListItem from '@/components/ListItem/ListItem.vue';
-import Stub from '@/components/BaseStub/BaseStub.vue'
 
 export default {
   data() {
@@ -27,8 +26,8 @@ export default {
 
   components: {
     ListItem,
-    Stub
   },
+  
   computed: {
   isStub: function() {
     return !this.list || this.list.length === 0

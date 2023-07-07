@@ -52,7 +52,7 @@ const routes = [
         props: true,
       },
       {
-        path: 'tasks/create',
+        path: '/tasks/create',
         name: 'CreateTaskPage',
         component: CreateTaskPage,
       }, 
@@ -84,7 +84,7 @@ const routes = [
   {
     path: '*',
     name: 'NotFound',
-    component: NotFound
+    component: NotFound,
   },
 ]
 
@@ -104,4 +104,4 @@ const router = new VueRouter({
 //   }
 // })
 
-export default router
+export default router;

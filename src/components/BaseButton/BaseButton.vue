@@ -20,8 +20,6 @@ import Vue from 'vue'
 import vClickOutside from 'v-click-outside'
 Vue.use(vClickOutside)
 
-const baseClass = 'dropdown__item';
-
 export default {
   props: {
     color: String,
@@ -62,10 +60,6 @@ export default {
           button.classList.remove('active');
         }
 
-        if (this.text) {
-          this.changeActivePage(this.text);
-        }
-
         if (button.closest('.inner-content__container')) {
           this.buttonForm(button);
         }
@@ -87,10 +81,6 @@ export default {
         this.isActive = !this.isActive;
         this.$el.classList.remove('active');
       }
-    },
-
-    changeActivePage(key) {
-      this.$emit('setPage', key)
     },
 
     buttonForm(button) {
