@@ -8,7 +8,7 @@
       <div class="item__details">
         <p class="item__code"># {{ item.code }}</p>
         <p class="item__author">{{ item.author }}</p>
-        <BaseStatus v-if="itemType === 'task'" v-bind:status="item.status"></BaseStatus>
+        <BaseStatus v-if="itemType === 'task'" v-bind:statusName="setStatusName" v-bind:status="setStatusClass"></BaseStatus>
         <p class="item__last-change">{{ item.change }}</p>
       </div>
     </div>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-console.log()
+import {taskStatusName, taskStatusClass} from '@/components/BaseStatus/statuses'
 export default {
   props: {
     itemType: String,
@@ -27,7 +27,16 @@ export default {
   computed: {
     detailPage: function() {
       return `${this.itemType[0].toUpperCase()}${this.itemType.slice(1)}DetailPage`;
-    }
+    },
+
+    setStatusName: function() {
+      return taskStatusName[this.item.status];
+    },
+
+    setStatusClass: function() {
+      return taskStatusClass[this.item.status];
+    },
+
   },
 }
 </script>
