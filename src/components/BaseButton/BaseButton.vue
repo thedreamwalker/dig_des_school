@@ -2,12 +2,12 @@
   <button 
     v-on:click="clickElement($event)" 
     v-click-outside="onClickOutside"
-    v-bind:class="[{[setClass]: setClass}, buttonStyle]">
+    v-bind:class="[buttonStyle]">
     <slot>
     </slot>
     {{text}}
     <BaseIcon
-      v-show="typeIcon"
+      v-if="typeIcon"
       v-bind:type="typeIcon"
       v-bind:iconSize="iconSize"
       v-bind:parent="parent">
@@ -39,7 +39,9 @@ export default {
       return {
         button_primary: this.color === 'primary',
         button_secondary: this.color === 'secondary',
-        button_small: this.parent === 'item'
+        button_small: this.parent === 'item' || this.parent === 'next' || this.parent === 'back',
+        button_next: this.parent === 'next',
+        button_back: this.parent === 'back'
       }
     },
   },
@@ -67,7 +69,7 @@ export default {
 
     clickElement: function (e) {
       if (this.customClick) {
-        this.customClick();
+        this.customClick(e);
       } else
       if (!this.isActive) {
         this.setActive(e);
@@ -77,7 +79,7 @@ export default {
     },
 
     onClickOutside: function (e) {
-      if (this.isActive && e.target.closest('.navigation__item')) {
+      if (this.isActive && e.target.closest('.navigation__item') || this.isActive && e.target.closest('.pagination__item')) {
         this.isActive = !this.isActive;
         this.$el.classList.remove('active');
       }
@@ -89,3 +91,5 @@ export default {
   },
 }
 </script>
+
+<style src="./style.scss"></style>

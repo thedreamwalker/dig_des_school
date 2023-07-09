@@ -1,0 +1,46 @@
+@import '@/css/base.scss';
+
+.pagination__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  padding: 20px;
+
+  p {
+    color: $font-disabled;
+  }
+
+  .pagination__buttons {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+  }
+
+  .button_small {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+
+    .next__icon,
+    .back__icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .pagination__input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    input {
+      width: 70px;
+    }
+  }
+
+  .pagination__info {
+    margin-left: auto;
+  }
+}

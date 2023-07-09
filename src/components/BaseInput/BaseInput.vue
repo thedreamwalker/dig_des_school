@@ -1,9 +1,10 @@
 <template>
   <div class="input__container">
-    <label v-bind:for="name">{{ label }} <span v-if="isRequire">*</span></label> 
+    <label v-if="label" v-bind:for="name">{{ label }} <span v-if="isRequire">*</span></label> 
     <input 
       v-model="model.value"
       v-on:input="dataChange" 
+      v-on:change="paginationSet"
       type="text" v-bind:id="name" v-bind:name="name" v-bind:placeholder="setPlaceholder" v-bind:required="isRequire">
     <BaseIcon
         v-show="typeIcon"
@@ -17,6 +18,7 @@
 <script>
 export default {
   props: {
+    type: String,
     name: String,
     label: String,
     placeholder: {
@@ -25,6 +27,10 @@ export default {
     },
     typeIcon: String,
     isRequire: Boolean,
+    customFunction: {
+      type: Function,
+      required: false
+    }
   },
 
   data() {
@@ -38,7 +44,13 @@ export default {
   
   methods: {
     dataChange: function() {
-      this.$emit('dataSend', {name: this.name, value: this.model.value})
+        this.$emit('dataSend', {name: this.name, value: this.model.value})
+    },
+
+    paginationSet: function() {
+      if (this.type === 'pagination' && this.customFunction) {
+        this.customFunction(this.model.value);
+      }
     }
   },
 

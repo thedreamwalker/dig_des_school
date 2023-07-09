@@ -23,12 +23,19 @@
     </div>
 </template>
 <script>
+import {setToken} from '@/api/api';
+
   export default {
     methods: {
       login: function() {
         if (localStorage.getItem('Auth')  === 'false' || !localStorage.getItem('Auth')) {
           localStorage.setItem('Auth', true);
-          this.$router.push({ path: this.$route.params.nextUrl });
+          setToken();
+          if (this.$route.params.nextUrl) {
+            this.$router.push({ path: this.$route.params.nextUrl });
+          } else {
+            this.$router.push({ path: '/' });
+          }
         } else {
           localStorage.setItem('Auth', false);
         }

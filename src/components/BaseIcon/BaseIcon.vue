@@ -24,15 +24,16 @@ export default {
 
   methods: {
     activeClass: (parent) => {
-      switch (parent) {
-        case 'navigation':
-          return 'navigation__icon';
-        case 'item':
-          return 'button__icon';
-        case 'form': {
-          return 'form__icon';
-        }
-      }
+      return `${parent}__icon`
+      // switch (parent) {
+      //   case 'navigation':
+      //     return 'navigation__icon';
+      //   case 'item':
+      //     return 'button__icon';
+      //   case 'form': {
+      //     return 'form__icon';
+      //   }
+      // }
     }
   }
 }

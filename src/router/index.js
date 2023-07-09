@@ -60,13 +60,13 @@ const routes = [
         path: '/users',
         name: 'UsersPage',
         component: UsersPage,
-        beforeEnter: ((to, from, next) => {
-          if((!localStorage.getItem('Auth') || localStorage.getItem('Auth')  === 'false') && to.name !== 'BaseAuth') {
-            next({name: 'BaseAuth', params: { nextUrl: to.fullPath }} )
-          } else {
-            next()
-          }
-        })
+        // beforeEnter: ((to, from, next) => {
+        //   if((!localStorage.getItem('Auth') || localStorage.getItem('Auth')  === 'false') && to.name !== 'BaseAuth') {
+        //     next({name: 'BaseAuth', params: { nextUrl: to.fullPath }} )
+        //   } else {
+        //     next()
+        //   }
+        // })
       },
       {
         path: '/profile',
@@ -96,12 +96,12 @@ const router = new VueRouter({
 
 
 // код для всех страниц кроме аутентификации 
-// router.beforeEach((to, from, next) => {
-//   if((!localStorage.getItem('Auth') || localStorage.getItem('Auth')  === 'false') && to.name !== 'BaseAuth') {
-//     next({name: 'BaseAuth', params: { nextUrl: to.fullPath }} )
-//   } else {
-//     next()
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  if((!localStorage.getItem('Auth') || localStorage.getItem('Auth')  === 'false') && to.name !== 'BaseAuth') {
+    next({name: 'BaseAuth', params: { nextUrl: to.fullPath }} )
+  } else {
+    next()
+  }
+})
 
 export default router;
