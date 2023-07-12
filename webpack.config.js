@@ -7,6 +7,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
     mode: 'development',
+    cache: false,
     entry: {
         index: './src/index.js',
     },
@@ -57,7 +58,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({ title: 'Task Manager', template: './src/index.html',}),
         new MiniCssExtractPlugin({
-          filename: '[name].[contenthash].css',
+          filename: '[name].css',
         }),
         new VueLoaderPlugin(),
     ],

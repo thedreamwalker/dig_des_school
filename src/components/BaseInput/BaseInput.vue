@@ -6,12 +6,7 @@
       v-on:input="dataChange" 
       v-on:change="paginationSet"
       type="text" v-bind:id="name" v-bind:name="name" v-bind:placeholder="setPlaceholder" v-bind:required="isRequire">
-    <BaseIcon
-        v-show="typeIcon"
-        v-bind:type="typeIcon"
-        v-bind:typeIcon="typeIcon"
-        v-bind:parent="'form'">
-    </BaseIcon>
+      <button v-if="clear" v-on:click="clearInput" v-bind:class="setClear"><BaseIcon v-bind:type="'clear'" v-bind:iconSize="{width: '16px', height: '16px'}" v-bind:parent="'input'"></BaseIcon></button>
   </div>
 </template>
 
@@ -25,7 +20,7 @@ export default {
       type: String,
       default: 'Введите текст...'
     },
-    typeIcon: String,
+    clear: Boolean,
     isRequire: Boolean,
     customFunction: {
       type: Function,
@@ -51,12 +46,20 @@ export default {
       if (this.type === 'pagination' && this.customFunction) {
         this.customFunction(this.model.value);
       }
+    },
+
+    clearInput: function() {
+      this.model.value = '';
     }
   },
 
   computed: {
     setPlaceholder: function() {
       return this.placeholder;
+    },
+
+    setClear: function() {
+      return this.model.value ? 'active' : '';
     }
   }
 }

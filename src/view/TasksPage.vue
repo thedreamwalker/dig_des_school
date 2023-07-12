@@ -2,14 +2,24 @@
   <main>
     <BaseStub v-if="isStub" v-bind:text="'Не создана ни одна задача'" v-bind:textButton="'Создать задачу'" v-bind:linkButton="'CreateTaskPage'"></BaseStub>
     <template v-else>
-      <div class="items__container">
+      <div class="items__control">
+        <BaseFilter></BaseFilter>
         <div class="router__wrapper">
           <router-link v-bind:to="{name: 'CreateTaskPage'}" v-bind:class="'button_secondary'">Создать задачу</router-link>
         </div>
+      </div>
+      <div class="items__container">
         <ListItem v-for="task in list" v-bind:key="task._id" v-bind:itemType="itemType"
           v-bind:item="task" v-bind:status="task.status">
         </ListItem>
       </div>
+      <BasePagination
+        v-if="allItem"
+        v-bind:type="itemType"
+        v-bind:currentNumberPage="this.allItem.page"
+        v-bind:allPages="this.allItem.total"
+        v-bind:data="this.allItem">
+      </BasePagination>
     </template>
   </main>
 </template>

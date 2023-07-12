@@ -32,6 +32,9 @@ const routes = [
         name: 'ProjectsPage',
         component: ProjectsPage, 
         props: true,
+        // beforeRouteLeave: {
+
+        // }
       },
       {
         path: '/projects/:id', 
@@ -46,16 +49,16 @@ const routes = [
         props: true,
       },
       {
+        path: '/tasks/create',
+        name: 'CreateTaskPage',
+        component: CreateTaskPage,
+      },
+      {
         path: '/tasks/:id', 
         name: 'TaskDetailPage',
         component: TaskDetailPage,
         props: true,
       },
-      {
-        path: '/tasks/create',
-        name: 'CreateTaskPage',
-        component: CreateTaskPage,
-      }, 
       {
         path: '/users',
         name: 'UsersPage',

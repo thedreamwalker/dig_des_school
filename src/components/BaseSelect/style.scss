@@ -1,8 +1,65 @@
 @import '@/css/base.scss';
 
 .select__container {
+  position: relative;
   display: flex;
   gap: 8px;
+
+  & .select__base {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 42px;
+    padding: 11px 12px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    cursor: pointer;
+
+    &::after {
+      content: url('@/assets/img/drop_down.png');
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      transform: rotate(0deg);
+    }
+  
+    &.active::after {
+      transform: rotate(180deg);
+    }
+
+    & p {
+      color: $border-default;
+
+      &::selection {
+        background: transparent;
+     }
+    }
+
+    & .select__list {
+      display: none;
+    }
+
+    &.active .select__list {
+      @include drop-down-list;
+      display: block;
+      position: absolute;
+      top: 44px;
+      left: 0;
+      width: 100%;
+
+      & li {
+        padding: 8px 16px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $background-secondary-hover;
+        }
+      }
+    }
+  }
 }
 
 label {
@@ -15,12 +72,13 @@ label {
 }
 
 select {
-  width: 100%;
-  padding: 10px 12px;
-  background: $background-secondary;
-  border: 1px solid $border-default;
-  border-radius: 4px;
-  appearance: none;
+  display: none;
+  // width: 100%;
+  // padding: 10px 12px;
+  // background: $background-secondary;
+  // border: 1px solid $border-default;
+  // border-radius: 4px;
+  // appearance: none;
 
   option:disabled {
     color: $font-disabled;

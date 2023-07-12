@@ -32,7 +32,7 @@
         <BaseInput v-bind:placeholder="' '" v-bind:type="'pagination'" v-bind:customFunction="setInput"></BaseInput>
       </div>
       <div class="pagination__info">
-        <p>{{setArea}} из {{ this.allPages.toString() }}</p>
+        <p>{{setArea}} {{ setType }}; всего {{ this.allPages.toString() }} страниц </p>
       </div>
   </div>
 </template>
@@ -53,8 +53,13 @@ export default {
       required: true
     },
     data: {
-      type: Object,
-      required: true}
+      type: Array,
+      required: true
+    },
+    update: {
+      type: Function,
+      required: true
+    }
   },
 
   data() {
@@ -67,6 +72,11 @@ export default {
     }
   },
   computed: {
+
+    setType: function() {
+      return this.type;
+    },
+
     setPage: function() {
       let list;
       if (this.currentPage === 1) {
@@ -82,15 +92,14 @@ export default {
 
     setArea: function() {
       if (this.currentPage === 1) {
-        return `${this.currentPage}-${this.currentPage}${this.data.projects.length < 10 ? this.data.projects.length : 0}`
+        return `${this.currentPage}-${this.currentPage}${this.data.length < 10 ? this.data.length : 0}`
       } else {
-        console.log(this.data.projects.length);
-        return `${this.currentPage - 1}1-${this.currentPage}${this.data.projects.length < 10 ? this.data.projects.length : 0}`
+        return `${this.currentPage - 1}1-${this.currentPage}${this.data.length < 10 ? this.data.length : 0}`
       }
     }
   },
     methods: {
-    changePage: function(e) {
+    changePage: async function(e) {
       if (!e.target.closest('.button_back') && !e.target.closest('.button_next')) {
         this.currentPage = Number(e.target.textContent)
       } else if (e.target.closest('.button_back')) {
@@ -98,13 +107,13 @@ export default {
       } else {
         this.currentPage = this.currentPage + 1; 
       }
-    },
 
-    paginationSet: function(e) {
-      console.log(e);
+      await this.$store.commit('SET_PROJECTCURRENT', this.currentPage);
+      await this.$store.dispatch('updateProjectList');
+      this.update();
     },
     
-    setInput: function(value) {
+    setInput: async function(value) {
       if (value < 1) {
         this.currentPage = 1;
       } else if (value > this.allPages) {
@@ -112,6 +121,10 @@ export default {
       } else {
         this.currentPage = Number(value);
       }
+
+      await this.$store.commit('SET_PROJECTCURRENT', this.currentPage);
+      await this.$store.dispatch('updateProjectList');
+      this.update();
     }
   }
 }

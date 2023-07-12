@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './js/App.vue'
 import router from '@/router/index.js'
+import store from './store'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
@@ -29,5 +30,6 @@ requireComponent.keys().forEach(fileName => {
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app');

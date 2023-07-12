@@ -82,8 +82,8 @@ export default {
       }
     },
 
-    onClickOutside: function (e) {
-      if (this.isActive && (!e.target.closest('.dropdown__item'))) {
+    onClickOutside: function () {
+      if (this.isActive) {
         this.isActive = !this.isActive;
         this.$el.classList.remove('active');
       }

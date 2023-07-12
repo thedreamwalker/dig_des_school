@@ -25,15 +25,6 @@ export default {
   methods: {
     activeClass: (parent) => {
       return `${parent}__icon`
-      // switch (parent) {
-      //   case 'navigation':
-      //     return 'navigation__icon';
-      //   case 'item':
-      //     return 'button__icon';
-      //   case 'form': {
-      //     return 'form__icon';
-      //   }
-      // }
     }
   }
 }
