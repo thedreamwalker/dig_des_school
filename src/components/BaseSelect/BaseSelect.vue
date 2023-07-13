@@ -95,6 +95,7 @@ export default {
         [...e.target.parentElement.children].forEach(item => item.classList.remove('active'));
         e.target.classList.add('active');
         this.selectedName = e.target.textContent;
+        this.isActive = false;
         this.$store.dispatch('setTaskSort', e.target.dataset.id);
         this.update();
       }

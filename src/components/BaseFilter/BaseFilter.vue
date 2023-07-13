@@ -2,17 +2,21 @@
   <div class="filter__container">
     <BaseInput v-bind:clear="true"></BaseInput>
     <BaseButton v-bind:color="'secondary'" v-bind:parent="'item'" v-bind:typeIcon="'filter'"></BaseButton>
-    <BaseSelect 
-    v-bind:type="type"
-    v-bind:placeholder="this.placeholderSelect" 
-    v-bind:name="'sort'" 
-    v-bind:list="setSort"
-    v-bind:update="update"></BaseSelect>
-    <BaseButton v-bind:color="'secondary'" v-bind:parent="'item'" v-bind:typeIcon="'sort-up'"></BaseButton>
+    <div class="filter__sort">
+      <BaseSelect 
+      v-bind:type="type"
+      v-bind:placeholder="this.placeholderSelect" 
+      v-bind:name="'sort'" 
+      v-bind:list="setSort"
+      v-bind:update="update"></BaseSelect>
+      <BaseButton v-bind:color="'secondary'" v-bind:parent="'item'" v-bind:typeIcon="'sort-up'" v-bind:customClick="setSortUpDown"></BaseButton>
+    </div>
+    
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
   
 export default {
   props: {
@@ -30,6 +34,8 @@ export default {
   },
 
   computed: {
+    ...mapActions(['setTaskSortType']),
+
     setSort: function() {
       const sortType = {
         task: [
@@ -43,6 +49,22 @@ export default {
       return sortType[this.type];
     }
   },
+
+  methods: {
+    setSortUpDown: function(e) {
+      
+      const button = e.target.closest('.button_small');
+      if (button.classList.contains('active')) {
+        this.$store.dispatch('setTaskSortType', 'desc');
+        button.classList.remove('active');
+      } else {
+        this.$store.dispatch('setTaskSortType', 'asc');
+        button.classList.add('active');
+      }
+
+      this.update();
+    }
+  }
 }
 </script>
 

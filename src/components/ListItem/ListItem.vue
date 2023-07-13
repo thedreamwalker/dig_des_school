@@ -63,12 +63,6 @@ export default {
   },
 
   methods: {
-    setSortList: function(value) {
-      if (this.itemType === 'task') {
-        this.$store.dispatch('setTaskSort', value);
-      }
-    },
-
     getAuthor: async function() {
       const currentUser = await useAxios('POST', `/users/search`, {
     "filter": {
@@ -108,11 +102,17 @@ export default {
 
       const difference = this.calculateDifference((Date.parse(now) - (Date.parse(old))));
 
+      console.log(difference);
+
       if (old.getFullYear() !== now.getFullYear()) {
         text = `${formatterDMY.format(old)} в ${formatterHM.format(old)}`;
       } else
       if (difference.days > 1 || (1 >= difference.days && old.getDate() !== now.getDate())) {
-        text = 1 >= difference.days && old.getDate() !== now.getDate() ? `вчера в ${formatterHM.format(old)}` : `${formatterDM.format(old)} в ${formatterHM.format(old)}`;
+        if (old.getDate() !== now.getDate() && difference.days === 0) {
+          text = `вчера в ${formatterHM.format(old)}`;
+        } else {
+          text =`${formatterDM.format(old)} в ${formatterHM.format(old)}`
+        }
       } else
       if (difference.hours) {
         text = difference.hours < 4 ? `${difference.hours + 1} часа назад` : `сегодня в ${formatterHM.format(old)}`

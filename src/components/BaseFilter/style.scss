@@ -23,4 +23,28 @@
   .select__container {
     min-width: 172px;
   }
+
+  .filter__sort {
+    display: flex;
+    height: 42px;
+
+    .select__base {
+      border-right: none;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .button_small {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+
+      &.active {
+        background-color: $background-secondary;
+
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
 }
