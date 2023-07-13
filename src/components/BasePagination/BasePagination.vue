@@ -40,7 +40,12 @@
 <script>
 export default {
   props: {
-    type: {
+    itemType: {
+      type: String,
+      required: true
+    },
+
+    typeText: {
       type: String,
       required: true
     },
@@ -74,7 +79,7 @@ export default {
   computed: {
 
     setType: function() {
-      return this.type;
+      return this.typeText;
     },
 
     setPage: function() {
@@ -92,7 +97,7 @@ export default {
 
     setArea: function() {
       if (this.currentPage === 1) {
-        return `${this.currentPage}-${this.currentPage}${this.data.length < 10 ? this.data.length : 0}`
+        return this.data.length > 9 ? `${this.currentPage}-${this.currentPage}${this.data.length < 10 ? this.data.length : 0}` : `${this.currentPage}-${this.data.length}`
       } else {
         return `${this.currentPage - 1}1-${this.currentPage}${this.data.length < 10 ? this.data.length : 0}`
       }
@@ -108,8 +113,9 @@ export default {
         this.currentPage = this.currentPage + 1; 
       }
 
-      await this.$store.commit('SET_PROJECTCURRENT', this.currentPage);
-      await this.$store.dispatch('updateProjectList');
+      if(this.itemType === 'project') {await this.$store.commit('SET_PROJECTCURRENT', this.currentPage)}
+      if(this.itemType === 'task') {await this.$store.commit('SET_TASKCURRENT', this.currentPage)}
+ 
       this.update();
     },
     
@@ -122,8 +128,9 @@ export default {
         this.currentPage = Number(value);
       }
 
-      await this.$store.commit('SET_PROJECTCURRENT', this.currentPage);
-      await this.$store.dispatch('updateProjectList');
+      if(this.itemType === 'project') {await this.$store.commit('SET_PROJECTCURRENT', this.currentPage)}
+      if(this.itemType === 'task') {await this.$store.commit('SET_TASKCURRENT', this.currentPage)}
+      
       this.update();
     }
   }

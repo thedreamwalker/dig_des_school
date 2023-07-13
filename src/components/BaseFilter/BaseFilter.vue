@@ -3,15 +3,26 @@
     <BaseInput v-bind:clear="true"></BaseInput>
     <BaseButton v-bind:color="'secondary'" v-bind:parent="'item'" v-bind:typeIcon="'filter'"></BaseButton>
     <BaseSelect 
-    v-bind:placeholder="setPlaceholder" 
+    v-bind:type="type"
+    v-bind:placeholder="this.placeholderSelect" 
     v-bind:name="'sort'" 
-    v-bind:list="[{id: 'sort_name', name: 'По названию'}, {id: 'sort_author', name: 'По автору'}, {id: 'sort_create', name: 'По дате создания'}, {id: 'sort_update', name: 'По дате обновления'}]"></BaseSelect>
+    v-bind:list="setSort"
+    v-bind:update="update"></BaseSelect>
     <BaseButton v-bind:color="'secondary'" v-bind:parent="'item'" v-bind:typeIcon="'sort-up'"></BaseButton>
   </div>
 </template>
 
 <script>
+  
 export default {
+  props: {
+    type: String,
+    update: {
+      type: Function,
+      required: true
+    }
+  },
+
   data() {
     return {
       placeholderSelect: 'Выберите значение...'
@@ -19,8 +30,17 @@ export default {
   },
 
   computed: {
-    setPlaceholder: function() {
-      return this.placeholderSelect.length > 13 ? `${this.placeholderSelect.slice(0, 13)}...` : this.placeholderSelect;
+    setSort: function() {
+      const sortType = {
+        task: [
+          {id: 'name', name: 'По названию'}, 
+          {id: 'author', name: 'По автору'}, 
+          {id: 'status', name: 'По статусу'}, 
+          {id: 'executor', name: 'По исполнителю'}, 
+          {id: 'dateCreated', name: 'По дате создания'}, 
+          {id: 'dateEdited', name: 'По дате обновления'}]
+      }
+      return sortType[this.type];
     }
   },
 }

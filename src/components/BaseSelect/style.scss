@@ -10,7 +10,7 @@
     display: block;
     width: 100%;
     height: 42px;
-    padding: 11px 12px;
+    padding: 11px 30px 11px 12px;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 4px;
@@ -30,8 +30,15 @@
       transform: rotate(180deg);
     }
 
-    & p {
+    & .select__placeholder {
       color: $border-default;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.selected {
+        color: $font-primary-default;
+      }
 
       &::selection {
         background: transparent;
@@ -57,6 +64,11 @@
         &:hover {
           background-color: $background-secondary-hover;
         }
+
+        &.active {
+          background-color: $background-secondary-active;
+          cursor: default;
+        }
       }
     }
   }
@@ -73,12 +85,6 @@ label {
 
 select {
   display: none;
-  // width: 100%;
-  // padding: 10px 12px;
-  // background: $background-secondary;
-  // border: 1px solid $border-default;
-  // border-radius: 4px;
-  // appearance: none;
 
   option:disabled {
     color: $font-disabled;

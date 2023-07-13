@@ -16,13 +16,14 @@
     <div v-bind:class="[{'active': isActive}, 'select__base']"
       v-on:click="toggleSelect"
       v-click-outside="onClickOutside">
-      <p>{{ placeholder }}</p>
+      <div v-bind:class="[{'selected': selectedName}, 'select__placeholder']">{{ setPlaceholder }}</div>
 
       <ul class="select__list">
         <li
         v-for="item in list" 
         v-bind:key="item.id"
-        v-on:click="setSort">
+        v-bind:data-id="item.id"
+        v-on:click="setSort($event)">
           {{ item.name }}
         </li>
       </ul>
@@ -31,16 +32,27 @@
 </template>
 
 <script>
-import Vue from 'vue'
+import Vue from 'vue';
+import { mapActions } from 'vuex';
 import vClickOutside from 'v-click-outside'
 Vue.use(vClickOutside)
 
 export default {
   props: {
-      list: Array,
+      type: {
+        type: String,
+        required: true
+      },
+      update: {
+        type: Function,
+        required: true
+      },
+      list: {
+        type: Array,
+        required: true
+      },
       name: String,
       label: String,
-      typeIcon: String,
       isRequire: Boolean,
       placeholder: {
         type: String,
@@ -55,6 +67,15 @@ export default {
         id: ''
       },
       isActive: false,
+      selectedName: ''
+    }
+  },
+
+  computed: {
+    ...mapActions(['updateTaskList']),
+
+    setPlaceholder: function() {
+      return this.selectedName ? this.selectedName : this.placeholder;
     }
   },
 
@@ -69,11 +90,17 @@ export default {
       }
     },
 
-    setSort: function() {
-
+    setSort: function(e) {
+      if (!e.target.classList.contains('active')) {
+        [...e.target.parentElement.children].forEach(item => item.classList.remove('active'));
+        e.target.classList.add('active');
+        this.selectedName = e.target.textContent;
+        this.$store.dispatch('setTaskSort', e.target.dataset.id);
+        this.update();
+      }
     },
 
-    onClickOutside: function () {
+    onClickOutside: function() {
       if (this.isActive) {
         this.isActive = !this.isActive;
       }

@@ -7,8 +7,9 @@
         v-bind:item="project"></ListItem>
     </div>
     <BasePagination
-      v-if="setList"
-      v-bind:type="'проекта'"
+      v-if="setList && setTotalPage > 1"
+      v-bind:itemType="itemType"
+      v-bind:typeText="'проекта'"
       v-bind:currentNumberPage="setCurrentPage"
       v-bind:allPages="setTotalPage"
       v-bind:data="setList"
@@ -20,21 +21,17 @@
 
 <script>
 import ListItem from '@/components/ListItem/ListItem.vue';
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
   data() {
       return {
         itemType: 'project',
-        list: null,
-        totalPage: null,
         isStub: false,
-        currentPage: 1,
       }
   },
 
   async created() {
-    await this.$store.dispatch('updateProjectList');
     await this.getList();
     },
 
@@ -44,27 +41,28 @@ export default {
 
 computed: {
   ...mapState(['projectPage']),
-  // ...mapGetters(['projectTotal', 'projectList', 'projectCurrent']),
+  ...mapGetters(['projectTotal', 'projectList', 'projectCurrent']),
   ...mapActions(['updateProjectList']),
 
   setList: function() {
-    return this.list;
+    return this.$store.getters.projectList;
   },
 
   setCurrentPage: function() {
-    return this.currentPage;
+    return this.$store.getters.projectCurrent;
   },
 
   setTotalPage: function() {
-    return this.totalPage;
+    return this.$store.getters.projectTotal;
   },
 },
 
 methods: {
   getList: async function() {
-    this.totalPage = await this.projectPage.totalPage;
-    this.list = await this.projectPage.list[0];
-    this.currentPage = await this.projectPage.currentPage;
+    await this.$store.dispatch('updateProjectList');
+    if (!this.$store.getters.projectList) {
+      this.isStub = false;
+    }
   }
 }
 }
