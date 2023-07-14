@@ -7,7 +7,7 @@
         v-bind:type="'task'"
         v-bind:update="getList"></BaseFilter>
         <div class="router__wrapper">
-          <router-link v-bind:to="{name: 'CreateTaskPage'}" v-bind:class="'button_secondary'">Создать задачу</router-link>
+          <router-link v-bind:to="{name: 'CreateTaskPage'}" v-bind:class="'button_secondary'">Добавить</router-link>
         </div>
       </div>
       <div class="items__container">
@@ -30,7 +30,7 @@
 
 <script>
 import ListItem from '@/components/ListItem/ListItem.vue'
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   data() {
@@ -49,9 +49,7 @@ export default {
   },
 
   computed: {
-  ...mapState(['taskPage']),
-  ...mapGetters(['taskTotal', 'taskList', 'taskCurrent']),
-  ...mapActions(['updateTaskList']),
+  ...mapGetters('stateTask', ['taskTotal', 'taskList', 'taskCurrent']),
 
   setList: function() {
     return this.$store.getters.taskList;
@@ -67,6 +65,8 @@ export default {
 },
 
 methods: {
+  ...mapActions('stateTask', ['updateTaskList']),
+
   getList: async function() {
     await this.$store.dispatch('updateTaskList');
     if (!this.$store.getters.taskList) {

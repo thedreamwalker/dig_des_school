@@ -34,7 +34,6 @@ export default {
   },
 
   computed: {
-    ...mapActions(['setTaskSortType', 'setTaskSearch']),
 
     setSort: function() {
       const sortType = {
@@ -44,26 +43,37 @@ export default {
           {id: 'status', name: 'По статусу'}, 
           {id: 'executor', name: 'По исполнителю'}, 
           {id: 'dateCreated', name: 'По дате создания'}, 
-          {id: 'dateEdited', name: 'По дате обновления'}]
+          {id: 'dateEdited', name: 'По дате обновления'}],
+          project: [
+            {id: 'name', name: 'По названию'}, 
+            {id: 'author', name: 'По автору'}, 
+            {id: 'dateCreated', name: 'По дате создания'}, 
+            {id: 'dateEdited', name: 'По дате обновления'},
+          ]
       }
       return sortType[this.type];
     }
   },
 
   methods: {
+    ...mapActions('stateTask', ['setTaskSortType', 'setTaskSearch',]),
+    ...mapActions('stateProject', ['setProjectSortType', 'setProjectSearch']),
 
     setFilter: function(value) {
-      this.$store.dispatch('setTaskSearch', {'name': value});
+      if (this.type === 'task') {this.$store.dispatch('setTaskSearch', {'name': value});}
+      if (this.type === 'project') {this.$store.dispatch('setProjectSearch', {'name': value});}
       this.update();
     },
 
     setSortUpDown: function(e) {
       const button = e.target.closest('.button_small');
       if (button.classList.contains('active')) {
-        this.$store.dispatch('setTaskSortType', 'desc');
+        if (this.type === 'task') {this.$store.dispatch('setTaskSortType', 'desc');}
+        if (this.type === 'project') {this.$store.dispatch('setProjectSortType', 'desc');}
         button.classList.remove('active');
       } else {
-        this.$store.dispatch('setTaskSortType', 'asc');
+        if (this.type === 'task') {this.$store.dispatch('setTaskSortType', 'asc');}
+        if (this.type === 'project') {this.$store.dispatch('setProjectSortType', 'asc');}
         button.classList.add('active');
       }
 

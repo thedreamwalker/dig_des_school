@@ -72,14 +72,15 @@ export default {
   },
 
   computed: {
-    ...mapActions(['updateTaskList']),
-
     setPlaceholder: function() {
       return this.selectedName ? this.selectedName : this.placeholder;
     }
   },
 
   methods: {
+    ...mapActions('stateTask', ['setTaskSort']),
+    ...mapActions('stateProject', ['setProjectSort']),
+
     dataChange: function() {
       this.$emit('dataSend', {name: this.name, value: this.model.value})
     },
@@ -96,7 +97,8 @@ export default {
         e.target.classList.add('active');
         this.selectedName = e.target.textContent;
         this.isActive = false;
-        this.$store.dispatch('setTaskSort', e.target.dataset.id);
+        if (this.type === 'task') {this.$store.dispatch('setTaskSort', e.target.dataset.id);}
+        if (this.type === 'project') {this.$store.dispatch('setProjectSort', e.target.dataset.id);}
         this.update();
       }
     },

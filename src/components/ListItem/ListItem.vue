@@ -102,8 +102,6 @@ export default {
 
       const difference = this.calculateDifference((Date.parse(now) - (Date.parse(old))));
 
-      console.log(difference);
-
       if (old.getFullYear() !== now.getFullYear()) {
         text = `${formatterDMY.format(old)} в ${formatterHM.format(old)}`;
       } else
