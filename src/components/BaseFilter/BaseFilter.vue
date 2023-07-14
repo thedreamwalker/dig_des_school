@@ -1,9 +1,10 @@
 <template>
   <div class="filter__container">
     <BaseInput v-bind:clear="true" v-bind:type="'filter'" v-bind:customFunction="setFilter"></BaseInput>
-    <FilterForm></FilterForm>
+    <FilterForm v-if="type !== 'user'"></FilterForm>
     <div class="filter__sort">
       <BaseSelect 
+      v-if="type !== 'user'"
       v-bind:type="type"
       v-bind:placeholder="this.placeholderSelect" 
       v-bind:name="'sort'" 
@@ -67,6 +68,7 @@ export default {
     setFilter: function(value) {
       if (this.type === 'task') {this.$store.dispatch('setTaskSearch', {'name': value});}
       if (this.type === 'project') {this.$store.dispatch('setProjectSearch', {'name': value});}
+      if (this.type === 'user') {this.$store.dispatch('setUserSearch', {'name': value});}
       this.update();
     },
 
@@ -75,10 +77,12 @@ export default {
       if (button.classList.contains('active')) {
         if (this.type === 'task') {this.$store.dispatch('setTaskSortType', 'desc');}
         if (this.type === 'project') {this.$store.dispatch('setProjectSortType', 'desc');}
+        if (this.type === 'user') {this.$store.dispatch('setUserSortType', 'desc');}
         button.classList.remove('active');
       } else {
         if (this.type === 'task') {this.$store.dispatch('setTaskSortType', 'asc');}
         if (this.type === 'project') {this.$store.dispatch('setProjectSortType', 'asc');}
+        if (this.type === 'user') {this.$store.dispatch('setUserSortType', 'asc');}
         button.classList.add('active');
       }
 

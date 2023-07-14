@@ -115,6 +115,7 @@ export default {
 
       if(this.itemType === 'project') {await this.$store.commit('SET_PROJECTCURRENT', this.currentPage)}
       if(this.itemType === 'task') {await this.$store.commit('SET_TASKCURRENT', this.currentPage)}
+      if(this.itemType === 'user') {await this.$store.commit('SET_USERCURRENT', this.currentPage)}
  
       this.update();
     },
@@ -130,6 +131,7 @@ export default {
 
       if(this.itemType === 'project') {await this.$store.commit('SET_PROJECTCURRENT', this.currentPage)}
       if(this.itemType === 'task') {await this.$store.commit('SET_TASKCURRENT', this.currentPage)}
+      if(this.itemType === 'user') {await this.$store.commit('SET_USERCURRENT', this.currentPage)}
       
       this.update();
     }

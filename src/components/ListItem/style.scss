@@ -3,6 +3,7 @@
 .item {
   display: flex;
   align-items: center;
+  min-height: 60px;
   padding: 0px 16px 8px;
   gap: 16px;
   border-bottom: 1px solid $border-active;
@@ -63,11 +64,24 @@
 }
 
 .item__title {
-  width: 100%;
-  min-height: 19px;
   display: flex;
   justify-content: space-between;
   gap: 16px;
+  width: 100%;
+
+  &.user {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    & .item__name {
+      order: 1;
+    }
+
+    & .status {
+      order: 2;
+    }
+  }
 }
 
 .item__avatar {

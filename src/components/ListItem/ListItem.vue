@@ -1,13 +1,14 @@
 <template>
   <div class="item">
     <div class="item__container">
-      <div class="item__title">
+      <div v-bind:class="classObject">
         <p class="item__name"> 
           <router-link v-bind:to="{name: detailPage, params: {id: item._id, item: item, parent: itemType}}">{{ item.name }}</router-link>
         </p>
-        <img v-if="itemType === 'task'" class="item__avatar" src="@/assets/img/user-item.jpg" alt="аватар пользователя">
+        <img v-if="itemType !== 'project'" class="item__avatar" src="@/assets/img/user-item.jpg" alt="аватар пользователя">
+        <BaseStatus v-if="itemType === 'user'" v-bind:statusName="setStatusName" v-bind:status="setStatusClass"></BaseStatus>
       </div>
-      <div class="item__details">
+      <div class="item__details" v-if="itemType !== 'user'">
         <p v-if="item.code" class="item__code"># {{ item.code }}</p>
         <p v-if="item.number" class="item__number"># {{ item.number }}</p>
         <p class="item__author">{{ this.author.name }} создал {{ setDateCreated }}</p>
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import {taskStatusName, taskStatusClass} from '@/components/BaseStatus/statuses'
+import {taskStatusName, taskStatusClass, userStatusName, userStatusClass} from '@/components/BaseStatus/statuses'
 import {useAxios} from '@/api/api';
 
 export default {
@@ -41,16 +42,37 @@ export default {
   },
 
   computed: {
+    classObject: function() {
+      return {
+        'user': this.itemType === 'user',
+        'item__title': true
+      }
+    },
+
     detailPage: function() {
       return `${this.itemType[0].toUpperCase()}${this.itemType.slice(1)}DetailPage`;
     },
 
     setStatusName: function() {
-      return taskStatusName[this.item.status];
+      let statusName;
+
+      if (this.itemType === 'task') {
+        statusName = taskStatusName[this.item.status];
+      } else if (this.itemType === 'user') {
+        statusName = userStatusName[this.item.status];
+      }
+      return statusName;
     },
 
     setStatusClass: function() {
-      return taskStatusClass[this.item.status];
+      let statusClass;
+
+      if (this.itemType === 'task') {
+        statusClass = taskStatusClass[this.item.status];
+      } else if (this.itemType === 'user') {
+        statusClass = userStatusClass[this.item.status];
+      }
+      return statusClass;
     },
 
     setDateCreated: function() {

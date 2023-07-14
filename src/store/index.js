@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import app from './app'
 import stateProject from './app/stateProject'
 import stateTask from './app/stateTask'
+import stateUser from './app/stateUser'
 
 Vue.use(Vuex)
 
@@ -16,6 +17,7 @@ const store = () => {
 			app, 
       stateProject,
       stateTask,
+			stateUser,
 		}
 	})
 }

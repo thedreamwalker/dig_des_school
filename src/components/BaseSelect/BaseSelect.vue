@@ -1,18 +1,6 @@
 <template>
   <div class="select__container">
     <label v-if="label" v-bind:for="name">{{ label }} <span v-if="isRequire">*</span></label> 
-    <!-- <select 
-      v-model="model.value"
-      v-on:change="dataChange" 
-      v-bind:id="name" v-bind:name="name"
-      v-bind:required="isRequire">
-      <option disabled value="" selected>Не назначен</option>
-      <option
-        v-for="item in list" 
-        v-bind:key="item.id">
-          {{ item.name }}
-      </option>
-    </select> -->
     <div v-bind:class="[{'active': isActive}, 'select__base']"
       v-on:click="toggleSelect"
       v-click-outside="onClickOutside">
