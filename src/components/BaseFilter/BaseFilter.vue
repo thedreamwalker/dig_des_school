@@ -1,7 +1,7 @@
 <template>
   <div class="filter__container">
     <BaseInput v-bind:clear="true" v-bind:type="'filter'" v-bind:customFunction="setFilter"></BaseInput>
-    <BaseButton v-bind:color="'secondary'" v-bind:parent="'item'" v-bind:typeIcon="'filter'"></BaseButton>
+    <FilterForm></FilterForm>
     <div class="filter__sort">
       <BaseSelect 
       v-bind:type="type"
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import FilterForm from '@/components/BaseFilter/FilterForm.vue'
 import { mapActions } from 'vuex';
   
 export default {
@@ -31,6 +32,10 @@ export default {
     return {
       placeholderSelect: 'Выберите значение...'
     }
+  },
+
+  components: {
+    FilterForm
   },
 
   computed: {

@@ -48,3 +48,31 @@
     }
   }
 }
+
+.filter-form__container {
+  position: relative;
+}
+
+.filter-form__dropdown {
+  display: none;
+}
+
+.button_small.active + .filter-form__dropdown {
+  @include drop-down-list;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: absolute;
+      top: 44px;
+      right: 0;
+      width: 300px;
+      padding: 24px;
+
+      .select__container {
+        flex-direction: column;
+        
+        label {
+          color: $font-disabled;
+        }
+      }
+}
