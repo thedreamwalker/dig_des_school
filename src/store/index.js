@@ -16,6 +16,7 @@ export const mutation = {
   SET_TASKTOTAL: 'SET_TASKTOTAL',
   SET_TASKSORT: 'SET_TASKSORT',
   SET_TASKSORTTYPE: 'SET_TASKSORTTYPE',
+  SET_TASKSEARCH: 'SET_TASKSEARCH',
 }
 
 const store = () => {
@@ -76,6 +77,9 @@ const store = () => {
       },
       [mutation.SET_TASKSORTTYPE]: (state, payload) => {
         state.taskPage.sort_type = payload
+      },
+      [mutation.SET_TASKSEARCH]: (state, payload) => {
+        state.taskPage.filter = payload
       }
     },
   
@@ -105,6 +109,10 @@ const store = () => {
 
       setTaskSortType: ({dispatch, commit}, value) => {
         commit(mutation.SET_TASKSORTTYPE, value)
+      },
+
+      setTaskSearch: ({dispatch, commit}, value) => {
+        commit(mutation.SET_TASKSEARCH, value)
       },
 
       updateTaskList: async ({dispatch, commit, state, getters}, payload) => {

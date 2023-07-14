@@ -1,6 +1,6 @@
 <template>
   <div class="filter__container">
-    <BaseInput v-bind:clear="true"></BaseInput>
+    <BaseInput v-bind:clear="true" v-bind:type="'filter'" v-bind:customFunction="setFilter"></BaseInput>
     <BaseButton v-bind:color="'secondary'" v-bind:parent="'item'" v-bind:typeIcon="'filter'"></BaseButton>
     <div class="filter__sort">
       <BaseSelect 
@@ -34,7 +34,7 @@ export default {
   },
 
   computed: {
-    ...mapActions(['setTaskSortType']),
+    ...mapActions(['setTaskSortType', 'setTaskSearch']),
 
     setSort: function() {
       const sortType = {
@@ -51,8 +51,13 @@ export default {
   },
 
   methods: {
+
+    setFilter: function(value) {
+      this.$store.dispatch('setTaskSearch', {'name': value});
+      this.update();
+    },
+
     setSortUpDown: function(e) {
-      
       const button = e.target.closest('.button_small');
       if (button.classList.contains('active')) {
         this.$store.dispatch('setTaskSortType', 'desc');

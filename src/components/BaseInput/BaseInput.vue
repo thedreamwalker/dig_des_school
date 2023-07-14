@@ -39,7 +39,11 @@ export default {
   
   methods: {
     dataChange: function() {
+      if (this.type === 'filter' && this.customFunction) {
+        this.customFunction(this.model.value);
+      } else {
         this.$emit('dataSend', {name: this.name, value: this.model.value})
+      }
     },
 
     paginationSet: function() {
