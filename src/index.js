@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './js/App.vue'
 import router from '@/router/index.js'
-import store from './store'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import store from '@/store/index.js';
 
 const requireComponent = require.context(
   '@/components',

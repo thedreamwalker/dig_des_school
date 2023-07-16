@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import app from './app'
+import app from './app/index'
 import stateProject from './app/stateProject'
 import stateTask from './app/stateTask'
 import stateUser from './app/stateUser'

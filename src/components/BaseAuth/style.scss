@@ -25,6 +25,10 @@
     flex-direction: column;
   }
 
+  .auth-modal__error {
+    color: $font-error;
+  }
+
   .auth-modal__buttons {
     display: flex;
     justify-content: end;

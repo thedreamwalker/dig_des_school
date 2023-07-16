@@ -798,6 +798,9 @@ b {
 .auth-modal .input__container {
   flex-direction: column;
 }
+.auth-modal .auth-modal__error {
+  color: #EE4222;
+}
 .auth-modal .auth-modal__buttons {
   display: flex;
   justify-content: end;

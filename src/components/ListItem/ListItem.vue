@@ -6,14 +6,14 @@
           <router-link v-bind:to="{name: detailPage, params: {id: item._id, item: item, parent: itemType}}">{{ item.name }}</router-link>
         </p>
         <img v-if="itemType !== 'project'" class="item__avatar" src="@/assets/img/user-item.jpg" alt="аватар пользователя">
-        <BaseStatus v-if="itemType === 'user'" v-bind:statusName="setStatusName" v-bind:status="setStatusClass"></BaseStatus>
+        <BaseStatus v-if="itemType === 'user'" v-bind:statusName="statusName" v-bind:status="statusClass"></BaseStatus>
       </div>
       <div class="item__details" v-if="itemType !== 'user'">
         <p v-if="item.code" class="item__code"># {{ item.code }}</p>
         <p v-if="item.number" class="item__number"># {{ item.number }}</p>
-        <p class="item__author">{{ this.author.name }} создал {{ setDateCreated }}</p>
-        <BaseStatus v-if="itemType === 'task'" v-bind:statusName="setStatusName" v-bind:status="setStatusClass"></BaseStatus>
-        <p class="item__last-change">{{ setDateEdited }}</p>
+        <p class="item__author">{{ this.author.name }} создал {{ dateCreated }}</p>
+        <BaseStatus v-if="itemType === 'task'" v-bind:statusName="statusName" v-bind:status="statusClass"></BaseStatus>
+        <p class="item__last-change">{{ dateEdited }}</p>
       </div>
     </div>
     <BaseDropdown v-bind:typeIcon="'dots'" v-bind:parent="'item'" v-bind:color="'secondary'" v-bind:list="[{name: 'Редактировать', link: '/edit'}, {name: 'Удалить', link: '/delete', subClass: 'delete'}]"></BaseDropdown>
@@ -53,7 +53,7 @@ export default {
       return `${this.itemType[0].toUpperCase()}${this.itemType.slice(1)}DetailPage`;
     },
 
-    setStatusName: function() {
+    statusName: function() {
       let statusName;
 
       if (this.itemType === 'task') {
@@ -64,7 +64,7 @@ export default {
       return statusName;
     },
 
-    setStatusClass: function() {
+    statusClass: function() {
       let statusClass;
 
       if (this.itemType === 'task') {
@@ -75,11 +75,11 @@ export default {
       return statusClass;
     },
 
-    setDateCreated: function() {
+    dateCreated: function() {
       return this.setDate(this.item.dateCreated)
     },
 
-    setDateEdited: function() {
+    dateEdited: function() {
       return this.setDate(this.item.dateEdited)
     }
   },
@@ -87,9 +87,10 @@ export default {
   methods: {
     getAuthor: async function() {
       const currentUser = await useAxios('POST', `/users/search`, {
-    "filter": {
-        "_id": this.item.author
-    }});
+        "filter": {
+          "_id": this.item.author
+        }
+      });
       return currentUser.users[0];
     },
 
@@ -142,7 +143,7 @@ export default {
       }
 
       return text;
-      },
+    },
   }
 }
 </script>

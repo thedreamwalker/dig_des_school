@@ -34,9 +34,9 @@ export default {
   },
 
   data() {
-      return {
-        isActive: false
-      }
+    return {
+      isActive: false
+    }
   },
 
   async created() {
@@ -58,36 +58,31 @@ export default {
 
   listUsers: function() {
     if (!this.userList) {
-      return []
+      return [];
     } 
     return this.userList;
   },
 },
 
-methods: {
-  ...mapActions(['updateUserList']),
+  methods: {
+    ...mapActions(['updateUserList']),
 
-  openDropdown: async function(e) {
-    const button = e.target.closest('.button_small');
+    openDropdown: async function(e) {
+      const button = e.target.closest('.button_small');
 
-    if (this.isActive) {
-      this.isActive = false;
-      button.classList.remove('active');
-    } else {
-      this.isActive = true;
-      button.classList.add('active');
-    }
+      if (this.isActive) {
+        this.isActive = false;
+        button.classList.remove('active');
+      } else {
+        this.isActive = true;
+        button.classList.add('active');
+      }
+    },
 
-    // await this.$store.dispatch('updateTaskList');
-    // if (!this.$store.getters.taskList) {
-    //   this.isStub = false;
-    // }
-  },
-
-  getList: async function() {
-    await this.updateUserList();
-  },
-}
+    getList: async function() {
+      await this.updateUserList();
+    },
+  }
 }
 </script>
 

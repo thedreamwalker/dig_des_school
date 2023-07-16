@@ -63,15 +63,11 @@ export default {
         }
 
         if (button.closest('.inner-content__container')) {
-          this.buttonForm(button);
+          this.setbuttonForm(button);
         }
       },
 
     clickElement: function (e) {
-      
-      // if (this.customClick) {
-      //   this.customClick(e);
-      // } else
       if (!this.isActive) {
         this.setActive(e);
       } else {
@@ -88,7 +84,7 @@ export default {
       }
     },
 
-    buttonForm(button) {
+    setbuttonForm(button) {
       this.$emit('clickInput', button)
     },
 

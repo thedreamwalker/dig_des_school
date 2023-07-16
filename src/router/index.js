@@ -32,9 +32,6 @@ const routes = [
         name: 'ProjectsPage',
         component: ProjectsPage, 
         props: true,
-        // beforeRouteLeave: {
-
-        // }
       },
       {
         path: '/projects/:id', 
@@ -63,13 +60,6 @@ const routes = [
         path: '/users',
         name: 'UsersPage',
         component: UsersPage,
-        // beforeEnter: ((to, from, next) => {
-        //   if((!localStorage.getItem('Auth') || localStorage.getItem('Auth')  === 'false') && to.name !== 'BaseAuth') {
-        //     next({name: 'BaseAuth', params: { nextUrl: to.fullPath }} )
-        //   } else {
-        //     next()
-        //   }
-        // })
       },
       {
         path: '/profile',
@@ -99,11 +89,14 @@ const router = new VueRouter({
 
 
 // код для всех страниц кроме аутентификации 
-router.beforeEach((to, from, next) => {
-  if((!localStorage.getItem('Auth') || localStorage.getItem('Auth')  === 'false') && to.name !== 'BaseAuth') {
-    next({name: 'BaseAuth', params: { nextUrl: to.fullPath }} )
+router.beforeEach(async (to, from, next) => {
+  if (to.path !== '/login') {
+    if (!localStorage.getItem('token')) {
+    next({name: 'BaseAuth', params: { nextUrl: to.fullPath }});
   } else {
-    next()
+    next();
+  }} else {
+    localStorage.getItem('token') ? next({path: '/'}) : next();
   }
 })
 

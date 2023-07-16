@@ -50,7 +50,7 @@ export default {
 
       const list = await useAxios('POST', `projects/search`, setting);
       commit(mutation.UPDATE_PROJECTTOTAL, list.total);
-        commit(mutation.UPDATE_PROJECTLIST, list.projects);
+      commit(mutation.UPDATE_PROJECTLIST, list.projects);
     },
   },
 }
