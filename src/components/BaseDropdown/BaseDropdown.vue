@@ -49,6 +49,7 @@ export default {
         button_primary: this.color === 'primary',
         button_secondary: this.color === 'secondary',
         button_small: this.parent === 'item',
+        active: this.isActive,
       }
     },
   },
@@ -56,18 +57,6 @@ export default {
   methods: {
     setActive: function (e) {
       this.isActive = !this.isActive;
-        let button;
-        if (e.target.nodeName === 'BUTTON') {
-          button = e.target;
-        } else {
-          button = e.target.closest('.button_primary') || e.target.closest('.button_secondary');
-        }
-        
-        if (this.isActive) {
-          button.classList.add('active');
-        } else {
-          button.classList.remove('active');
-        }
     },
 
     setClass: function(subClass) {
@@ -85,7 +74,6 @@ export default {
     onClickOutside: function () {
       if (this.isActive) {
         this.isActive = !this.isActive;
-        this.$el.classList.remove('active');
       }
     },
 

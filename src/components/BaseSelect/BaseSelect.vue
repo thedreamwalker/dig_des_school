@@ -1,7 +1,22 @@
 <template>
   <div class="select__container">
     <label v-if="label" v-bind:for="name">{{ label }} <span v-if="isRequire">*</span></label> 
-    <div v-bind:class="[{'active': isActive}, 'select__base']"
+    <!-- <select 
+    v-if="this.type === 'form'"
+      v-model="model.value"
+      v-on:change="dataChange" 
+      v-bind:id="name" v-bind:name="name"
+      v-bind:required="isRequire">
+      <option disabled value="">Не назначен</option>
+      <option
+        v-for="item in list" 
+        v-bind:value="item.name"
+        v-bind:key="item._id"
+        v-bind:selected="{true: selectedName}">
+          {{ item.name }}
+      </option>
+    </select> -->
+    <div v-bind:class="[{'active': isActive}, {'invalid': isRequire && !selectedName}, 'select__base']"
       v-on:click="toggleSelect"
       v-click-outside="onClickOutside">
       <div v-bind:class="[{'selected': selectedName}, 'select__placeholder']">{{ placeholderText }}</div>
@@ -27,10 +42,7 @@ Vue.use(vClickOutside)
 
 export default {
   props: {
-      type: {
-        type: String,
-        required: true
-      },
+    type: String,
       list: {
         type: Array,
         required: true
@@ -56,6 +68,7 @@ export default {
   },
 
   computed: {
+
     placeholderText: function() {
       return this.selectedName ? this.selectedName : this.placeholder;
     }
@@ -63,7 +76,10 @@ export default {
 
   methods: {
     dataChange: function() {
-      this.$emit('dataSend', {name: this.name, value: this.model.value})
+      console.log('так мы тут?')
+      if (this.type === 'form') {
+      this.$emit('customEvent', {name: this.name, value: this.model.value, isRequire: this.isRequire})
+      }
     },
 
     toggleSelect: function() {
@@ -72,7 +88,11 @@ export default {
 
     onCustomEvent: function(e) {
       this.selectedName = e.currentTarget.textContent.trim();
-      this.$emit('customEvent', e, e.currentTarget.dataset.id);
+      if (this.type === 'form') {
+        // this.$emit('customEvent', {name: this.name, value: this.selectedName, isRequire: this.isRequire})
+      } else {
+        this.$emit('customEvent', e, e.currentTarget.dataset.id);
+      }
     },
 
     onClickOutside: function() {

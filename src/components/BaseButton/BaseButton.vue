@@ -41,30 +41,14 @@ export default {
         button_secondary: this.color === 'secondary',
         button_small: this.parent === 'item' || this.parent === 'next' || this.parent === 'back',
         button_next: this.parent === 'next',
-        button_back: this.parent === 'back'
+        button_back: this.parent === 'back',
+        active: this.isActive,
       }
     },
   },
   methods: {
-    setActive: function (e) {
-      
+    setActive: function () {
       this.isActive = !this.isActive;
-        let button;
-        if (e.target.nodeName === 'BUTTON') {
-          button = e.target;
-        } else {
-          button = e.target.closest('.button_primary') || e.target.closest('.button_secondary');
-        }
-        
-        if (this.isActive) {
-          button.classList.add('active');
-        } else {
-          button.classList.remove('active');
-        }
-
-        if (button.closest('.inner-content__container')) {
-          this.setbuttonForm(button);
-        }
       },
 
     clickElement: function (e) {
@@ -80,7 +64,6 @@ export default {
     onClickOutside: function (e) {
       if (this.isActive && e.target.closest('.navigation__item') || this.isActive && e.target.closest('.pagination__item')) {
         this.isActive = !this.isActive;
-        this.$el.classList.remove('active');
       }
     },
 

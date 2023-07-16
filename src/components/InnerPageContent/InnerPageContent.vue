@@ -14,21 +14,34 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 
-  export default {
-    props: {
-      title: String
-    },
-    data() {
-      return {
-        model: {
-        }
+export default {
+  props: {
+    title: String,
+    data: Function
+  },
+  data() {
+    return {
+      model: {
       }
-    },
+    }
+  },
+
+  async created() {
+    await this.getList();
+  },
+
+  computed: {
+
+  },
 
   methods: {
+    ...mapActions(['updateUserList', 'updateProjectList']),
+
     saveData: function(data) {
-      this.model[data.name] = data.value;
+      console.log(data);
+      this.model[data.name] = {value: data.value, isRequire: data.isRequire}
    },
 
    send: function(e) {
@@ -49,7 +62,12 @@
       this.model[prop] = '';
       document.querySelector('form').reset();
     }
-  }
+  },
+
+  getList: async function() {
+      await this.updateUserList();
+      await this.updateProjectList();
+    },
 },
 }
 </script>

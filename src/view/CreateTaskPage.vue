@@ -7,26 +7,28 @@
         v-bind:label="'Название'" 
         v-bind:name="'name'" 
         v-bind:isRequire="true" 
-        v-on:dataSend="change.saveData($event)">
+        v-on:customEvent="change.saveData($event)">
       </BaseInput>
       <BaseTextarea
         v-bind:label="'Описание'" 
         v-bind:name="'description'"
-        v-on:dataSend="change.saveData($event)">
+        v-on:customEvent="change.saveData($event)">
       </BaseTextarea>
       <BaseSelect
-        v-bind:list="['Пример', 'Другой пример', 'Еще один', 'Новый пример', 'Другой пример 2', 'Еще один 2', 'Пример 2']"
+        v-bind:type="'form'"
+        v-bind:list="listProjects"
         v-bind:label="'Проект'" 
         v-bind:name="'project'"
         v-bind:placeholder="'Не выбран'"
         v-bind:isRequire="true" 
-        v-on:dataSend="change.saveData($event)"></BaseSelect>
+        v-on:customEvent="change.saveData($event)"></BaseSelect>
       <BaseSelect
-      v-bind:list="['Пример', 'Другой пример', 'Еще один', 'Новый пример', 'Другой пример 2', 'Еще один 2', 'Пример 2']"
+        v-bind:type="'form'"
+        v-bind:list="listUsers"
         v-bind:label="'Исполнитель'" 
         v-bind:name="'user'"
         v-bind:placeholder="'Не назначен'"
-        v-on:dataSend="change.saveData($event)">
+        v-on:customEvent="change.saveData($event)">
     </BaseSelect>
     </slot>
   </InnerPageContent>
@@ -35,10 +37,29 @@
 
 <script>
   import InnerPageContent from '@/components/InnerPageContent/InnerPageContent.vue';
+  import { mapGetters } from 'vuex';
 
   export default {
-  components: {
-    InnerPageContent,
-  },
+    computed: {
+      ...mapGetters(['userList', 'projectList']),
+
+      listUsers: function() {
+        if (!this.userList) {
+          return [];
+        } 
+        return this.userList;
+      },
+
+      listProjects: function() {
+        if (!this.projectList) {
+          return [];
+        } 
+        return this.projectList;
+      },
+    },
+
+    components: {
+      InnerPageContent,
+    },
 }
 </script>
