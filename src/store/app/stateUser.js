@@ -1,70 +1,53 @@
 import {useAxios} from '@/api/api';
 
 export const mutation = {
-
-  SET_USERCURRENT: 'SET_USERCURRENT',
   UPDATE_USERLIST: 'UPDATE_USERLIST',
-  SET_USERTOTAL: 'SET_USERTOTAL',
-  SET_USERSORTTYPE: 'SET_USERSORTTYPE',
-  SET_USERSEARCH: 'SET_USERSEARCH',
+  UPDATE_USERSETTING: 'UPDATE_USERSETTING',
+  UPDATE_USERTOTAL: 'UPDATE_USERTOTAL'
 }
 
 export default {
   state() {
     return {  
-      currentPage: 1,
       list: [],
       totalPage: '',
-      sort_type: 'desc',
-      filter: {},
+      setting: {
+        page: 1,
+        sort: 'desc',
+        filter: {},
+      }
     }
   },
 
   getters: {
-    userCurrent: state => state.currentPage,
+    userCurrent: state => state.setting.page,
     userList: state => state.list[0],
     userTotal: state => state.totalPage,
   },
 
   mutations: {
-    [mutation.SET_USERCURRENT]: (state, payload) => {
-      state.currentPage = payload
-    },
     [mutation.UPDATE_USERLIST]: (state, payload) => {
       state.list = [payload]
     },
-    [mutation.SET_USERTOTAL]: (state, payload) => {
+    [mutation.UPDATE_USERSETTING]: (state, payload) => {
+      state.setting = {...state.setting , ...payload};
+    },
+    [mutation.UPDATE_USERTOTAL]: (state, payload) => {
       state.totalPage = payload
     },
-    [mutation.SET_USERSORTTYPE]: (state, payload) => {
-      state.sort_type = payload
-    },
-    [mutation.SET_USERSEARCH]: (state, payload) => {
-      state.filter = payload
-    }
   },
 
   actions: {
-    setUserCurrent: ({dispatch, commit}, value) => {
-      commit(mutation.SET_USERCURRENT, value)
-    },
-
-    setUserSortType: ({dispatch, commit}, value) => {
-      commit(mutation.SET_USERSORTTYPE, value)
-    },
-
-    setUserSearch: ({dispatch, commit}, value) => {
-      commit(mutation.SET_USERSEARCH, value)
+    setUserSetting: ({dispatch, commit}, value) => {
+      commit(mutation.UPDATE_USERSETTING, value)
     },
 
     updateUserList: async ({dispatch, commit, state, getters}, payload) => {
-      const curr = state.currentPage;
-      const sortType = state.sort_type;
-      const filterObj = state.filter;
+      const setting = state.setting;
 
-      const list = await useAxios('POST', `users/search`, {page: curr, filter: filterObj, sort: sortType});
-      commit(mutation.SET_USERTOTAL, list.total);
+      const list = await useAxios('POST', `users/search`, setting);
       commit(mutation.UPDATE_USERLIST, list.users);
+      commit(mutation.UPDATE_USERTOTAL, list.total);
     },
   },
 }

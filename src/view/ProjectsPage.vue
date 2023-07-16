@@ -5,23 +5,23 @@
       <div class="items__control">
         <BaseFilter 
         v-bind:type="'project'"
-        v-bind:update="getList"></BaseFilter>
+        v-on:onSetFilter="setFilter"></BaseFilter>
         <div class="router__wrapper">
           <button v-bind:class="'button_secondary'">Добавить</button>
         </div>
       </div>
       <div class="items__container">
-      <ListItem v-for="project in setList" v-bind:key="project._id" v-bind:itemType="itemType"
+      <ListItem v-for="project in list" v-bind:key="project._id" v-bind:itemType="itemType"
         v-bind:item="project"></ListItem>
     </div>
     <BasePagination
-      v-if="setList && setTotalPage > 1"
+      v-if="list && totalPage > 1"
       v-bind:itemType="itemType"
       v-bind:typeText="'проекта'"
-      v-bind:currentNumberPage="setCurrentPage"
-      v-bind:allPages="setTotalPage"
-      v-bind:data="setList"
-      v-bind:update="getList">
+      v-bind:currentNumberPage="currentPage"
+      v-bind:allPages="totalPage"
+      v-bind:data="list"
+      v-on:onSetPagination="setFilter">
     </BasePagination>
     </template>
   </main>
@@ -48,30 +48,35 @@ export default {
 },
 
 computed: {
-  ...mapGetters('stateProject', ['projectTotal', 'projectList', 'projectCurrent']),
+  ...mapGetters(['projectTotal', 'projectList', 'projectCurrent']),
 
-  setList: function() {
-    return this.$store.getters.projectList;
+  list: function() {
+    return this.projectList;
   },
 
-  setCurrentPage: function() {
-    return this.$store.getters.projectCurrent;
+  currentPage: function() {
+    return this.projectCurrent;
   },
 
-  setTotalPage: function() {
-    return this.$store.getters.projectTotal;
+  totalPage: function() {
+    return this.projectTotal;
   },
 },
 
 methods: {
-  ...mapActions('stateProject', ['updateProjectList']),
+  ...mapActions(['setProjectSetting', 'updateProjectList']),
 
   getList: async function() {
-    await this.$store.dispatch('updateProjectList');
-    if (!this.$store.getters.projectList) {
+    await this.updateProjectList();
+    if (!this.projectList) {
       this.isStub = false;
     }
-  }
+  },
+
+  setFilter: function(object) {
+    this.setProjectSetting(object);
+    this.getList();
+  },
 }
 }
 </script>

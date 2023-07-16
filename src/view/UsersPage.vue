@@ -5,21 +5,21 @@
       <div class="items__control">
         <BaseFilter 
         v-bind:type="'user'"
-        v-bind:update="getList"></BaseFilter>
+        v-on:onSetFilter="setFilter"></BaseFilter>
       </div>
       <div class="items__container">
-        <ListItem v-for="user in setList" v-bind:key="user._id" v-bind:itemType="itemType"
+        <ListItem v-for="user in list" v-bind:key="user._id" v-bind:itemType="itemType"
           v-bind:item="user" v-bind:status="user.status">
         </ListItem>
       </div>
       <BasePagination
-      v-if="setList && setTotalPage > 1"
+      v-if="list && totalPage > 1"
       v-bind:itemType="itemType"
       v-bind:typeText="'задач'"
-      v-bind:currentNumberPage="setCurrentPage"
-      v-bind:allPages="setTotalPage"
-      v-bind:data="setList"
-      v-bind:update="getList">
+      v-bind:currentNumberPage="currentPage"
+      v-bind:allPages="totalPage"
+      v-bind:data="list"
+      v-on:onSetPagination="setFilter">
     </BasePagination>
     </template>
   </main>
@@ -46,30 +46,35 @@ export default {
   },
 
   computed: {
-  ...mapGetters('stateUser', ['userTotal', 'userList', 'userCurrent']),
+  ...mapGetters(['userTotal', 'userList', 'userCurrent']),
 
-  setList: function() {
-    return this.$store.getters.userList;
+  list: function() {
+    return this.userList;
   },
 
-  setCurrentPage: function() {
-    return this.$store.getters.userCurrent;
+  currentPage: function() {
+    return this.userCurrent;
   },
 
-  setTotalPage: function() {
-    return this.$store.getters.userTotal;
+  totalPage: function() {
+    return this.userTotal;
   },
 },
 
 methods: {
-  ...mapActions('stateUser', ['updateUserList']),
+  ...mapActions(['updateUserList', 'setUserSetting']),
 
   getList: async function() {
-    await this.$store.dispatch('updateUserList');
-    if (!this.$store.getters.userList) {
+    await this.updateUserList();
+    if (!this.userList) {
       this.isStub = false;
     }
-  }
+  },
+
+  setFilter: function(object) {
+    this.setUserSetting(object);
+    this.getList();
+  },
 }
 }
 </script>

@@ -22,10 +22,6 @@ export default {
     },
     clear: Boolean,
     isRequire: Boolean,
-    customFunction: {
-      type: Function,
-      required: false
-    }
   },
 
   data() {
@@ -39,21 +35,22 @@ export default {
   
   methods: {
     dataChange: function() {
-      if (this.type === 'filter' && this.customFunction) {
-        this.customFunction(this.model.value);
+      if (this.type === 'filter') {
+        this.$emit('customEvent', this.model.value);
       } else {
         this.$emit('dataSend', {name: this.name, value: this.model.value})
       }
     },
 
     paginationSet: function() {
-      if (this.type === 'pagination' && this.customFunction) {
-        this.customFunction(this.model.value);
+      if (this.type === 'pagination') {
+        this.$emit('customEvent', this.model.value);
       }
     },
 
     clearInput: function() {
       this.model.value = '';
+      this.dataChange();
     }
   },
 

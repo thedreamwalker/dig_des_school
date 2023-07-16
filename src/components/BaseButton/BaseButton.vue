@@ -68,14 +68,17 @@ export default {
       },
 
     clickElement: function (e) {
-      if (this.customClick) {
-        this.customClick(e);
-      } else
+      
+      // if (this.customClick) {
+      //   this.customClick(e);
+      // } else
       if (!this.isActive) {
         this.setActive(e);
       } else {
         this.setActive(e);
       }
+
+      this.onCustomClick(e);
     },
 
     onClickOutside: function (e) {
@@ -87,6 +90,10 @@ export default {
 
     buttonForm(button) {
       this.$emit('clickInput', button)
+    },
+
+    onCustomClick(e) {
+      this.$emit('customClick', e, this.isActive);
     }
   },
 }

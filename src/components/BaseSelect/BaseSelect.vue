@@ -4,14 +4,15 @@
     <div v-bind:class="[{'active': isActive}, 'select__base']"
       v-on:click="toggleSelect"
       v-click-outside="onClickOutside">
-      <div v-bind:class="[{'selected': selectedName}, 'select__placeholder']">{{ setPlaceholder }}</div>
+      <div v-bind:class="[{'selected': selectedName}, 'select__placeholder']">{{ placeholderText }}</div>
 
       <ul class="select__list">
         <li
         v-for="item in list" 
         v-bind:key="item.id"
         v-bind:data-id="item.id"
-        v-on:click="setSort($event)">
+        v-bind:class="[{'active': selectedName === item.name}]"
+        v-on:click="onCustomEvent($event)">
           {{ item.name }}
         </li>
       </ul>
@@ -21,7 +22,6 @@
 
 <script>
 import Vue from 'vue';
-import { mapActions } from 'vuex';
 import vClickOutside from 'v-click-outside'
 Vue.use(vClickOutside)
 
@@ -29,10 +29,6 @@ export default {
   props: {
       type: {
         type: String,
-        required: true
-      },
-      update: {
-        type: Function,
         required: true
       },
       list: {
@@ -60,35 +56,23 @@ export default {
   },
 
   computed: {
-    setPlaceholder: function() {
+    placeholderText: function() {
       return this.selectedName ? this.selectedName : this.placeholder;
     }
   },
 
   methods: {
-    ...mapActions('stateTask', ['setTaskSort']),
-    ...mapActions('stateProject', ['setProjectSort']),
-
     dataChange: function() {
       this.$emit('dataSend', {name: this.name, value: this.model.value})
     },
 
-    toggleSelect: function(e) {
-      if (e.target.closest('.select__base') && !e.target.closest('.select__list')) {
-        this.isActive = !this.isActive;
-      }
+    toggleSelect: function() {
+      this.isActive = !this.isActive;
     },
 
-    setSort: function(e) {
-      if (!e.target.classList.contains('active')) {
-        [...e.target.parentElement.children].forEach(item => item.classList.remove('active'));
-        e.target.classList.add('active');
-        this.selectedName = e.target.textContent;
-        this.isActive = false;
-        if (this.type === 'task') {this.$store.dispatch('setTaskSort', e.target.dataset.id);}
-        if (this.type === 'project') {this.$store.dispatch('setProjectSort', e.target.dataset.id);}
-        this.update();
-      }
+    onCustomEvent: function(e) {
+      this.selectedName = e.currentTarget.textContent.trim();
+      this.$emit('customEvent', e, e.currentTarget.dataset.id);
     },
 
     onClickOutside: function() {

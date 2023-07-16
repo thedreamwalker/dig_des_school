@@ -5,24 +5,24 @@
       <div class="items__control">
         <BaseFilter 
         v-bind:type="'task'"
-        v-bind:update="getList"></BaseFilter>
+        v-on:onSetFilter="setFilter"></BaseFilter>
         <div class="router__wrapper">
           <router-link v-bind:to="{name: 'CreateTaskPage'}" v-bind:class="'button_secondary'">Добавить</router-link>
         </div>
       </div>
       <div class="items__container">
-        <ListItem v-for="task in setList" v-bind:key="task._id" v-bind:itemType="itemType"
+        <ListItem v-for="task in list" v-bind:key="task._id" v-bind:itemType="itemType"
           v-bind:item="task" v-bind:status="task.status">
         </ListItem>
       </div>
       <BasePagination
-      v-if="setList && setTotalPage > 1"
+      v-if="list && totalPage > 1"
       v-bind:itemType="itemType"
       v-bind:typeText="'задач'"
-      v-bind:currentNumberPage="setCurrentPage"
-      v-bind:allPages="setTotalPage"
-      v-bind:data="setList"
-      v-bind:update="getList">
+      v-bind:currentNumberPage="currentPage"
+      v-bind:allPages="totalPage"
+      v-bind:data="list"
+      v-on:onSetPagination="setFilter">
     </BasePagination>
     </template>
   </main>
@@ -49,30 +49,35 @@ export default {
   },
 
   computed: {
-  ...mapGetters('stateTask', ['taskTotal', 'taskList', 'taskCurrent']),
+  ...mapGetters(['taskTotal', 'taskList', 'taskCurrent']),
 
-  setList: function() {
-    return this.$store.getters.taskList;
+  list: function() {
+    return this.taskList;
   },
 
-  setCurrentPage: function() {
-    return this.$store.getters.taskCurrent;
+  currentPage: function() {
+    return this.taskCurrent;
   },
 
-  setTotalPage: function() {
-    return this.$store.getters.taskTotal;
+  totalPage: function() {
+    return this.taskTotal;
   },
 },
 
 methods: {
-  ...mapActions('stateTask', ['updateTaskList']),
+  ...mapActions(['setTaskSetting', 'updateTaskList',]),
 
   getList: async function() {
-    await this.$store.dispatch('updateTaskList');
-    if (!this.$store.getters.taskList) {
+    await this.updateTaskList();
+    if (!this.taskList) {
       this.isStub = false;
     }
-  }
+  },
+
+  setFilter: function(object) {
+    this.setTaskSetting(object);
+    this.getList();
+  },
 }
 }
 </script>

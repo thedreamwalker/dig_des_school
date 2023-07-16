@@ -5,29 +5,32 @@
       <BaseSelect 
           v-bind:label="'Статус'" 
           v-bind:name="'status'" 
-          v-bind:type="type">
+          v-bind:type="type"
+          v-bind:list="listStatuses">
         </BaseSelect>
         <BaseSelect 
           v-bind:label="'Автор'" 
           v-bind:name="'author'"
-          v-bind:type="type">
+          v-bind:type="type"
+          v-bind:list="listUsers">
         </BaseSelect>
         <BaseSelect 
           v-bind:label="'Исполнитель'" 
           v-bind:name="'executor'" 
-          v-bind:type="type">
+          v-bind:type="type"
+          v-bind:list="listUsers">
         </BaseSelect>
     </div>
   </div>
 </template>
 
 <script>
+import {taskStatusName} from '@/components/BaseStatus/statuses.js'
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
   props: {
-    type: {
-      type: String,
-      required: true,
-    }
+    type: String
   },
 
   data() {
@@ -41,23 +44,28 @@ export default {
   },
 
   computed: {
-  // ...mapGetters('stateTask', ['taskTotal', 'taskList', 'taskCurrent']),
+    ...mapGetters(['userList',]),
 
-  setList: function() {
-    return this.$store.getters.taskList;
+  listStatuses: function() {
+    const map = [];
+
+    for (let key in taskStatusName) {
+      map.push({id: key, name: taskStatusName[key]});
+    }
+
+    return map;
   },
 
-  setCurrentPage: function() {
-    return this.$store.getters.taskCurrent;
-  },
-
-  setTotalPage: function() {
-    return this.$store.getters.taskTotal;
+  listUsers: function() {
+    if (!this.userList) {
+      return []
+    } 
+    return this.userList;
   },
 },
 
 methods: {
-  // ...mapActions('stateTask', ['updateTaskList']),
+  ...mapActions(['updateUserList']),
 
   openDropdown: async function(e) {
     const button = e.target.closest('.button_small');
@@ -74,7 +82,11 @@ methods: {
     // if (!this.$store.getters.taskList) {
     //   this.isStub = false;
     // }
-  }
+  },
+
+  getList: async function() {
+    await this.updateUserList();
+  },
 }
 }
 </script>

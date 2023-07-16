@@ -1,16 +1,16 @@
 <template>
   <div class="filter__container">
-    <BaseInput v-bind:clear="true" v-bind:type="'filter'" v-bind:customFunction="setFilter"></BaseInput>
-    <FilterForm v-if="type !== 'user'"></FilterForm>
+    <BaseInput v-bind:clear="true" v-bind:type="'filter'" v-on:customEvent="setSearch"></BaseInput>
+    <FilterForm v-if="type === 'task'" v-bind:type="type"></FilterForm>
     <div class="filter__sort">
       <BaseSelect 
       v-if="type !== 'user'"
       v-bind:type="type"
       v-bind:placeholder="this.placeholderSelect" 
       v-bind:name="'sort'" 
-      v-bind:list="setSort"
-      v-bind:update="update"></BaseSelect>
-      <BaseButton v-bind:color="'secondary'" v-bind:parent="'item'" v-bind:typeIcon="'sort-up'" v-bind:customClick="setSortUpDown"></BaseButton>
+      v-bind:list="dataSort"
+      v-on:customEvent="setSort"></BaseSelect>
+      <BaseButton v-bind:color="'secondary'" v-bind:parent="'item'" v-bind:typeIcon="'sort-up'" v-on:customClick="setSortUp"></BaseButton>
     </div>
     
   </div>
@@ -23,15 +23,17 @@ import { mapActions } from 'vuex';
 export default {
   props: {
     type: String,
-    update: {
-      type: Function,
-      required: true
-    }
   },
 
   data() {
     return {
-      placeholderSelect: 'Выберите значение...'
+      placeholderSelect: 'Выберите значение...',
+      filterObject: {
+        sort: {
+          field: 'dateCreated',
+          type: 'desc',
+        }
+      },
     }
   },
 
@@ -40,8 +42,7 @@ export default {
   },
 
   computed: {
-
-    setSort: function() {
+    dataSort: function() {
       const sortType = {
         task: [
           {id: 'name', name: 'По названию'}, 
@@ -62,32 +63,28 @@ export default {
   },
 
   methods: {
-    ...mapActions('stateTask', ['setTaskSortType', 'setTaskSearch',]),
-    ...mapActions('stateProject', ['setProjectSortType', 'setProjectSearch']),
+    ...mapActions(['setProjectSearch', 'setTaskSearch',]),
 
-    setFilter: function(value) {
-      if (this.type === 'task') {this.$store.dispatch('setTaskSearch', {'name': value});}
-      if (this.type === 'project') {this.$store.dispatch('setProjectSearch', {'name': value});}
-      if (this.type === 'user') {this.$store.dispatch('setUserSearch', {'name': value});}
-      this.update();
+    setSearch : function (value) {
+      this.filterObject.filter = {...this.filterObject.filter, ...{name: value}};
+      this.$emit('onSetFilter', this.filterObject);
     },
 
-    setSortUpDown: function(e) {
-      const button = e.target.closest('.button_small');
-      if (button.classList.contains('active')) {
-        if (this.type === 'task') {this.$store.dispatch('setTaskSortType', 'desc');}
-        if (this.type === 'project') {this.$store.dispatch('setProjectSortType', 'desc');}
-        if (this.type === 'user') {this.$store.dispatch('setUserSortType', 'desc');}
-        button.classList.remove('active');
-      } else {
-        if (this.type === 'task') {this.$store.dispatch('setTaskSortType', 'asc');}
-        if (this.type === 'project') {this.$store.dispatch('setProjectSortType', 'asc');}
-        if (this.type === 'user') {this.$store.dispatch('setUserSortType', 'asc');}
-        button.classList.add('active');
-      }
+    setSort: function (e, selectedId) {
+      this.filterObject.sort = {...this.filterObject.sort, ...{field: selectedId}};
+      this.$emit('onSetFilter', this.filterObject);
+    },
 
-      this.update();
-    }
+    setSortUp: function (e, isActive) {
+      const value = isActive ? 'asc' : 'desc';
+      if (this.type !== 'user') {
+        this.filterObject.sort = {...this.filterObject.sort, ...{type: value}};
+      } else {
+        this.filterObject = {...this.filterObject, ...{sort: value}};
+      }
+      
+      this.$emit('onSetFilter', this.filterObject);
+    },
   }
 }
 </script>

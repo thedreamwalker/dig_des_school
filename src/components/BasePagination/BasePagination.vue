@@ -3,7 +3,7 @@
     <ul class="pagination__buttons">
       <li class="pagination__item">
         <BaseButton 
-        v-bind:customClick="changePage" 
+        v-bind:on="changePage" 
         v-bind:color="'secondary'" 
         v-bind:typeIcon="'button_left'" 
         v-bind:parent="'back'" 
@@ -12,7 +12,7 @@
       </li>
       <li v-for="item in setPage" class="pagination__item" v-bind:key="item">
         <BaseButton 
-        v-bind:customClick="changePage" 
+        v-on:customClick="changePage" 
         v-bind:class="{active: currentPage === item}" 
         v-bind:color="'secondary'" 
         v-bind:parent="'item'" 
@@ -20,7 +20,7 @@
       </BaseButton></li>
       <li class="pagination__item">
         <BaseButton 
-        v-bind:customClick="changePage" 
+        v-on:customClick="changePage" 
         v-bind:color="'secondary'" 
         v-bind:typeIcon="'button_right'" 
         v-bind:parent="'next'"
@@ -29,7 +29,7 @@
     </ul>
     <div class="pagination__input">
         <p>Перейти к странице</p>
-        <BaseInput v-bind:placeholder="' '" v-bind:type="'pagination'" v-bind:customFunction="setInput"></BaseInput>
+        <BaseInput v-bind:placeholder="' '" v-bind:type="'pagination'" v-on:customEvent="setInput"></BaseInput>
       </div>
       <div class="pagination__info">
         <p>{{setArea}} {{ setType }}; всего {{ this.allPages.toString() }} страниц </p>
@@ -61,10 +61,6 @@ export default {
       type: Array,
       required: true
     },
-    update: {
-      type: Function,
-      required: true
-    }
   },
 
   data() {
@@ -113,11 +109,7 @@ export default {
         this.currentPage = this.currentPage + 1; 
       }
 
-      if(this.itemType === 'project') {await this.$store.commit('SET_PROJECTCURRENT', this.currentPage)}
-      if(this.itemType === 'task') {await this.$store.commit('SET_TASKCURRENT', this.currentPage)}
-      if(this.itemType === 'user') {await this.$store.commit('SET_USERCURRENT', this.currentPage)}
- 
-      this.update();
+      this.setPagination(this.currentPage);
     },
     
     setInput: async function(value) {
@@ -129,15 +121,14 @@ export default {
         this.currentPage = Number(value);
       }
 
-      if(this.itemType === 'project') {await this.$store.commit('SET_PROJECTCURRENT', this.currentPage)}
-      if(this.itemType === 'task') {await this.$store.commit('SET_TASKCURRENT', this.currentPage)}
-      if(this.itemType === 'user') {await this.$store.commit('SET_USERCURRENT', this.currentPage)}
-      
-      this.update();
-    }
+      this.setPagination(this.currentPage);
+    },
+
+    setPagination: function (page) {
+      this.$emit('onSetPagination', {page: page});
+    },
   }
 }
-
 </script>
 
 <style src="./style.scss"></style>

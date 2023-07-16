@@ -1,79 +1,55 @@
 import {useAxios} from '@/api/api';
 
 export const mutation = {
-
-  SET_PROJECTCURRENT: 'SET_PROJECTCURRENT',
   UPDATE_PROJECTLIST: 'UPDATE_PROJECTLIST',
-  SET_PROJECTTOTAL: 'SET_PROJECTTOTAL',
-  SET_PROJECTSORT: 'SET_PROJECTSORT',
-  SET_PROJECTSORTTYPE: 'SET_PROJECTSORTTYPE',
-  SET_PROJECTSEARCH: 'SET_PROJECTSEARCH',
+  UPDATE_PROJECTSETTING: 'UPDATE_PROJECTSETTING',
+  UPDATE_PROJECTTOTAL: 'UPDATE_PROJECTTOTAL',
 }
 
 export default {
   state() {
     return {  
-      currentPage: 1,
       list: [],
       totalPage: '',
-      sort: 'dateCreated',
-      sort_type: 'desc',
-      filter: {},
+      setting: {
+        page: 1,
+        sort: {
+          field: 'dateCreated',
+          type: 'desc',
+        },
+        filter: {},
+      }
     }
   },
 
   getters: {
-    projectCurrent: state => state.currentPage,
+    projectCurrent: state => state.setting.page,
     projectList: state => state.list[0],
     projectTotal: state => state.totalPage,
   },
 
   mutations: {
-    [mutation.SET_PROJECTCURRENT]: (state, payload) => {
-      state.currentPage = payload
-    },
     [mutation.UPDATE_PROJECTLIST]: (state, payload) => {
       state.list = [payload]
     },
-    [mutation.SET_PROJECTTOTAL]: (state, payload) => {
-      state.totalPage = payload
+    [mutation.UPDATE_PROJECTSETTING]: (state, payload) => {
+      state.setting = {...state.setting , ...payload};
     },
-    [mutation.SET_PROJECTSORT]: (state, payload) => {
-      state.sort = payload
-    },
-    [mutation.SET_PROJECTSORTTYPE]: (state, payload) => {
-      state.sort_type = payload
-    },
-    [mutation.SET_PROJECTSEARCH]: (state, payload) => {
-      state.filter = payload
-    }
+    [mutation.UPDATE_PROJECTTOTAL]: (state, payload) => {
+        state.totalPage = payload
+      },
   },
 
   actions: {
-    setProjectCurrent: ({dispatch, commit}, value) => {
-      commit(mutation.SET_PROJECTCURRENT, value)
-    },
-
-    setProjectSort: ({dispatch, commit}, value) => {
-      commit(mutation.SET_PROJECTSORT, value)
-    },
-
-    setProjectSortType: ({dispatch, commit}, value) => {
-      commit(mutation.SET_PROJECTSORTTYPE, value)
-    },
-
-    setProjectSearch: ({dispatch, commit}, value) => {
-      commit(mutation.SET_PROJECTSEARCH, value)
+    setProjectSetting: ({dispatch, commit}, value) => {
+      commit(mutation.UPDATE_PROJECTSETTING, value)
     },
 
     updateProjectList: async ({dispatch, commit, state, getters}, payload) => {
-      const curr = state.currentPage;
-      const sort = state.sort;
-      const sortType = state.sort_type;
-      const filterObj = state.filter;
+      const setting = state.setting;
 
-      const list = await useAxios('POST', `projects/search`, {page: curr, filter: filterObj, sort: {field: sort, type: sortType}});
-      commit(mutation.SET_PROJECTTOTAL, list.total);
+      const list = await useAxios('POST', `projects/search`, setting);
+      commit(mutation.UPDATE_PROJECTTOTAL, list.total);
         commit(mutation.UPDATE_PROJECTLIST, list.projects);
     },
   },

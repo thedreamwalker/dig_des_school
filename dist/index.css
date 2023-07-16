@@ -159,6 +159,7 @@ b {
 .item {
   display: flex;
   align-items: center;
+  min-height: 60px;
   padding: 0px 16px 8px;
   gap: 16px;
   border-bottom: 1px solid #1C1C1C;
@@ -207,11 +208,21 @@ b {
   width: 100%;
 }
 .item__title {
-  width: 100%;
-  min-height: 19px;
   display: flex;
   justify-content: space-between;
   gap: 16px;
+  width: 100%;
+}
+.item__title.user {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.item__title.user .item__name {
+  order: 1;
+}
+.item__title.user .status {
+  order: 2;
 }
 .item__avatar {
   width: 24px;
@@ -1388,9 +1399,6 @@ b {
   width: 24px;
   height: 24px;
 }
-.filter__container .select__container {
-  min-width: 172px;
-}
 .filter__container .filter__sort {
   display: flex;
   height: 42px;
@@ -1399,6 +1407,9 @@ b {
   border-right: none;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+.filter__container .filter__sort .select__container {
+  width: 172px;
 }
 .filter__container .filter__sort .button_small {
   border-top-left-radius: 0;
@@ -1409,6 +1420,36 @@ b {
 }
 .filter__container .filter__sort .button_small.active svg {
   transform: rotate(180deg);
+}
+.filter-form__container {
+  position: relative;
+}
+.filter-form__dropdown {
+  display: none;
+}
+.button_small.active + .filter-form__dropdown {
+  position: absolute;
+  padding: 8px 0;
+  background-color: #FFFFFF;
+  text-align: left;
+  color: #1C1C1C;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  cursor: default;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: absolute;
+  top: 44px;
+  right: 0;
+  width: 300px;
+  padding: 24px;
+}
+.button_small.active + .filter-form__dropdown .select__container {
+  flex-direction: column;
+}
+.button_small.active + .filter-form__dropdown .select__container label {
+  color: #8E8E8E;
 }
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/sass-loader/dist/cjs.js!./src/components/BaseInput/style.scss?vue&type=style&index=0&lang=css& ***!
